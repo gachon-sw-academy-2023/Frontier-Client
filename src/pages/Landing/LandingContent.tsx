@@ -1,5 +1,9 @@
 const LandingContent = () => {
-    return <div className="font-bold">Landing3</div>;
+    return (
+        <button type="button" className="font-bold">
+            Button
+        </button>
+    );
 };
 
 export default LandingContent;
