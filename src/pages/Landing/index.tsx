@@ -5,6 +5,7 @@ const Landing = () => {
         <>
             <LandingContent />
         </>
-)}
+    );
+};
 
-export default Landing
+export default Landing;

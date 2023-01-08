@@ -1,6 +1,5 @@
 const LandingContent = () => {
-    return (
-        <div className="font-bold">Landing</div>
-)}
+    return <div className="font-bold">Landing</div>;
+};
 
-export default LandingContent
+export default LandingContent;
