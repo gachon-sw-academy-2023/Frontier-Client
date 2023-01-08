@@ -1,5 +1,7 @@
 {
-  "extends": ["@commitlint/config-conventional"],
+  "extends": [
+    "@commitlint/config-conventional"
+  ],
   "parserPreset": "conventional-changelog-conventionalcommits",
   "rules": {
     "type-enum": [
@@ -20,12 +22,5 @@
         "design"
       ]
     ]
-  },
-  "prompt": {
-    "questions": {
-      "type": {
-        "description": "커밋 타입 선택"
-      }
-    }
   }
 }
