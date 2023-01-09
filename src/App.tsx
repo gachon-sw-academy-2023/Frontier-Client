@@ -1,7 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
+
+if (import.meta.env.MODE === "development") {
+    worker.start();
+}
 
 const queryClient = new QueryClient({
     defaultOptions: {
