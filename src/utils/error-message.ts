@@ -1,0 +1,5 @@
+const ERROR_ID_VALIDATION = "잘못된 아이디입니다.";
+const ERROR_PASSWORD_VALIDATION = "잘못된 비밀번호입니다.";
+const ERROR_WRONG_PASSWORD = "비밀번호가 다릅니다.";
+
+export { ERROR_ID_VALIDATION, ERROR_PASSWORD_VALIDATION, ERROR_WRONG_PASSWORD };
