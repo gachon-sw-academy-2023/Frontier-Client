@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
+import SignUp from "./pages/SignUp";
 
 if (import.meta.env.MODE === "development") {
     worker.start();
@@ -25,6 +26,7 @@ const App = () => {
                     <Routes>
                         <Route index element={<Login />} />
                         <Route index element={<Landing />} />
+                        <Route path="/signup" element={<SignUp />} />
                     </Routes>
                 </QueryClientProvider>
             </RecoilRoot>

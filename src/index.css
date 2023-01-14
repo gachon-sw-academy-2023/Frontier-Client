@@ -6,3 +6,8 @@
     font-family: echo;
     src: url('src/assets/fonts/SCDream1.otf');
 }
+
+@font-face {
+    font-family: echo-bold;
+    src: url('src/assets/fonts/SCDream5.otf');
+}
