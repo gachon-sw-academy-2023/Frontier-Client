@@ -25,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "axios": "^1.2.2",
