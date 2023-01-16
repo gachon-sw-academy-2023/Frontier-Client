@@ -111,6 +111,7 @@ yarn prepare
 | yarn build-storybook | Storybook 빌드              |
 | yarn cypress-test    | Cypress 테스트                 |
 | yarn jest-test       | Jest 테스트                 |
+| yarn jest-test --coverage       | Jest 테스트 with coverage                |
 
 ## TODO
 

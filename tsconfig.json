@@ -20,7 +20,7 @@
     "paths": { "@/*": ["src/*"] }
   },
   "types": ["cypress"],
-  "include": ["src", "./.eslintrc.js"],
+  "include": ["src", "./.eslintrc.js", "./babel.config.cjs"],
   "exclude": ["src/*.cy.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
