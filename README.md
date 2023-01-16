@@ -109,11 +109,13 @@ yarn prepare
 | yarn lint:fix        | ESlint 실행 및 코드 수정         |
 | yarn storybook       | Storybook 실행              |
 | yarn build-storybook | Storybook 빌드              |
+| yarn cypress-test    | Cypress 테스트                 |
+| yarn jest-test       | Jest 테스트                 |
 
 ## TODO
 
-- [ ] Jest
-- [ ] Cypress
+- [x] Jest
+- [x] Cypress
 - [ ] Docs
 - [ ] Recoil devtools
 - [ ] Git CI
