@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: release-please-action
+          token: ${{ secrets.JOBYEONGWOOK_GIT }}
+          pull-request-header: ':robot: Changelog'
+          changelog-types: >
+            [
+              { "type": "build", "section": "📦 Build System", "hidden": false },
+              { "type": "ci", "section": "👷 Continuous Integration", "hidden": false },
+              { "type": "chore", "section": "🔧 Miscellaneous Chores", "hidden": false },
+              { "type": "docs", "section": "📚 Documentation", "hidden": false },
+              { "type": "feat", "section": "✨ Features", "hidden": false },
+              { "type": "fix", "section": "🐛 Bug Fixes", "hidden": false },
+              { "type": "perf", "section": "⚡ Performance Improvements", "hidden": false },
+              { "type": "revert", "section": "➖ Reverts", "hidden": false },
+              { "type": "refactor", "section": "♻️ Code Refactoring", "hidden": false },
+              { "type": "style", "section": "🎨 Styles", "hidden": false },
+              { "type": "test", "section": "🚨 Tests", "hidden": false }
+            ]

@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
+import Login from "@/pages/Login";
 
 if (import.meta.env.MODE === "development") {
     worker.start();
@@ -22,6 +23,7 @@ const App = () => {
             <RecoilRoot>
                 <QueryClientProvider client={queryClient}>
                     <Routes>
+                        <Route index element={<Login />} />
                         <Route index element={<Landing />} />
                     </Routes>
                 </QueryClientProvider>
