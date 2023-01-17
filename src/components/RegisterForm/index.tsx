@@ -13,13 +13,6 @@ const RegisterFrom = () => {
             />
             <S.Input
                 type="text"
-                id="userNickname"
-                placeholder="Nickname"
-                maxLength={20}
-                autoComplete="off"
-            />
-            <S.Input
-                type="text"
                 id="userEmail"
                 placeholder="Email"
                 maxLength={20}

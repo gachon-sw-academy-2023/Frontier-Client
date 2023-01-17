@@ -4,8 +4,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
-import SignUp from "./pages/SignUp";
 import Home from "@/pages/Home";
+import SignUp from "./pages/SignUp";
 
 if (import.meta.env.MODE === "development") {
     worker.start();
@@ -25,10 +25,10 @@ const App = () => {
             <RecoilRoot>
                 <QueryClientProvider client={queryClient}>
                     <Routes>
-                        <Route index element={<Login />} />
                         <Route index element={<Landing />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
-                        <Route path="home" element={<Home />} />
+                        <Route path="/homepage" element={<Home />} />
                         {/* <Route path="/workspace" component={<WorkSpace />}
                         </Route> */}
                     </Routes>
