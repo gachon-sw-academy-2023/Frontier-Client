@@ -5,6 +5,7 @@ import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import SignUp from "./pages/SignUp";
+import Home from "@/pages/Home";
 
 if (import.meta.env.MODE === "development") {
     worker.start();
@@ -27,6 +28,9 @@ const App = () => {
                         <Route index element={<Login />} />
                         <Route index element={<Landing />} />
                         <Route path="/signup" element={<SignUp />} />
+                        <Route path="home" element={<Home />} />
+                        {/* <Route path="/workspace" component={<WorkSpace />}
+                        </Route> */}
                     </Routes>
                 </QueryClientProvider>
             </RecoilRoot>
