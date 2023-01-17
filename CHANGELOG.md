@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.0.1](https://github.com/gacheon-sw-academy-2023/Frontier-Client/compare/v1.0.0...v1.0.1) (2023-01-17)
+
+
+### 🔧 Miscellaneous Chores
+
+* utils 라우팅, 유효성검사 분리 ([5e27d33](https://github.com/gacheon-sw-academy-2023/Frontier-Client/commit/5e27d33cda07be0c9ee6221533276ae8136c6f5f))
+
+
+### 👷 Continuous Integration
+
+* yarn 버전 통일 ([2eb5963](https://github.com/gacheon-sw-academy-2023/Frontier-Client/commit/2eb59639ad1db7fbf143619c3b8d6c016b86a492))
+
+
+### 📦 Build System
+
+* jest 추가 + example code ([ae362d3](https://github.com/gacheon-sw-academy-2023/Frontier-Client/commit/ae362d3ff76e0763e0bbc0c0af8196ea5eb0afa9))
+* yarn 버전 변경으로 인한 yarn.lock 재생성 ([df9880c](https://github.com/gacheon-sw-academy-2023/Frontier-Client/commit/df9880ca3884e79dd2dc3708401f40f82a1d260b))
+* yarn.lock 삭제 ([8fbd9eb](https://github.com/gacheon-sw-academy-2023/Frontier-Client/commit/8fbd9eba05868a224af640bb762ccfbfa95b5b18))
+
 ## 1.0.0 (2023-01-16)
 
 
