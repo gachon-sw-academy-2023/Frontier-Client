@@ -25,5 +25,6 @@ jobs:
               { "type": "revert", "section": "➖ Reverts", "hidden": false },
               { "type": "refactor", "section": "♻️ Code Refactoring", "hidden": false },
               { "type": "style", "section": "🎨 Styles", "hidden": false },
-              { "type": "test", "section": "🚨 Tests", "hidden": false }
+              { "type": "test", "section": "🚨 Tests", "hidden": false },
+              { "type": "design", "section": "🖍 Designs", "hidden": false }
             ]
