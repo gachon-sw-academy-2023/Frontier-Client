@@ -1,7 +1,7 @@
 name: 🐞 버그 제보
 description: 발생 또는 확인한 버그에 대한 이슈 발행
 title: "[버그]: "
-labels: ["버그"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
