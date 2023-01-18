@@ -27,4 +27,11 @@ const Button = styled.button`
     cursor: pointer;
 `;
 
-export default { Input, InputContainer, Button };
+const ErrorText = styled.span`
+    width: 100%;
+    color: red;
+    text-align: center;
+    margin-top: 5px;
+`;
+
+export default { Input, InputContainer, Button, ErrorText };
