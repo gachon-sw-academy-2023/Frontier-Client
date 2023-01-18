@@ -8,22 +8,23 @@ const LoginForm = () => {
     const [useremail, setUserEmail] = useState("");
     const [userpassword, setUserPassword] = useState("");
     const navigate = useNavigate();
-    // const [loading, setLoading] = useState(false);
-    // const [isLogin, setIsLogin] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post("/user", { email: useremail, password: userpassword }).then((res) => {
-            console.log(res);
-            if (res.status === 200) {
-                navigate(ROUTES.HOMEPAGE);
-            }
-        });
-
-        // msw 테스트 코드 ... 삭제 예정
-        // axios.get("/test").then((res) => {
-        //     console.log(res);
-        // });
+        setIsLoading(true);
+        axios
+            .post("/user", { email: useremail, password: userpassword })
+            .then((res) => {
+                if (res.status === 200) {
+                    setIsLoading(false);
+                    navigate(ROUTES.HOMEPAGE);
+                }
+            })
+            .catch((Error) => {
+                setIsLoading(false);
+                console.log(Error);
+            });
     };
 
     return (
@@ -48,7 +49,9 @@ const LoginForm = () => {
                     setUserPassword(e.target.value);
                 }}
             />
-            <S.Button type="submit"> 로그인 </S.Button>
+            <S.Button type="submit" disabled={isLoading}>
+                로그인
+            </S.Button>
         </S.InputContainer>
     );
 };

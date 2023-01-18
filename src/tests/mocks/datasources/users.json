@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "name": "kimJeongGyu",
+        "email": "sosqre0105@naver.com",
+        "password": "1q2w3e4r!"
+    },
+    {
+        "id": "2",
+        "name": "kim",
+        "email": "123@123.com",
+        "password": "123!"
+    }
+]

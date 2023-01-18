@@ -1,5 +1,6 @@
 import { rest } from "msw";
-import user from "@/tests/mocks/datasources/users.json";
+import users from "@/tests/mocks/datasources/users.json";
+import { PostLoginReqBody } from "@/interfaces/userInterface";
 
 async function sleep(timeout: number) {
     return new Promise((resolve) => {
@@ -18,29 +19,37 @@ export const loginHandler = [
             }),
         );
     }),
-    rest.post("/user", async (req, res, ctx) => {
+    rest.post<PostLoginReqBody>("/user", async (req, res, ctx) => {
         await sleep(200);
+        const { email, password } = req.body;
+
+        const finded = users.find((user) => {
+            return user.email === email && user.password === password;
+        });
+
+        if (!finded) {
+            return res(ctx.status(401));
+        }
+
         return res(
             ctx.status(200),
-            ctx.json([
-                {
-                    userId: 1,
-                    userName: "kim",
-                    userEmail: "123@123.com",
-                    userPassword: "123123",
-                },
-            ]),
+            ctx.json({
+                id: finded.id,
+                name: finded.name,
+                email: finded.email,
+                password: finded.password,
+            }),
         );
     }),
     rest.post("/signup", async (req, res, ctx) => {
         await sleep(200);
-        user.push({
+        users.push({
             id: "2",
             name: "lee",
             email: "qer@qewr.com",
             password: "1234",
         });
 
-        return res(ctx.status(201), ctx.json(user));
+        return res(ctx.status(201), ctx.json(users));
     }),
 ];
