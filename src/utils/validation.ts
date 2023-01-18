@@ -1,15 +1,11 @@
-export const emailValidation = (id: string) => {
+const emailValidator = (id: string) => {
     const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-    if (!emailRegex.test(id)) {
-        return true;
-    }
-    return false;
+    return emailRegex.test(id);
 };
 
-export const passwordValidation = (password: string) => {
+const passwordValidator = (password: string) => {
     const passwordRegex = /^.{8,20}$/;
-    if (!passwordRegex.test(password)) {
-        return true;
-    }
-    return false;
+    return passwordRegex.test(password);
 };
+
+export { emailValidator, passwordValidator };
