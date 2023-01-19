@@ -1,13 +1,24 @@
-import React from "react";
-
 const Sidebar = () => {
     return (
-        <nav className="sidebar">
-            <div className="side_name">Logo</div> {/* Logo space */}
-            <li className="side_item">TopItem</li> {/* Header item space */}
-            <li className="side_view">SearchTab</li> {/* Searching space */}
-            <li className="side_boardlist">UserFunction</li> {/* alarm, user profile space */}
-        </nav>
+        <div className="sidebar">
+            <div className="side_title">
+                <ul>
+                    <li>Workspace name</li>
+                </ul>
+            </div>
+            <div>
+                <ul className="workspace_setting">
+                    <li className="workspace_board">Board</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li className="Board1">Board 1</li>
+                    <li className="Board2">Board 2</li>
+                    <li className="Board3">Board 3</li>
+                </ul>
+            </div>
+        </div>
     );
 };
 

@@ -1,6 +1,6 @@
 import { SetStateAction, useState } from "react";
-import { FiBell, FiMenu } from "react-icons/fi";
-import S from "./styles";
+import { RxDashboard } from "react-icons/rx";
+import H from "./styles";
 
 const Header = () => {
     const [searching, setSearching] = useState("");
@@ -11,44 +11,41 @@ const Header = () => {
     };
 
     return (
-        <S.nav className="navbar">
-            <S.ul>
-                <S.liitem>
-                    <FiMenu className="menu" />
-                </S.liitem>
-                <S.liitem>
+        <H.HeadNav className="navbar">
+            <H.HeadUl>
+                <H.HeadLiitem>
                     <div className="nav_logo">Logo</div> {/* Logo space */}
-                </S.liitem>
-                <S.liitem>
-                    <S.link to="/">workspace</S.link>
-                </S.liitem>
-                <S.liitem>
-                    <S.link to="/">recent</S.link>
-                </S.liitem>
-                <S.liitem>
-                    <S.link to="/">starred</S.link>
-                </S.liitem>
-                <S.liitem>
-                    <S.create type="button" className="head_create">
+                </H.HeadLiitem>
+                <H.HeadLiitem>
+                    <H.HeadLink to="/">workspace</H.HeadLink>
+                </H.HeadLiitem>
+                <H.HeadLiitem>
+                    <H.HeadLink to="/">recent</H.HeadLink>
+                </H.HeadLiitem>
+                <H.HeadLiitem>
+                    <H.HeadLink to="/">starred</H.HeadLink>
+                </H.HeadLiitem>
+                <H.HeadLiitem>
+                    <H.HeadCreate type="button" className="head_create">
                         Create
-                    </S.create>
-                </S.liitem>
-            </S.ul>
-            <S.ul className="nav_function">
-                <S.lifunc>
+                    </H.HeadCreate>
+                </H.HeadLiitem>
+            </H.HeadUl>
+            <H.HeadUl className="nav_function">
+                <H.HeadLifunc>
                     <input id="search" name="search" placeholder="Search" onChange={searchChange} />
-                </S.lifunc>
-                <S.lifunc>
-                    <FiBell className="alarm" />
-                </S.lifunc>
-                <S.lifunc>
+                </H.HeadLifunc>
+                <H.HeadLifunc>
+                    <RxDashboard className="alarm" />
+                </H.HeadLifunc>
+                <H.HeadLifunc>
                     <button type="button" className="head_user">
                         {/* <img src={user_image} alt="user_image" /> */}
                         user_image
                     </button>
-                </S.lifunc>
-            </S.ul>
-        </S.nav>
+                </H.HeadLifunc>
+            </H.HeadUl>
+        </H.HeadNav>
     );
 };
 
