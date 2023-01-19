@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/utils/routes";
 import { emailValidator, passwordValidator } from "@/utils/validation";
 import {
@@ -45,10 +45,9 @@ const LoginForm = () => {
                         navigate(ROUTES.HOMEPAGE);
                     }
                 })
-                .catch((Error) => {
+                .catch(() => {
                     setError(ERROR_USER_NOTFOUND);
                     setIsLoading(false);
-                    console.log(Error);
                 });
         } else {
             setError(ERROR_VALIDATION_FAIL);
@@ -78,10 +77,16 @@ const LoginForm = () => {
                     setUserPassword(e.target.value);
                 }}
             />
-            <S.Button type="submit" disabled={isLoading}>
-                로그인
-            </S.Button>
             <S.ErrorText> {error} </S.ErrorText>
+            <S.Button color="#1e90ff" type="submit" disabled={isLoading}>
+                Login
+            </S.Button>
+            <S.Button color="#ff0000" type="submit" disabled={isLoading}>
+                Continue with Google
+            </S.Button>
+            <p>
+                Don&apos;t have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+            </p>
         </S.InputContainer>
     );
 };

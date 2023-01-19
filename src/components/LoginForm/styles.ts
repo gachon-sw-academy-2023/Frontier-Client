@@ -4,13 +4,13 @@ const Input = styled.input`
     width: 100%;
     border: 2px solid #f5f6f8;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 8px;
     margin: 5px;
     background-color: white;
 `;
 
 const InputContainer = styled.form`
-    width: 350px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -18,10 +18,12 @@ const InputContainer = styled.form`
 
 const Button = styled.button`
     width: 100%;
-    background-color: #1e90ff;
+    background: ${(props) => {
+        return props.color;
+    }};
     color: white;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 7px;
     margin: 5px;
     border: 0;
     cursor: pointer;
@@ -29,8 +31,10 @@ const Button = styled.button`
 
 const ErrorText = styled.span`
     width: 100%;
+    font-size: small;
     color: red;
     text-align: center;
+    margin-bottom: 5px;
     margin-top: 5px;
 `;
 
