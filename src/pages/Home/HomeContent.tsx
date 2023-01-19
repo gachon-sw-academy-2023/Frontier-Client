@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 // import { CgBoard } from "react-icons/cg";
 // import { CiHome } from "react-icons/ci";
 // import { useState } from "react";
+import Box from "@/components/BoardCard";
 import HC from "./styles";
 
 const HomeContent = () => {
@@ -35,39 +36,37 @@ const HomeContent = () => {
                                 +
                             </button>
                         </HC.SideContent>
-                        <HC.SideContent>
+                        <HC.SideButton>
                             <div>WorkSpace1</div>
                             <div>&#9661;</div>
-                        </HC.SideContent>
-                        <HC.SideContent>
+                        </HC.SideButton>
+                        <HC.SideButton>
                             <div>WorkSpace2</div>
                             <div>&#9661;</div>
-                        </HC.SideContent>
+                        </HC.SideButton>
                     </HC.SideBottom>
                 </HC.HomeSide>
                 <HC.HomeContent>
+                    <HC.HomeH1>MY WORKSPACE</HC.HomeH1>
                     <HC.HomeWorkspace>
                         <h3>Workspace1</h3>
                         <HC.HomeBox>
-                            <box>board1</box>
-                            <box>board2</box>
-                            <box>board3</box>
+                            <Box />
                         </HC.HomeBox>
                     </HC.HomeWorkspace>
                     <HC.HomeWorkspace>
                         <h3>Workspace2</h3>
                         <HC.HomeBox>
-                            <box>board1</box>
-                            <box>board2</box>
-                            <box>board3</box>
+                            <Box />
+                            <Box />
                         </HC.HomeBox>
                     </HC.HomeWorkspace>
                     <HC.HomeWorkspace>
                         <h3>Workspace3</h3>
                         <HC.HomeBox>
-                            <box>board1</box>
-                            <box>board2</box>
-                            <box>board3</box>
+                            <Box />
+                            <Box />
+                            <Box />
                         </HC.HomeBox>
                     </HC.HomeWorkspace>
                 </HC.HomeContent>
