@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Box from "@/components/BoardCard";
 import HC from "./styles";
 
-const HomeContent = () => {
+const Home = () => {
     // const [bar, setBar] = useState(0);
 
     // const openSidebar = () => {
@@ -75,4 +75,4 @@ const HomeContent = () => {
     );
 };
 
-export default HomeContent;
+export default Home;

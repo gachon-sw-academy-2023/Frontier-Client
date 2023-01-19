@@ -5,6 +5,7 @@ const HeadNav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-vertical: center;
     background-color: rgb(2, 106, 167);
     padding: 20px 5px 10px 10px;
     margin: -8px;
@@ -36,6 +37,7 @@ const HeadLink = styled(Link)`
 
 const HeadCreate = styled.button`
     border: none;
+    height: 80%;
     background-color: rgb(1, 74, 117);
     color: white;
     margin: 0px;

@@ -1,5 +1,6 @@
 import { SetStateAction, useState } from "react";
 import { RxDashboard } from "react-icons/rx";
+import Logo from "@/assets/images/Trello-Logo.png";
 import H from "./styles";
 
 const Navbar = () => {
@@ -14,7 +15,8 @@ const Navbar = () => {
         <H.HeadNav className="navbar">
             <H.HeadUl>
                 <H.HeadLiitem>
-                    <div className="nav_logo">Logo</div> {/* Logo space */}
+                    <img src={Logo} alt="" className="h-10" />
+                    {/* Logo space */}
                 </H.HeadLiitem>
                 <H.HeadLiitem>
                     <H.HeadLink to="/">workspace</H.HeadLink>
