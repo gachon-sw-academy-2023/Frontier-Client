@@ -1,27 +1,20 @@
 import styled from "styled-components";
 
 const Home = styled.div`
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
 `;
 
 const HomeBody = styled.div`
     display: flex;
     width: 80%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    border: solid 2px;
+    margin: 50px auto 0 auto;
 `;
 
 const HomeSide = styled.div`
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-right: 50px;
     width: 20%;
     hegith: 100%;
-    border: solid 2px;
 `;
 
 const SideTop = styled.div`
@@ -29,7 +22,7 @@ const SideTop = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    padding: 20px 0 20px 0;
 `;
 
 const SideBottom = styled.div`
@@ -37,7 +30,7 @@ const SideBottom = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    border-top: solid 2px;
+    border-top: solid 0.2px;
 `;
 
 const SideContent = styled.div`
@@ -63,25 +56,35 @@ const SideButton = styled.button`
     width: 100%;
     padding: 10px;
     font-weight: bold;
+    &:hover {
+        background-color: rgb(231, 233, 237);
+    }
 `;
 
 const HomeContent = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin: 0 30px 30px 30px;
+    width: 100%;
+`;
+
+const HomeH1 = styled.h1`
+    font-weight: bold;
+    font-size: 25px;
+    color: gray;
+    padding: 20px;
 `;
 
 const HomeWorkspace = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
+    font-weight: bold;
 `;
 
 const HomeBox = styled.div`
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    border: solid 2px;
 `;
 
 export default {
@@ -93,6 +96,7 @@ export default {
     SideContent,
     SideButton,
     HomeContent,
+    HomeH1,
     HomeWorkspace,
     HomeBox,
 };
