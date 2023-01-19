@@ -4,11 +4,12 @@ import Logo from "@/assets/images/Trello-Logo.png";
 import H from "./styles";
 
 const Navbar = () => {
-    const [searching, setSearching] = useState("");
+    // 추후 functinon 관련 api 추가
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [content, setContent] = useState("");
 
-    const searchChange = (e: { target: { value: SetStateAction<string> } }) => {
-        setSearching(e.target.value);
-        console.log(searching);
+    const searchContent = (e: { target: { value: SetStateAction<string> } }) => {
+        setContent(e.target.value);
     };
 
     return (
@@ -35,7 +36,12 @@ const Navbar = () => {
             </H.HeadUl>
             <H.HeadUl className="nav_function">
                 <H.HeadLifunc>
-                    <input id="search" name="search" placeholder="Search" onChange={searchChange} />
+                    <input
+                        id="search"
+                        name="search"
+                        placeholder="Search"
+                        onChange={searchContent}
+                    />
                 </H.HeadLifunc>
                 <H.HeadLifunc>
                     <RxDashboard className="alarm" />
