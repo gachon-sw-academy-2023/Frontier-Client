@@ -17,9 +17,8 @@ const Title = styled.div`
     align-items: center;
 `;
 
-const LogoImg = styled.div`
-    margin: auto;
-    display: block;
+const Image = styled.img`
+    width: 240px;
 `;
 
-export default { LogoImg, Title, Container };
+export { Image, Title, Container };

@@ -8,6 +8,7 @@ import {
     ERROR_PASSWORD_VALIDATION,
     ERROR_USER_NOTFOUND,
 } from "@/utils/error-message";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
 import S from "./styles";
 
@@ -27,6 +28,7 @@ const LoginForm = () => {
     } = useForm<UserFormData>();
 
     const onSubmit = handleSubmit((data) => {
+        setIsLoading(true);
         axios
             .post("/user", { email: data.email, password: data.password })
             .then((res) => {

@@ -25,7 +25,7 @@ const RegisterFrom = () => {
                 maxLength={20}
                 autoComplete="off"
             />
-            <S.Button> 회원가입 </S.Button>
+            <S.Button color="#1e90ff"> 회원가입 </S.Button>
         </S.InputContainer>
     );
 };
