@@ -2,18 +2,16 @@ import React from "react";
 
 import Logo from "@/assets/images/Trello-logo.png";
 import RegisterFrom from "@/components/RegisterForm";
-import S from "./styles";
+import * as S from "@/components/GlobalStyle";
+import { Title, Image } from "@/pages/SignUp/styles";
 
 const SignUp = () => {
     return (
-        <S.Container>
-            <S.Title>
-                <S.LogoImg className=" w-80">
-                    <img src={Logo} alt="" />
-                </S.LogoImg>
-            </S.Title>
+        <S.FlexCenterWrap>
+            <Title />
+            <Image src={Logo} alt="" />
             <RegisterFrom />
-        </S.Container>
+        </S.FlexCenterWrap>
     );
 };
 
