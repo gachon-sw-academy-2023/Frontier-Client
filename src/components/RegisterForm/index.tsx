@@ -43,7 +43,6 @@ const RegisterFrom = () => {
                 }
             })
             .catch(() => {
-                console.log("회원가입 실패");
                 setError(ERROR_SIGNUP_FAIL);
                 setIsLoading(false);
             });
