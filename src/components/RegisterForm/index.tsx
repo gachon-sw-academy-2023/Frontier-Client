@@ -19,7 +19,7 @@ const RegisterFrom = () => {
                 autoComplete="off"
             />
             <S.Input
-                type="text"
+                type="password"
                 id="userPassword"
                 placeholder="Password"
                 maxLength={20}
