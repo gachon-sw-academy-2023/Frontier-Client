@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { cardState } from "@/recoil/atom";
 import React, { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import * as S from "./styles";
 
 const AddList = () => {
     const [title, setTitle] = useState("");
+    const setCards = useSetRecoilState(cardState);
+
     const [ToggleAddList, setToggleAddList] = useState<boolean>(false);
     const handleToggleAddList = () => {
         setToggleAddList((current) => {
@@ -12,6 +16,15 @@ const AddList = () => {
     };
     const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
+    };
+    const handleAddList = () => {
+        setCards((prev) => {
+            return {
+                ...prev,
+                [title]: [],
+            };
+        });
+        setToggleAddList(false);
     };
 
     return (
@@ -28,7 +41,9 @@ const AddList = () => {
                         />
                     </S.ListTitleEdit>
                     <S.EditButtons>
-                        <S.EditButton color="#5aac44">Add List</S.EditButton>
+                        <S.EditButton color="#5aac44" onClick={handleAddList}>
+                            Add List
+                        </S.EditButton>
                         <S.EditButtonCancel color="red" onClick={handleToggleAddList}>
                             Cancel
                         </S.EditButtonCancel>
