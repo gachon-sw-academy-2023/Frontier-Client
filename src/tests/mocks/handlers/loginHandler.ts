@@ -1,16 +1,10 @@
 import { rest } from "msw";
+import { sleep } from "@/utils/sleep";
 import users from "@/tests/mocks/datasources/users.json";
 import { PostLoginReqBody, PostSignUpReqBody } from "@/interfaces/userInterface";
 
-async function sleep(timeout: number) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, timeout);
-    });
-}
-
 export const loginHandler = [
     rest.post<PostLoginReqBody>("/user", async (req, res, ctx) => {
-        await sleep(1000);
         const { email, password } = req.body;
 
         const finded = users.find((user) => {
