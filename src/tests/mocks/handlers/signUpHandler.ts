@@ -4,12 +4,27 @@ import { SignUpResponseBody, SignUpRequestBody } from "@/interfaces/signUp.inter
 
 export const signUpHandler = [
     rest.post<SignUpRequestBody, SignUpResponseBody>("/signup", async (req, res, ctx) => {
-        const { email } = req.body;
-        const finded = users.find((user) => user.email === email);
+        const { name, email, password } = await req.json();
 
-        if (finded) {
+        const user = users.find((v) => v.email === email);
+
+        if (user) {
             return res(ctx.status(204));
         }
-        return res(ctx.status(200), ctx.json(req.body));
+
+        users.push({
+            id: "4",
+            name,
+            email,
+            password,
+        });
+
+        return res(
+            ctx.status(200),
+            ctx.json({
+                id: "4",
+                name,
+            }),
+        );
     }),
 ];
