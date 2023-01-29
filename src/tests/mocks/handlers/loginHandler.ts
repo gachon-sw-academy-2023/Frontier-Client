@@ -1,10 +1,10 @@
 import { rest } from "msw";
 import users from "@/tests/mocks/datasources/users.json";
-import { LoginMock } from "@/interfaces/login.interfaces";
+import { LoginRequestBody, LoginResponseBody } from "@/interfaces/login.interfaces";
 
 export const loginHandler = [
-    rest.post<LoginMock>("/login", async (req, res, ctx) => {
-        const { email, password } = req.params;
+    rest.post<LoginRequestBody, LoginResponseBody>("/login", async (req, res, ctx) => {
+        const { email, password } = req.body;
 
         const finded = users.find((user) => {
             return user.email === email && user.password === password;
