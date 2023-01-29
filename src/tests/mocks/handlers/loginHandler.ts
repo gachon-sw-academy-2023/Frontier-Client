@@ -4,20 +4,19 @@ import { LoginRequestBody, LoginResponseBody } from "@/interfaces/login.interfac
 
 export const loginHandler = [
     rest.post<LoginRequestBody, LoginResponseBody>("/login", async (req, res, ctx) => {
-        const { email, password } = req.body;
+        const { email, password } = await req.json();
 
-        const finded = users.find((user) => {
-            return user.email === email && user.password === password;
-        });
+        const user = users.find((v) => v.email === email && v.password === password);
 
-        if (!finded) {
+        if (!user) {
             return res(ctx.status(401));
         }
 
         return res(
             ctx.status(200),
             ctx.json({
-                id: finded.id,
+                id: user.id,
+                name: user.name,
             }),
         );
     }),

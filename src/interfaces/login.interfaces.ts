@@ -5,4 +5,5 @@ export interface LoginRequestBody {
 
 export interface LoginResponseBody {
     id: string;
+    name: string;
 }
