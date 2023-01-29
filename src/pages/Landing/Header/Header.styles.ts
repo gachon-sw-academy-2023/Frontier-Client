@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
 import * as I from "./Header.interfaces";
 
 export const HeaderContainer = styled.header`
@@ -23,7 +22,7 @@ export const NavContainer = styled.nav`
     align-items: center;
     margin-right: 24px;
     @media screen and (max-width: 768px) {
-        display: none;
+        margin-right: 2px;
     }
 `;
 
@@ -40,27 +39,10 @@ export const NavMenu = styled(NavLink)`
     }
 `;
 
-export const Bars = styled(FaBars)`
-    display: none;
-    color: black;
-    @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 75%);
-        font-size: 1.8rem;
-        cursor: pointer;
-    }
-`;
-
 export const NavBtn = styled.nav`
     display: flex;
     align-items: center;
     margin-right: 24px;
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
 `;
 
 export const NavBtnLink = styled(NavLink)`

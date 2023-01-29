@@ -12,9 +12,8 @@ const Header = () => {
                     <S.NavMenu to="#stats">Stats</S.NavMenu>
                 </S.NavContainer>
                 <S.NavBtn>
-                    <S.NavBtnLink to="/login">Get Started</S.NavBtnLink>
+                    <S.NavBtnLink to="/login">Login</S.NavBtnLink>
                 </S.NavBtn>
-                <S.Bars />
             </S.HeaderContainer>
         </>
     );
