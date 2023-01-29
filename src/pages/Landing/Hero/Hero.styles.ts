@@ -5,9 +5,7 @@ export const HeroContainer = styled.div<I.HeroContainer>`
     width: 100%;
     height: calc(100vh - 100px);
     position: relative;
-    background-image: url(${(props) => {
-        return props.bgImage;
-    }});
+    background-image: url(${(props) => props.bgImage});
     background-size: cover;
     background-position: top;
 `;

@@ -21,21 +21,19 @@ const queryClient = new QueryClient({
     },
 });
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <RecoilRoot>
-                <QueryClientProvider client={queryClient}>
-                    <Routes>
-                        <Route index element={<Landing />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/homepage" element={<Home />} />
-                    </Routes>
-                </QueryClientProvider>
-            </RecoilRoot>
-        </BrowserRouter>
-    );
-};
+const App = () => (
+    <BrowserRouter>
+        <RecoilRoot>
+            <QueryClientProvider client={queryClient}>
+                <Routes>
+                    <Route index element={<Landing />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/homepage" element={<Home />} />
+                </Routes>
+            </QueryClientProvider>
+        </RecoilRoot>
+    </BrowserRouter>
+);
 
 export default App;

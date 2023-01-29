@@ -40,12 +40,8 @@ const SideContent = styled.div`
     width: 100%;
     margin-top: 10px;
     padding: 10px;
-    font-size: ${(props) => {
-        return props.fsize || "15px";
-    }};
-    color: ${(props) => {
-        return props.color || "black";
-    }};
+    font-size: ${(props) => props.fsize || "15px"};
+    color: ${(props) => props.color || "black"};
 `;
 
 const SideButton = styled.button`

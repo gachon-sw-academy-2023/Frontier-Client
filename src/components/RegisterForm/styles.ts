@@ -18,9 +18,7 @@ const InputContainer = styled.form`
 
 const Button = styled.button`
     width: 100%;
-    background: ${(props) => {
-        return props.color;
-    }};
+    background: ${(props) => props.color};
     color: white;
     box-sizing: border-box;
     padding: 7px;

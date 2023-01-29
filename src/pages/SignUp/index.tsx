@@ -5,14 +5,12 @@ import RegisterFrom from "@/components/RegisterForm";
 import * as S from "@/components/GlobalStyle";
 import { Title, Image } from "@/pages/SignUp/styles";
 
-const SignUp = () => {
-    return (
-        <S.FlexCenterWrap>
-            <Title />
-            <Image src={Logo} alt="" />
-            <RegisterFrom />
-        </S.FlexCenterWrap>
-    );
-};
+const SignUp = () => (
+    <S.FlexCenterWrap>
+        <Title />
+        <Image src={Logo} alt="" />
+        <RegisterFrom />
+    </S.FlexCenterWrap>
+);
 
 export default SignUp;

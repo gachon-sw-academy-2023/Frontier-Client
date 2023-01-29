@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import * as I from "./Header.interfaces";
 
 export const HeaderContainer = styled.header<I.HeaderContainer>`
-    background-color: ${(props) => {
-        return props.bgColor || "white";
-    }};
+    background-color: ${(props) => props.bgColor || "white"};
     height: 80px;
     display: flex;
     justify-content: space-between;
