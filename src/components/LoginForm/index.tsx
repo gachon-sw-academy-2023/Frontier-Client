@@ -30,7 +30,7 @@ const LoginForm = () => {
     const onSubmit = handleSubmit((data) => {
         setIsLoading(true);
         axios
-            .post("/user", { email: data.email, password: data.password })
+            .post("/login", { email: data.email, password: data.password })
             .then((res) => {
                 if (res.status === 200) {
                     setIsLoading(false);
