@@ -6,7 +6,7 @@ import * as S from "./styles";
 
 const AddList = () => {
     const [title, setTitle] = useState("");
-    const setCards = useSetRecoilState(cardState);
+    const setList = useSetRecoilState(cardState);
 
     const [ToggleAddList, setToggleAddList] = useState<boolean>(false);
     const handleToggleAddList = () => {
@@ -18,7 +18,7 @@ const AddList = () => {
         setTitle(e.target.value);
     };
     const handleAddList = () => {
-        setCards((prev) => {
+        setList((prev) => {
             return {
                 ...prev,
                 [title]: [],

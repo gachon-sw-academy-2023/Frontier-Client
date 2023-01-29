@@ -17,25 +17,10 @@ const ListTitle = styled.div`
     overflow-wrap: break-word;
 `;
 
-const ToggleAddCard = styled.div`
-    cursor: pointer;
-    padding: 10px;
-    color: #6b808c;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    align-items: center;
-
-    :hover {
-        background-color: rgba(9, 45, 66, 0.13);
-        color: #17394d;
-        text-decoration: underline;
-    }
-`;
-
 const AddListEditor = styled.div`
     background-color: #dfe3e6;
     border-radius: 5px;
     padding: 2px 2px;
 `;
 
-export { List, ListTitle, ToggleAddCard, AddListEditor };
+export { List, ListTitle, AddListEditor };

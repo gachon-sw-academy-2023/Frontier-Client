@@ -4,6 +4,7 @@ import { CardInterface } from "@/recoil/atom";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import Card from "@/components/Card";
 import * as S from "./styles";
+import AddCard from "../AddCard";
 
 interface ListProps {
     listId: string;
@@ -42,7 +43,7 @@ const List = ({ listId, cards, index }: ListProps) => {
                                             );
                                         })}
                                         {droppableProvided.placeholder}
-                                        <S.ToggleAddCard>Add a Card</S.ToggleAddCard>
+                                        <AddCard listId={listId} />
                                     </div>
                                 );
                             }}
