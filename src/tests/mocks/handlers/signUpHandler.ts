@@ -1,10 +1,10 @@
 import { rest } from "msw";
 import users from "@/tests/mocks/datasources/users.json";
-import { SignUpResponseBody, SignUpRequestBody } from "@/interfaces/signUp.interfaces";
+import { UserSignUp, User } from "@/interfaces/userInterface";
 
 export const signUpHandler = [
-    rest.post<SignUpRequestBody, SignUpResponseBody>("/signup", async (req, res, ctx) => {
-        const { name, email, password } = await req.json();
+    rest.post("/signup", async (req, res, ctx) => {
+        const { name, email, password } = await req.json<UserSignUp>();
 
         const user = users.find((v) => v.email === email);
 
@@ -21,7 +21,7 @@ export const signUpHandler = [
 
         return res(
             ctx.status(200),
-            ctx.json({
+            ctx.json<User>({
                 id: "4",
                 name,
             }),

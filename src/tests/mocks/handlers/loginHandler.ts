@@ -1,10 +1,10 @@
 import { rest } from "msw";
 import users from "@/tests/mocks/datasources/users.json";
-import { LoginRequestBody, LoginResponseBody } from "@/interfaces/login.interfaces";
+import { UserLogin, User } from "@/interfaces/userInterface";
 
 export const loginHandler = [
-    rest.post<LoginRequestBody, LoginResponseBody>("/login", async (req, res, ctx) => {
-        const { email, password } = await req.json();
+    rest.post("/login", async (req, res, ctx) => {
+        const { email, password } = await req.json<UserLogin>();
 
         const user = users.find((v) => v.email === email && v.password === password);
 
@@ -14,7 +14,7 @@ export const loginHandler = [
 
         return res(
             ctx.status(200),
-            ctx.json({
+            ctx.json<User>({
                 id: user.id,
                 name: user.name,
             }),
