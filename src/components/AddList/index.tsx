@@ -14,17 +14,29 @@ const AddList = () => {
             return !current;
         });
     };
-    const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleAddList = () => {
+        if (title.length !== 0) {
+            setList((prev) => {
+                return {
+                    ...prev,
+                    [title]: [],
+                };
+            });
+            setTitle("");
+            setToggleAddList(false);
+        }
+    };
+
+    const handleChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTitle(e.target.value);
     };
-    const handleAddList = () => {
-        setList((prev) => {
-            return {
-                ...prev,
-                [title]: [],
-            };
-        });
-        setToggleAddList(false);
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleAddList();
+        }
     };
 
     return (
@@ -38,6 +50,7 @@ const AddList = () => {
                             autoFocus
                             autoComplete="off"
                             onChange={handleChangeTitle}
+                            onKeyDown={handleKeyPress}
                         />
                     </S.ListTitleEdit>
                     <S.EditButtons>

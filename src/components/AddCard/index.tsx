@@ -13,13 +13,16 @@ const AddCard = ({ listId }: AddCardProps) => {
     const [cardText, setCardText] = useState("");
 
     const handleAddCard = () => {
-        setCard((prev) => {
-            return {
-                ...prev,
-                [listId]: [...prev[listId], { id: Date.now(), text: cardText }],
-            };
-        });
-        setToggleAddCard(false);
+        if (cardText.length !== 0) {
+            setCard((prev) => {
+                return {
+                    ...prev,
+                    [listId]: [...prev[listId], { id: Date.now(), text: cardText }],
+                };
+            });
+            setCardText("");
+            setToggleAddCard(false);
+        }
     };
 
     const handleToggleAddCard = () => {
@@ -35,7 +38,7 @@ const AddCard = ({ listId }: AddCardProps) => {
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            console.log(`${cardText} text 저장`);
+            handleAddCard();
         }
     };
 

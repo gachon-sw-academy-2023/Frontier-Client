@@ -29,15 +29,6 @@ const localStorageEffect = (key: string) => {
 
 export const cardState = atom<CardStateInterface>({
     key: "card",
-    default: {
-        Todo: [
-            { id: 1, text: "11" },
-            { id: 2, text: "22" },
-            { id: 3, text: "33" },
-            { id: 4, text: "44" },
-        ],
-        Doing: [],
-        Done: [],
-    },
+    default: {},
     effects: [localStorageEffect("card")],
 });

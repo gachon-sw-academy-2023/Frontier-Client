@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
 
 const AddListButton = styled.div`
     background-color: rgba(0, 0, 0, 0.12);
@@ -27,7 +28,7 @@ const ListTitleEdit = styled.div`
     align-items: center;
 `;
 
-const ListTitleInput = styled.input`
+const ListTitleInput = styled(TextareaAutosize)`
     margin: 6px 0 5px 6px;
     border-radius: 4px;
     border: none;
