@@ -2,7 +2,7 @@ import React from "react";
 import List from "@/components/List";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
-import { cardState } from "@/recoil/atom";
+import { cardState, CardStateInterface } from "@/recoil/atom";
 import AddList from "@/components/AddList";
 import * as S from "./styles";
 
@@ -12,9 +12,27 @@ const Board = () => {
     const onDragEnd = ({ source, destination, type }: DropResult) => {
         if (!destination) return;
         if (type === "COLUMN") {
-            console.log("리스트 이동");
-            // if (source.droppableId !== destination?.droppableId) {
-            // }
+            setCards((prev) => {
+                const keyList = Object.keys(cards);
+                const newList: CardStateInterface = {};
+                let sourceKey: string;
+                let destinationKey: string;
+                keyList.forEach((item, index) => {
+                    if (index === source.index) sourceKey = item;
+                    if (index === destination.index) destinationKey = item;
+                });
+                keyList.forEach((item) => {
+                    if (item === sourceKey) return;
+                    if (item === destinationKey && source.index > destination.index) {
+                        newList[sourceKey] = [...prev[sourceKey]];
+                    }
+                    newList[item] = [...prev[item]];
+                    if (item === destinationKey && source.index < destination.index) {
+                        newList[sourceKey] = [...prev[sourceKey]];
+                    }
+                });
+                return newList;
+            });
         } else {
             if (source.droppableId === destination?.droppableId) {
                 setCards((allLists) => {
