@@ -9,7 +9,9 @@ import SignUp from "./pages/SignUp";
 import Board from "./pages/Board";
 
 if (import.meta.env.MODE === "development") {
-    worker.start();
+    worker.start({
+        onUnhandledRequest: "bypass",
+    });
 }
 
 const queryClient = new QueryClient({
