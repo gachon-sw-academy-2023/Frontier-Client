@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import * as I from "./Header.interfaces";
 
-export const HeaderContainer = styled.header`
-    background-color: ${(props: I.HeaderContainer) => {
+export const HeaderContainer = styled.header<I.HeaderContainer>`
+    background-color: ${(props) => {
         return props.bgColor || "white";
     }};
     height: 80px;
@@ -57,7 +57,6 @@ export const NavBtnLink = styled(NavLink)`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     margin-left: 24px;
-
     &:hover {
         transition: all 0.2s ease-in-out;
         background: #10dc55;
