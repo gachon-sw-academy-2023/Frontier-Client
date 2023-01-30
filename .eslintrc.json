@@ -56,6 +56,7 @@
     "react/function-component-definition": [2, {"namedComponents": "arrow-function", "unnamedComponents": "arrow-function"}],
     "arrow-body-style": ["error", "as-needed"],
     "prettier/prettier": "error",
+    "react/jsx-props-no-spreading": [0],
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": [
       "error",

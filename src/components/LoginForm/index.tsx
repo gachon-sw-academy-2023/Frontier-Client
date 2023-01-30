@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/utils/routes";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/utils/validation";
@@ -10,37 +9,25 @@ import {
 } from "@/utils/error-message";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+import useLoginQuery from "@/queries/useLoginQuery";
+import { UserLogin } from "@/interfaces/userInterface";
 import S from "./styles";
 
-type UserFormData = {
-    email: string;
-    password: string;
-};
-
 const LoginForm = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState("");
+    const { mutate, isLoading, error } = useLoginQuery();
     const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<UserFormData>();
+    } = useForm<UserLogin>();
 
     const onSubmit = handleSubmit((data) => {
-        setIsLoading(true);
-        axios
-            .post("/login", { email: data.email, password: data.password })
-            .then((res) => {
-                if (res.status === 200) {
-                    setIsLoading(false);
-                    navigate(ROUTES.HOMEPAGE);
-                }
-            })
-            .catch(() => {
-                setError(ERROR_USER_NOTFOUND);
-                setIsLoading(false);
-            });
+        mutate(data, {
+            onSuccess: () => {
+                navigate(ROUTES.HOMEPAGE);
+            },
+        });
     });
 
     return (
@@ -50,7 +37,6 @@ const LoginForm = () => {
                 id="userEmail"
                 placeholder="Email"
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("email", { required: true, pattern: EMAIL_REGEX })}
             />
             {errors.email && errors.email.type === "pattern" && (
@@ -62,7 +48,6 @@ const LoginForm = () => {
                 placeholder="PW"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("password", { required: true, pattern: PASSWORD_REGEX })}
             />
             {errors.password && errors.password.type === "pattern" && (
