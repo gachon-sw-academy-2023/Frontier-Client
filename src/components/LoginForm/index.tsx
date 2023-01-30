@@ -7,14 +7,16 @@ import {
     ERROR_PASSWORD_VALIDATION,
     ERROR_USER_NOTFOUND,
 } from "@/utils/error-message";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
 import useLoginQuery from "@/queries/useLoginQuery";
 import { UserLogin } from "@/interfaces/userInterface";
+import { useSetRecoilState } from "recoil";
+import { userAtom } from "@/recoil/userAtom";
 import S from "./styles";
 
 const LoginForm = () => {
     const { mutate, isLoading, error } = useLoginQuery();
+    const setUser = useSetRecoilState(userAtom);
     const navigate = useNavigate();
     const {
         register,
@@ -24,7 +26,8 @@ const LoginForm = () => {
 
     const onSubmit = handleSubmit((data) => {
         mutate(data, {
-            onSuccess: () => {
+            onSuccess: (res) => {
+                setUser(res.data);
                 navigate(ROUTES.HOMEPAGE);
             },
         });
