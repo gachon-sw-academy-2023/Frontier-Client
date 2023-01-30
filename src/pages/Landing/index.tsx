@@ -1,9 +1,9 @@
-import LandingContent from "@/pages/Landing/LandingContent";
+import Header from "@/pages/Landing/Header";
 
 const Landing = () => {
     return (
         <>
-            <LandingContent />
+            <Header />
         </>
     );
 };
