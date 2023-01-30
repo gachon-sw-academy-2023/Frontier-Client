@@ -50,7 +50,7 @@ const RegisterFrom = () => {
 
     return (
         <S.InputContainer onSubmit={onSubmit}>
-            <p className="text-lg font-bold text-center mb-5"> Sign up for your account </p>
+            <S.Text> Sign up for your account </S.Text>
             <S.Input
                 type="text"
                 id="userName"

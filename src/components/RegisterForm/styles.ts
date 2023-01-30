@@ -36,4 +36,10 @@ const ErrorText = styled.span`
     margin-top: 5px;
 `;
 
-export default { ErrorText, Input, InputContainer, Button };
+const Text = styled.div`
+    font-size: large;
+    text-align: center;
+    margin-bottom: 20px;
+`;
+
+export default { Text, ErrorText, Input, InputContainer, Button };
