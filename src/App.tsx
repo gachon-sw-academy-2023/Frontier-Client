@@ -6,6 +6,7 @@ import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import SignUp from "./pages/SignUp";
+import Board from "./pages/Board";
 
 if (import.meta.env.MODE === "development") {
     worker.start({
@@ -21,19 +22,24 @@ const queryClient = new QueryClient({
     },
 });
 
-const App = () => (
-    <BrowserRouter>
-        <RecoilRoot>
-            <QueryClientProvider client={queryClient}>
-                <Routes>
-                    <Route index element={<Landing />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/homepage" element={<Home />} />
-                </Routes>
-            </QueryClientProvider>
-        </RecoilRoot>
-    </BrowserRouter>
-);
+const App = () => {
+    return (
+        <BrowserRouter>
+            <RecoilRoot>
+                <QueryClientProvider client={queryClient}>
+                    <Routes>
+                        <Route index element={<Landing />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/homepage" element={<Home />} />
+                        <Route path="/board" element={<Board />} />
+                        {/* <Route path="/workspace" component={<WorkSpace />}
+                        </Route> */}
+                    </Routes>
+                </QueryClientProvider>
+            </RecoilRoot>
+        </BrowserRouter>
+    );
+};
 
 export default App;
