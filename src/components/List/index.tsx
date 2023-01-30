@@ -12,47 +12,39 @@ interface ListProps {
     index: number;
 }
 
-const List = ({ listId, cards, index }: ListProps) => {
-    return (
-        <Draggable draggableId={listId} index={index}>
-            {(provided) => {
-                return (
-                    <S.List
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                    >
-                        <S.ListTitle>{listId}</S.ListTitle>
-                        <Droppable droppableId={listId}>
-                            {(droppableProvided) => {
-                                return (
-                                    <div
-                                        ref={droppableProvided.innerRef}
-                                        {...droppableProvided.droppableProps}
-                                        className="Lists-Cards"
-                                    >
-                                        {cards.map((card, cardindex) => {
-                                            return (
-                                                <Card
-                                                    key={card.id}
-                                                    index={cardindex}
-                                                    cardId={card.id}
-                                                    cardText={card.text}
-                                                    listId={listId}
-                                                />
-                                            );
-                                        })}
-                                        {droppableProvided.placeholder}
-                                        <AddCard listId={listId} />
-                                    </div>
-                                );
-                            }}
-                        </Droppable>
-                    </S.List>
-                );
-            }}
-        </Draggable>
-    );
-};
+const List = ({ listId, cards, index }: ListProps) => (
+    <Draggable draggableId={listId} index={index}>
+        {(provided) => (
+            <S.List
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+            >
+                <S.ListTitle>{listId}</S.ListTitle>
+                <Droppable droppableId={listId}>
+                    {(droppableProvided) => (
+                        <div
+                            ref={droppableProvided.innerRef}
+                            {...droppableProvided.droppableProps}
+                            className="Lists-Cards"
+                        >
+                            {cards.map((card, cardindex) => (
+                                <Card
+                                    key={card.id}
+                                    index={cardindex}
+                                    cardId={card.id}
+                                    cardText={card.text}
+                                    listId={listId}
+                                />
+                            ))}
+                            {droppableProvided.placeholder}
+                            <AddCard listId={listId} />
+                        </div>
+                    )}
+                </Droppable>
+            </S.List>
+        )}
+    </Draggable>
+);
 
 export default List;

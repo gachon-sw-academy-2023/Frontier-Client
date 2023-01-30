@@ -14,21 +14,17 @@ const AddCard = ({ listId }: AddCardProps) => {
 
     const handleAddCard = () => {
         if (cardText.length !== 0) {
-            setCard((prev) => {
-                return {
-                    ...prev,
-                    [listId]: [...prev[listId], { id: Date.now(), text: cardText }],
-                };
-            });
+            setCard((prev) => ({
+                ...prev,
+                [listId]: [...prev[listId], { id: Date.now(), text: cardText }],
+            }));
             setCardText("");
             setToggleAddCard(false);
         }
     };
 
     const handleToggleAddCard = () => {
-        setToggleAddCard((current) => {
-            return !current;
-        });
+        setToggleAddCard((current) => !current);
     };
 
     const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

@@ -10,8 +10,9 @@ export interface CardStateInterface {
     [key: string]: CardInterface[];
 }
 
-const localStorageEffect = (key: string) => {
-    return ({ setSelf, onSet }: any) => {
+const localStorageEffect =
+    (key: string) =>
+    ({ setSelf, onSet }: any) => {
         const savedValue = localStorage.getItem(key);
         if (savedValue != null) {
             setSelf(JSON.parse(savedValue));
@@ -25,7 +26,6 @@ const localStorageEffect = (key: string) => {
             }
         });
     };
-};
 
 export const cardState = atom<CardStateInterface>({
     key: "card",

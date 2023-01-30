@@ -68,24 +68,20 @@ const Board = () => {
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="board" direction="horizontal" type="COLUMN">
-                {(provided) => {
-                    return (
-                        <S.Board ref={provided.innerRef}>
-                            {Object.keys(cards).map((listId, index) => {
-                                return (
-                                    <List
-                                        listId={listId}
-                                        key={listId}
-                                        cards={cards[listId]}
-                                        index={index}
-                                    />
-                                );
-                            })}
-                            {provided.placeholder}
-                            <AddList />
-                        </S.Board>
-                    );
-                }}
+                {(provided) => (
+                    <S.Board ref={provided.innerRef}>
+                        {Object.keys(cards).map((listId, index) => (
+                            <List
+                                listId={listId}
+                                key={listId}
+                                cards={cards[listId]}
+                                index={index}
+                            />
+                        ))}
+                        {provided.placeholder}
+                        <AddList />
+                    </S.Board>
+                )}
             </Droppable>
         </DragDropContext>
     );

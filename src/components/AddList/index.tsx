@@ -10,19 +10,15 @@ const AddList = () => {
 
     const [ToggleAddList, setToggleAddList] = useState<boolean>(false);
     const handleToggleAddList = () => {
-        setToggleAddList((current) => {
-            return !current;
-        });
+        setToggleAddList((current) => !current);
     };
 
     const handleAddList = () => {
         if (title.length !== 0) {
-            setList((prev) => {
-                return {
-                    ...prev,
-                    [title]: [],
-                };
-            });
+            setList((prev) => ({
+                ...prev,
+                [title]: [],
+            }));
             setTitle("");
             setToggleAddList(false);
         }

@@ -22,24 +22,22 @@ const queryClient = new QueryClient({
     },
 });
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <RecoilRoot>
-                <QueryClientProvider client={queryClient}>
-                    <Routes>
-                        <Route index element={<Landing />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/homepage" element={<Home />} />
-                        <Route path="/board" element={<Board />} />
-                        {/* <Route path="/workspace" component={<WorkSpace />}
+const App = () => (
+    <BrowserRouter>
+        <RecoilRoot>
+            <QueryClientProvider client={queryClient}>
+                <Routes>
+                    <Route index element={<Landing />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/homepage" element={<Home />} />
+                    <Route path="/board" element={<Board />} />
+                    {/* <Route path="/workspace" component={<WorkSpace />}
                         </Route> */}
-                    </Routes>
-                </QueryClientProvider>
-            </RecoilRoot>
-        </BrowserRouter>
-    );
-};
+                </Routes>
+            </QueryClientProvider>
+        </RecoilRoot>
+    </BrowserRouter>
+);
 
 export default App;

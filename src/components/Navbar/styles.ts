@@ -5,9 +5,8 @@ const HeadNav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-vertical: center;
     background-color: rgb(2, 106, 167);
-    padding: 20px 5px 10px 10px;
+    padding: 10px;
     margin: -8px;
     margin-bottom: 15px;
 `;
@@ -30,6 +29,10 @@ const HeadLifunc = styled.li`
     padding: 0px 10px;
 `;
 
+const Image = styled.img`
+    width: 45px;
+`;
+
 const HeadLink = styled(Link)`
     text-decoration: none;
     color: white;
@@ -45,4 +48,4 @@ const HeadCreate = styled.button`
     font-size: 15px;
 `;
 
-export default { HeadNav, HeadUl, HeadLiitem, HeadLifunc, HeadLink, HeadCreate };
+export default { Image, HeadNav, HeadUl, HeadLiitem, HeadLifunc, HeadLink, HeadCreate };

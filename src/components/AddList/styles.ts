@@ -42,9 +42,7 @@ const ListTitleInput = styled(TextareaAutosize)`
 const EditButton = styled.button`
     cursor: pointer;
     box-shadow: 0 1px 0 0 #3f6f21;
-    background: ${(props) => {
-        return props.color;
-    }};
+    background: ${(props) => props.color};
     width: fit-content;
     margin: 5px 5px 5px;
     padding: 6px 12px;

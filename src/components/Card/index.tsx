@@ -10,22 +10,18 @@ interface CardProps {
     listId: string;
 }
 
-const Card = ({ cardId, cardText, index }: CardProps) => {
-    return (
-        <Draggable draggableId={cardId.toString()} index={index}>
-            {(provided) => {
-                return (
-                    <S.Card
-                        ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        {...provided.draggableProps}
-                    >
-                        {cardText}
-                    </S.Card>
-                );
-            }}
-        </Draggable>
-    );
-};
+const Card = ({ cardId, cardText, index }: CardProps) => (
+    <Draggable draggableId={cardId.toString()} index={index}>
+        {(provided) => (
+            <S.Card
+                ref={provided.innerRef}
+                {...provided.dragHandleProps}
+                {...provided.draggableProps}
+            >
+                {cardText}
+            </S.Card>
+        )}
+    </Draggable>
+);
 
 export default Card;
