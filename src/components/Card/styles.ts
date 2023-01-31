@@ -23,6 +23,7 @@ const Card = styled.div`
 
 const CardTitle = styled(Title)`
     font-size: 14px;
+    min-height: 30px;
 `;
 
 const CardDetail = styled.div`

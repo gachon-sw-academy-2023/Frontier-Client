@@ -53,9 +53,9 @@ const AddList = () => {
                         <S.EditButton color="#5aac44" onClick={handleAddList}>
                             Add List
                         </S.EditButton>
-                        <S.EditButtonCancel onClick={handleToggleAddList}>
+                        <S.EditButton color="#999999" onClick={handleToggleAddList}>
                             Cancel
-                        </S.EditButtonCancel>
+                        </S.EditButton>
                     </S.EditButtons>
                 </S.AddListEditor>
             ) : (

@@ -25,27 +25,16 @@ const EditButton = styled.button`
     transition: background 0.3s ease;
     min-height: 32px;
     padding: 0 16px;
-    margin: 5px 5px;
+    border: none;
+    margin: 5px 5px 5px 10px;
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
     cursor: pointer;
+    outline: none;
     :hover {
         opacity: 0.7;
     }
-`;
-
-const EditButtonCancel = styled.button`
-    background: #999999;
-    color: #ffffff;
-    transition: background 0.3s ease;
-    min-height: 32px;
-    padding: 0 16px;
-    margin: 5px 5px;
-    font-weight: bold;
-    border-radius: 3px;
-    font-size: 14px;
-    cursor: pointer;
 `;
 
 const EditButtons = styled.div`
@@ -89,7 +78,6 @@ export {
     EditCardDetail,
     EditButton,
     ToggleAddCard,
-    EditButtonCancel,
     EditButtons,
     EditCardTextarea,
     EditCard,

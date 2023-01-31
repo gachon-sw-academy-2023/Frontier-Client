@@ -50,23 +50,11 @@ const EditButton = styled.button`
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
+    border: none;
     cursor: pointer;
     :hover {
         opacity: 0.7;
     }
-`;
-
-const EditButtonCancel = styled.button`
-    background: #999999;
-    color: #ffffff;
-    transition: background 0.3s ease;
-    min-height: 32px;
-    padding: 0 16px;
-    margin: 5px 5px;
-    font-weight: bold;
-    border-radius: 3px;
-    font-size: 14px;
-    cursor: pointer;
 `;
 
 const EditButtons = styled.div`
@@ -87,5 +75,4 @@ export {
     ListTitleInput,
     ListTitleEdit,
     EditButton,
-    EditButtonCancel,
 };

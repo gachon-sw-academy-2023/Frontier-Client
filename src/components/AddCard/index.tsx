@@ -81,9 +81,9 @@ const AddCard = ({ listId }: AddCardProps) => {
                         <S.EditButton color="#5aac44" onClick={handleAddCard}>
                             Add Card
                         </S.EditButton>
-                        <S.EditButtonCancel onClick={handleToggleAddCard}>
+                        <S.EditButton color="#999999" onClick={handleToggleAddCard}>
                             Cancel
-                        </S.EditButtonCancel>
+                        </S.EditButton>
                     </S.EditButtons>
                 </div>
             ) : (
