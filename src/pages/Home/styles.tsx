@@ -14,7 +14,7 @@ const HomeSide = styled.div`
     flex-direction: column;
     align-items: center;
     width: 20%;
-    hegith: 100%;
+    height: 100%;
 `;
 
 const SideTop = styled.div`
@@ -40,7 +40,6 @@ const SideContent = styled.div`
     width: 100%;
     margin-top: 10px;
     padding: 10px;
-    font-size: ${(props) => props.fsize || "15px"};
     color: ${(props) => props.color || "black"};
 `;
 

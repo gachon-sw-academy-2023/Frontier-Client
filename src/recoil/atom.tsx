@@ -4,6 +4,7 @@ import { atom } from "recoil";
 export interface CardInterface {
     id: number;
     text: string;
+    title: string;
 }
 
 export interface CardStateInterface {

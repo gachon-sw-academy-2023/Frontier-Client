@@ -1,7 +1,8 @@
 import styled from "styled-components";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import TextareaAutosize from "react-textarea-autosize";
-import { Card } from "../Card/styles";
+import S from "../Card/styles";
+import { Header, Title } from "../GlobalStyle";
 
 const ToggleAddCard = styled.div`
     cursor: pointer;
@@ -54,12 +55,26 @@ const EditButtons = styled.div`
 const EditCardTextarea = styled(TextareaAutosize)`
     width: 100%;
     border: none;
-    resize: none;
     outline: none;
-    font-size: 15px;
 `;
 
-const EditCard = styled(Card)`
+const EditCardHeader = styled(Header)`
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+    color: #000;
+`;
+
+const EditCardTitle = styled(Title)`
+    font-size: 14px;
+`;
+
+const EditCardDetail = styled.div`
+    font-size: 12px;
+    color: #4d4d4d;
+    white-space: pre-wrap;
+`;
+
+const EditCard = styled(S.Card)`
     min-height: 50px;
     padding-left: 8px;
     padding-right: 15px;
@@ -69,4 +84,14 @@ const EditCard = styled(Card)`
     }
 `;
 
-export { EditButton, ToggleAddCard, EditButtonCancel, EditButtons, EditCardTextarea, EditCard };
+export {
+    EditCardTitle,
+    EditCardDetail,
+    EditButton,
+    ToggleAddCard,
+    EditButtonCancel,
+    EditButtons,
+    EditCardTextarea,
+    EditCard,
+    EditCardHeader,
+};

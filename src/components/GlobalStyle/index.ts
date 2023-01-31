@@ -21,4 +21,19 @@ const FlexCenterWrap = styled(FlexColumnWrap)`
     align-items: center;
 `;
 
-export { FlexColumnWrap, FlexRowWrap, FlexCenterWrap };
+const Title = styled.span`
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    cursor: ${(props) => (props.draggable ? "grab" : `auto`)};
+    width: 70%;
+`;
+
+const Header = styled.header`
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+`;
+
+export { Header, Title, FlexColumnWrap, FlexRowWrap, FlexCenterWrap };

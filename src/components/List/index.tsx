@@ -29,13 +29,7 @@ const List = ({ listId, cards, index }: ListProps) => (
                             className="Lists-Cards"
                         >
                             {cards.map((card, cardindex) => (
-                                <Card
-                                    key={card.id}
-                                    index={cardindex}
-                                    cardId={card.id}
-                                    cardText={card.text}
-                                    listId={listId}
-                                />
+                                <Card key={card.id} index={cardindex} cardDetail={card} />
                             ))}
                             {droppableProvided.placeholder}
                             <AddCard listId={listId} />

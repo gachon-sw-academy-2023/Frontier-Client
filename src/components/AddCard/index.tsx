@@ -10,15 +10,18 @@ interface AddCardProps {
 const AddCard = ({ listId }: AddCardProps) => {
     const setCard = useSetRecoilState(cardState);
     const [toggleAddCard, setToggleAddCard] = useState<boolean>(false);
-    const [cardText, setCardText] = useState("");
+    const [cardContents, setCardContents] = useState({ title: "", text: "" });
 
     const handleAddCard = () => {
-        if (cardText.length !== 0) {
+        if (cardContents.title.length !== 0) {
             setCard((prev) => ({
                 ...prev,
-                [listId]: [...prev[listId], { id: Date.now(), text: cardText }],
+                [listId]: [
+                    ...prev[listId],
+                    { id: Date.now(), title: cardContents.title, text: cardContents.text },
+                ],
             }));
-            setCardText("");
+            setCardContents({ title: "", text: "" });
             setToggleAddCard(false);
         }
     };
@@ -27,8 +30,18 @@ const AddCard = ({ listId }: AddCardProps) => {
         setToggleAddCard((current) => !current);
     };
 
+    const handleChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setCardContents((prev) => ({
+            ...prev,
+            title: e.target.value,
+        }));
+    };
+
     const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setCardText(e.target.value);
+        setCardContents((prev) => ({
+            ...prev,
+            text: e.target.value,
+        }));
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -43,13 +56,26 @@ const AddCard = ({ listId }: AddCardProps) => {
             {toggleAddCard ? (
                 <div>
                     <S.EditCard>
-                        <S.EditCardTextarea
-                            autoFocus
-                            value={cardText}
-                            placeholder="Enter the text for this card..."
-                            onChange={handleChangeText}
-                            onKeyDown={handleKeyPress}
-                        />
+                        <S.EditCardHeader>
+                            <S.EditCardTitle>
+                                <S.EditCardTextarea
+                                    autoFocus
+                                    value={cardContents.title}
+                                    placeholder="Title"
+                                    onChange={handleChangeTitle}
+                                    onKeyDown={handleKeyPress}
+                                />
+                            </S.EditCardTitle>
+                        </S.EditCardHeader>
+                        <S.EditCardDetail>
+                            <S.EditCardTextarea
+                                autoFocus
+                                value={cardContents.text}
+                                placeholder="Card text"
+                                onChange={handleChangeText}
+                                onKeyDown={handleKeyPress}
+                            />
+                        </S.EditCardDetail>
                     </S.EditCard>
                     <S.EditButtons>
                         <S.EditButton color="#5aac44" onClick={handleAddCard}>
@@ -61,7 +87,7 @@ const AddCard = ({ listId }: AddCardProps) => {
                     </S.EditButtons>
                 </div>
             ) : (
-                <S.ToggleAddCard onClick={handleToggleAddCard}> Add a Card </S.ToggleAddCard>
+                <S.ToggleAddCard onClick={handleToggleAddCard}> Click to add card </S.ToggleAddCard>
             )}
         </>
     );
