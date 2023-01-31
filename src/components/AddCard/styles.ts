@@ -18,16 +18,33 @@ const ToggleAddCard = styled.div`
     }
 `;
 
-const EditButtonCancel = styled.button`
+const EditButton = styled.button`
+    background: ${(props) => props.color};
+    color: #fff;
+    transition: background 0.3s ease;
+    min-height: 32px;
+    padding: 0 16px;
+    margin: 5px 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    opacity: 0.5;
-    outline: none;
     :hover {
-        opacity: 1;
+        opacity: 0.7;
     }
+`;
+
+const EditButtonCancel = styled.button`
+    background: #999999;
+    color: #ffffff;
+    transition: background 0.3s ease;
+    min-height: 32px;
+    padding: 0 16px;
+    margin: 5px 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
 `;
 
 const EditButtons = styled.div`
@@ -49,22 +66,6 @@ const EditCard = styled(Card)`
 
     :hover {
         background: white;
-    }
-`;
-
-const EditButton = styled.button`
-    cursor: pointer;
-    box-shadow: 0 1px 0 0 #3f6f21;
-    background: ${(props) => props.color};
-    width: fit-content;
-    margin: 5px 5px 5px;
-    padding: 6px 12px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
-    outline: none;
-    :hover {
-        opacity: 0.7;
     }
 `;
 

@@ -53,7 +53,7 @@ const AddList = () => {
                         <S.EditButton color="#5aac44" onClick={handleAddList}>
                             Add List
                         </S.EditButton>
-                        <S.EditButtonCancel color="red" onClick={handleToggleAddList}>
+                        <S.EditButtonCancel onClick={handleToggleAddList}>
                             Cancel
                         </S.EditButtonCancel>
                     </S.EditButtons>

@@ -2,15 +2,16 @@ import styled from "styled-components";
 import TextareaAutosize from "react-textarea-autosize";
 
 const AddListButton = styled.div`
-    background-color: rgba(0, 0, 0, 0.12);
-    border-radius: 10px;
+    background: #2b6aa3;
+    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
     color: #fff;
     display: flex;
     align-items: center;
     min-height: 32px;
     padding: 5px 8px;
-    transition: background-color 85ms ease-in, opacity 40ms ease-in, border-color 85ms ease-in;
+    transition: background 0.3s ease;
     height: fit-content;
 
     :hover {
@@ -40,31 +41,32 @@ const ListTitleInput = styled(TextareaAutosize)`
 `;
 
 const EditButton = styled.button`
-    cursor: pointer;
-    box-shadow: 0 1px 0 0 #3f6f21;
     background: ${(props) => props.color};
-    width: fit-content;
-    margin: 5px 5px 5px;
-    padding: 6px 12px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
-    outline: none;
+    color: #fff;
+    transition: background 0.3s ease;
+    min-height: 32px;
+    padding: 0 16px;
+    margin: 5px 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
     :hover {
         opacity: 0.7;
     }
 `;
 
 const EditButtonCancel = styled.button`
+    background: #999999;
+    color: #ffffff;
+    transition: background 0.3s ease;
+    min-height: 32px;
+    padding: 0 16px;
+    margin: 5px 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    opacity: 0.5;
-    outline: none;
-    :hover {
-        opacity: 1;
-    }
 `;
 
 const EditButtons = styled.div`
