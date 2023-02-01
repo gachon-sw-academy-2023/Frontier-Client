@@ -20,13 +20,6 @@ const Card = ({ cardDetail, index, listId }: CardProps) => {
     const [editable, setEditable] = useState<boolean>(false);
     const [isHover, setIsHover] = useState<boolean>(false);
 
-    const startHover = () => {
-        setIsHover(true);
-    };
-    const endHover = () => {
-        setIsHover(false);
-    };
-
     const handleDelete = (cardId: number) => {
         setCards((prev) => {
             const listCopy = [...prev[listId]];
@@ -47,8 +40,8 @@ const Card = ({ cardDetail, index, listId }: CardProps) => {
                         ref={provided.innerRef}
                         {...provided.dragHandleProps}
                         {...provided.draggableProps}
-                        onMouseEnter={startHover}
-                        onMouseLeave={endHover}
+                        onMouseEnter={() => setIsHover(true)}
+                        onMouseLeave={() => setIsHover(false)}
                     >
                         <S.CardHeader>
                             <S.CardTitle> {cardDetail.title} </S.CardTitle>

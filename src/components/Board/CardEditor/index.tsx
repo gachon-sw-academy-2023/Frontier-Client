@@ -1,7 +1,5 @@
 import { CardInterface } from "@/interfaces/cardInterface";
 import { cardState } from "@/recoil/atom";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import dayjs from "dayjs";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import S from "./styles";
@@ -13,24 +11,31 @@ interface CardEditorProps {
 }
 
 const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
-    const setCard = useSetRecoilState(cardState);
-    const [cardContents, setCardContents] = useState({ title: "", text: "" });
+    const setCards = useSetRecoilState(cardState);
+    const [cardContents, setCardContents] = useState({
+        title: cardDetail.title,
+        text: cardDetail.text,
+    });
 
-    const handleAddCard = () => {
+    const handleEditCard = () => {
         if (cardContents.title.length !== 0) {
-            setCard((prev) => ({
-                ...prev,
-                [listId]: [
-                    ...prev[listId],
-                    {
-                        id: Date.now(),
-                        title: cardContents.title,
-                        text: cardContents.text,
-                        date: dayjs().format("YYYY-MM-DD"),
-                    },
-                ],
-            }));
-            setCardContents({ title: "", text: "" });
+            setCards((prev) => {
+                const copyList = [...prev[listId]];
+                const findIndex = copyList.findIndex((card) => card.id === cardDetail.id);
+                copyList[findIndex] = {
+                    id: cardDetail.id,
+                    title: cardContents.title,
+                    text: cardContents.text,
+                    date: cardDetail.date,
+                };
+                // console.log(updateCard);
+                return {
+                    ...prev,
+                    [listId]: copyList,
+                    // [listId]: updateCard,
+                };
+            });
+            setEditable(false);
         }
     };
 
@@ -50,7 +55,7 @@ const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
-            handleAddCard();
+            handleEditCard();
         }
     };
     return (
@@ -60,8 +65,8 @@ const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
                     <S.EditCardTitle>
                         <S.EditCardTextarea
                             autoFocus
-                            value={cardDetail.title}
-                            placeholder="Title"
+                            value={cardContents.title}
+                            placeholder={cardDetail.title}
                             onChange={handleChangeTitle}
                             onKeyDown={handleKeyPress}
                         />
@@ -70,15 +75,15 @@ const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
                 <S.EditCardDetail>
                     <S.EditCardTextarea
                         autoFocus
-                        value={cardDetail.text}
-                        placeholder="Card text"
+                        value={cardContents.text}
+                        placeholder={cardDetail.text}
                         onChange={handleChangeText}
                         onKeyDown={handleKeyPress}
                     />
                 </S.EditCardDetail>
             </S.EditCard>
             <S.EditButtons>
-                <S.EditButton color="#5aac44" onClick={handleAddCard}>
+                <S.EditButton color="#5aac44" onClick={handleEditCard}>
                     Add Card
                 </S.EditButton>
                 <S.EditButton color="#999999" onClick={() => setEditable(false)}>
