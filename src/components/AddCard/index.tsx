@@ -1,4 +1,6 @@
 import { cardState } from "@/recoil/atom";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import dayjs from "dayjs";
 import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import * as S from "./styles";
@@ -18,7 +20,12 @@ const AddCard = ({ listId }: AddCardProps) => {
                 ...prev,
                 [listId]: [
                     ...prev[listId],
-                    { id: Date.now(), title: cardContents.title, text: cardContents.text },
+                    {
+                        id: Date.now(),
+                        title: cardContents.title,
+                        text: cardContents.text,
+                        date: dayjs().format("YYYY-MM-DD"),
+                    },
                 ],
             }));
             setCardContents({ title: "", text: "" });
@@ -46,8 +53,8 @@ const AddCard = ({ listId }: AddCardProps) => {
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
-            e.preventDefault();
             handleAddCard();
+            e.preventDefault();
         }
     };
 

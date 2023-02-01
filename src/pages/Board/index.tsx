@@ -1,4 +1,3 @@
-import React from "react";
 import List from "@/components/List";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";

@@ -15,27 +15,51 @@ const Card = styled.div`
 
     max-width: 250px;
     min-width: 230px;
+    min-height: 80px;
 
     :hover {
-        background-color: #f0f0f0;
+        background-color: #eee;
     }
 `;
 
 const CardTitle = styled(Title)`
+    padding-top: 4px;
+    padding-left: 4px;
     font-size: 14px;
-    min-height: 30px;
+    min-height: 40px;
 `;
 
 const CardDetail = styled.div`
     font-size: 12px;
+    padding-top: 4px;
+    padding-left: 4px;
     color: #4d4d4d;
     white-space: pre-wrap;
 `;
 
 const CardHeader = styled(Header)`
-    border-bottom: 1px solid #eee;
-    padding-bottom: 6px;
+    border-bottom: 1px solid #e5e5e5;
     color: #000;
 `;
 
-export default { CardDetail, CardTitle, Card, Header, CardHeader };
+const CardDate = styled.span`
+    width: 38%;
+    text-align: right;
+    padding-top: 4px;
+    padding-right: 10px;
+    font-size: 10px;
+`;
+
+const HoverButton = styled.div`
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 1px;
+    :hover {
+        background: #f5f6f7;
+        opacity: 0.5;
+    }
+`;
+
+export default { HoverButton, CardDate, CardDetail, CardTitle, Card, Header, CardHeader };

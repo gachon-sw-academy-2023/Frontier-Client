@@ -5,8 +5,8 @@ import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
-import SignUp from "./pages/SignUp";
-import Board from "./pages/Board";
+import SignUp from "@/pages/SignUp";
+import Board from "@/pages/Board";
 
 if (import.meta.env.MODE === "development") {
     worker.start({
