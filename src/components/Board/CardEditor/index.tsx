@@ -84,7 +84,7 @@ const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
             </S.EditCard>
             <S.EditButtons>
                 <S.EditButton color="#5aac44" onClick={handleEditCard}>
-                    Add Card
+                    Edit Card
                 </S.EditButton>
                 <S.EditButton color="#999999" onClick={() => setEditable(false)}>
                     Cancel
