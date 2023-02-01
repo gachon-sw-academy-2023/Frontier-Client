@@ -30,7 +30,6 @@ const AddList = () => {
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
-            e.preventDefault();
             handleAddList();
         }
     };

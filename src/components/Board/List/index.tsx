@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { CardInterface } from "@/recoil/atom";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import Card from "@/components/Card";
+import Card from "@/components/Board/Card";
+import { CardInterface } from "@/interfaces/cardInterface";
 import * as S from "./styles";
 import AddCard from "../AddCard";
 
@@ -37,7 +37,7 @@ const List = ({ listId, cards, index }: ListProps) => (
                                 />
                             ))}
                             {droppableProvided.placeholder}
-                            <AddCard listId={listId} />
+                            <AddCard listId={listId} editable={false} />
                         </div>
                     )}
                 </Droppable>

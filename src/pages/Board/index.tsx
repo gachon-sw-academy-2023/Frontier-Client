@@ -1,8 +1,9 @@
-import List from "@/components/List";
+import React from "react";
+import List from "@/components/Board/List";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import { cardState, CardStateInterface } from "@/recoil/atom";
-import AddList from "@/components/AddList";
+import AddList from "@/components/Board/AddList";
 import * as S from "./styles";
 
 const Board = () => {

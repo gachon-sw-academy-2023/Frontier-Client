@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { CardInterface } from "@/interfaces/cardInterface";
 import { atom } from "recoil";
-
-export interface CardInterface {
-    id: number;
-    text: string;
-    title: string;
-    date: string;
-}
 
 export interface CardStateInterface {
     [key: string]: CardInterface[];

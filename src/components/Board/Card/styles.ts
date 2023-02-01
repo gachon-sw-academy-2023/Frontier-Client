@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Header, Title } from "../GlobalStyle";
+import { Header, Title } from "../../GlobalStyle";
 
 const Card = styled.div`
     position: relative;

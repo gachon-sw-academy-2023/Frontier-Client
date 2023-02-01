@@ -3,7 +3,7 @@ import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { worker } from "@/tests/mocks/browser";
 import Landing from "@/pages/Landing";
-import Login from "@/pages/Login";
+import Login from "@/pages//Login";
 import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";

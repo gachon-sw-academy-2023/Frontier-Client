@@ -2,22 +2,7 @@ import styled from "styled-components";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import TextareaAutosize from "react-textarea-autosize";
 import S from "../Card/styles";
-import { Header, Title } from "../GlobalStyle";
-
-const ToggleAddCard = styled.div`
-    cursor: pointer;
-    padding: 10px;
-    color: #6b808c;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    align-items: center;
-
-    :hover {
-        background-color: rgba(9, 45, 66, 0.13);
-        color: #17394d;
-        text-decoration: underline;
-    }
-`;
+import { Header, Title } from "../../GlobalStyle";
 
 const EditButton = styled.button`
     background: ${(props) => props.color};
@@ -73,11 +58,10 @@ const EditCard = styled(S.Card)`
     }
 `;
 
-export {
+export default {
     EditCardTitle,
     EditCardDetail,
     EditButton,
-    ToggleAddCard,
     EditButtons,
     EditCardTextarea,
     EditCard,

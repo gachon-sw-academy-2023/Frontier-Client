@@ -3,15 +3,16 @@ import { cardState } from "@/recoil/atom";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
-import * as S from "./styles";
+import S from "./styles";
 
 interface AddCardProps {
     listId: string;
+    editable: boolean;
 }
 
-const AddCard = ({ listId }: AddCardProps) => {
+const AddCard = ({ listId, editable }: AddCardProps) => {
     const setCard = useSetRecoilState(cardState);
-    const [toggleAddCard, setToggleAddCard] = useState<boolean>(false);
+    const [toggleAddCard, setToggleAddCard] = useState<boolean>(editable);
     const [cardContents, setCardContents] = useState({ title: "", text: "" });
 
     const handleAddCard = () => {
@@ -54,7 +55,6 @@ const AddCard = ({ listId }: AddCardProps) => {
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
             handleAddCard();
-            e.preventDefault();
         }
     };
 
