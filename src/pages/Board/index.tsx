@@ -14,22 +14,12 @@ const Board = () => {
         if (type === "COLUMN") {
             setCards((prev) => {
                 const keyList = Object.keys(cards);
+                const taskObject = keyList[source.index];
+                keyList.splice(source.index, 1);
+                keyList.splice(destination?.index, 0, taskObject);
                 const newList: CardStateInterface = {};
-                let sourceKey: string;
-                let destinationKey: string;
-                keyList.forEach((item, index) => {
-                    if (index === source.index) sourceKey = item;
-                    if (index === destination.index) destinationKey = item;
-                });
-                keyList.forEach((item) => {
-                    if (item === sourceKey) return;
-                    if (item === destinationKey && source.index > destination.index) {
-                        newList[sourceKey] = [...prev[sourceKey]];
-                    }
-                    newList[item] = [...prev[item]];
-                    if (item === destinationKey && source.index < destination.index) {
-                        newList[sourceKey] = [...prev[sourceKey]];
-                    }
+                keyList.forEach((list) => {
+                    newList[list] = [...prev[list]];
                 });
                 return newList;
             });
