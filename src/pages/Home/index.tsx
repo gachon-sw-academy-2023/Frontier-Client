@@ -29,7 +29,7 @@ const Home = () => (
                     </HC.SideButton>
                 </HC.SideTop>
                 <HC.SideBottom>
-                    <HC.SideContent fsize="13px" color="gray">
+                    <HC.SideContent color="gray">
                         <div>WorkSpace</div>
                         <button type="button" className="add_workspace">
                             +

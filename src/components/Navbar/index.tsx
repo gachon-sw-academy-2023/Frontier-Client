@@ -15,10 +15,7 @@ const Navbar = () => {
     return (
         <H.HeadNav className="navbar">
             <H.HeadUl>
-                <H.HeadLiitem>
-                    <img src={Logo} alt="" className="h-10" />
-                    {/* Logo space */}
-                </H.HeadLiitem>
+                <H.Image src={Logo} alt="" />
                 <H.HeadLiitem>
                     <H.HeadLink to="/">workspace</H.HeadLink>
                 </H.HeadLiitem>

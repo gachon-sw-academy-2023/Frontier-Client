@@ -10,19 +10,15 @@ const AddList = () => {
 
     const [ToggleAddList, setToggleAddList] = useState<boolean>(false);
     const handleToggleAddList = () => {
-        setToggleAddList((current) => {
-            return !current;
-        });
+        setToggleAddList((current) => !current);
     };
 
     const handleAddList = () => {
         if (title.length !== 0) {
-            setList((prev) => {
-                return {
-                    ...prev,
-                    [title]: [],
-                };
-            });
+            setList((prev) => ({
+                ...prev,
+                [title]: [],
+            }));
             setTitle("");
             setToggleAddList(false);
         }
@@ -34,7 +30,6 @@ const AddList = () => {
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter") {
-            e.preventDefault();
             handleAddList();
         }
     };
@@ -57,9 +52,9 @@ const AddList = () => {
                         <S.EditButton color="#5aac44" onClick={handleAddList}>
                             Add List
                         </S.EditButton>
-                        <S.EditButtonCancel color="red" onClick={handleToggleAddList}>
+                        <S.EditButton color="#999999" onClick={handleToggleAddList}>
                             Cancel
-                        </S.EditButtonCancel>
+                        </S.EditButton>
                     </S.EditButtons>
                 </S.AddListEditor>
             ) : (

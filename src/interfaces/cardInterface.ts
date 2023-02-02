@@ -1,4 +1,6 @@
 export interface CardInterface {
-    id: string;
+    id: number;
+    text: string;
     title: string;
+    date: string;
 }
