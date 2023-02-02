@@ -40,10 +40,10 @@ const HeadLink = styled(Link)`
 
 const HeadCreate = styled.button`
     border: none;
-    height: 80%;
+    height: 100%;
     background-color: rgb(1, 74, 117);
     color: white;
-    margin: 0px;
+    margin: 1px 0 0 0;
     padding: 0px 15px;
     font-size: 15px;
 `;

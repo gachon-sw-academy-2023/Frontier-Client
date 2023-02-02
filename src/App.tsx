@@ -32,8 +32,6 @@ const App = () => (
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/homepage" element={<Home />} />
                     <Route path="/board" element={<Board />} />
-                    {/* <Route path="/workspace" component={<WorkSpace />}
-                        </Route> */}
                 </Routes>
             </QueryClientProvider>
         </RecoilRoot>
