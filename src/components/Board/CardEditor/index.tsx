@@ -60,7 +60,7 @@ const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
     };
     return (
         <>
-            <S.EditCard>
+            <S.EditCard isDragging={false}>
                 <S.EditCardHeader>
                     <S.EditCardTitle>
                         <S.EditCardTextarea

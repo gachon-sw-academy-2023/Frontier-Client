@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { Header, Title } from "../../GlobalStyle";
 
-const Card = styled.div`
+const Card = styled.div<{ isDragging: boolean }>`
     position: relative;
     cursor: pointer;
-    background: white;
+    background-color: ${(props) => (props.isDragging ? "#F1F1E1" : "#fff")};
     margin: 7px;
     padding: 10px;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 1px 0 rgba(9, 45, 66, 0.15);
     font-size: 15px;
     overflow-wrap: break-word;
-    border-radius: 3px;
+    border-radius: 4px;
 
     max-width: 250px;
     min-width: 230px;
