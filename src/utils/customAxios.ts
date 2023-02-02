@@ -1,15 +1,17 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { useRecoilValue } from "recoil";
-import { userAtom } from "@/recoil/userAtom";
 
 const { BASE_URL } = import.meta.env;
 
-const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const token = useRecoilValue(userAtom);
+const baseAxios: AxiosInstance = axios.create({
+    baseURL: BASE_URL,
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+});
 
-    return { ...config, headers: { Authorization: token.id } };
-};
+const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => ({
+    ...config,
+    headers: { Authorization: "" },
+});
 
 const onRequestError = (error: AxiosError): Promise<AxiosError> => Promise.reject(error);
 
@@ -24,14 +26,6 @@ const setInterceptors = (instance: AxiosInstance): AxiosInstance => {
     return instance;
 };
 
-const customAxios = () => {
-    const instance = axios.create({
-        baseURL: BASE_URL,
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-    });
-
-    return setInterceptors(instance);
-};
+const customAxios = setInterceptors(baseAxios);
 
 export default customAxios;
