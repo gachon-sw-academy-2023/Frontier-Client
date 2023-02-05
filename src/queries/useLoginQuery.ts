@@ -3,7 +3,7 @@ import customAxios from "@/utils/customAxios";
 import { useMutation, UseMutationOptions } from "react-query";
 import { UserLogin, User } from "@/interfaces/userInterface";
 
-export const API_URL = "/login";
+export const API_URL = "/api/v1/auth/login";
 
 const fetcher = async (user: UserLogin): Promise<AxiosResponse<User>> => {
     const data = await customAxios.post<UserLogin, AxiosResponse<User>>(API_URL, user);
