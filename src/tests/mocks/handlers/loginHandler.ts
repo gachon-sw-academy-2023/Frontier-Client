@@ -2,7 +2,7 @@ import { rest } from "msw";
 import users from "@/tests/mocks/datasources/users.json";
 import { UserLogin, User } from "@/interfaces/userInterface";
 
-const ERROR_MESSAGE = {
+export const ERROR_MESSAGE = {
     USER_NOTFOUND: "존재하지 않는 이메일 입니다.",
     WRONG_PASSWORD: "비밀번호가 일치하지 않습니다.",
 };
