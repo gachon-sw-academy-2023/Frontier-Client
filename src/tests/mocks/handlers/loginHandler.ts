@@ -10,7 +10,6 @@ export const ERROR_MESSAGE = {
 export const loginHandler = [
     rest.post("/auth/login", async (req, res, ctx) => {
         const { email, password } = await req.json<UserLogin>();
-
         const user = users.find((v) => v.email === email);
 
         if (!user) {
