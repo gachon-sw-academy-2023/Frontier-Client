@@ -7,7 +7,7 @@ export const ERROR_MESSAGE = {
 };
 
 export const signUpHandler = [
-    rest.post("/signup", async (req, res, ctx) => {
+    rest.post("/auth/signup", async (req, res, ctx) => {
         const { name, email, password } = await req.json<UserSignUp>();
 
         const user = users.find((v) => v.email === email);
