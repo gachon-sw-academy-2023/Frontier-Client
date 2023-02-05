@@ -8,7 +8,7 @@ const ERROR_MESSAGE = {
 };
 
 export const loginHandler = [
-    rest.post("api/v1/auth/login", async (req, res, ctx) => {
+    rest.post("/auth/login", async (req, res, ctx) => {
         const { email, password } = await req.json<UserLogin>();
 
         const user = users.find((v) => v.email === email);
