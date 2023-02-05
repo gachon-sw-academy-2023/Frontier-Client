@@ -8,10 +8,14 @@ const baseAxios: AxiosInstance = axios.create({
     withCredentials: true,
 });
 
-const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => ({
-    ...config,
-    headers: { Authorization: "" },
-});
+const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+    return {
+        ...config,
+        headers: { Authorization: user?.id || "" },
+    };
+};
 
 const onRequestError = (error: AxiosError): Promise<AxiosError> => Promise.reject(error);
 
