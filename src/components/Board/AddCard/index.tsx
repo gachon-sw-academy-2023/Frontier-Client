@@ -1,5 +1,4 @@
 import { cardState } from "@/recoil/atom";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -62,7 +61,7 @@ const AddCard = ({ listId, editable }: AddCardProps) => {
         <>
             {toggleAddCard ? (
                 <div>
-                    <S.EditCard>
+                    <S.EditCard isDragging={false}>
                         <S.EditCardHeader>
                             <S.EditCardTitle>
                                 <S.EditCardTextarea
