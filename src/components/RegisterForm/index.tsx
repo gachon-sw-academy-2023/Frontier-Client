@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/utils/routes";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/utils/validation";
@@ -7,10 +6,12 @@ import {
     ERROR_EMAIL_VALIDATION,
     ERROR_PASSWORD_VALIDATION,
     ERROR_EMAIL_DUPLICATED,
-    ERROR_SIGNUP_FAIL,
 } from "@/utils/error-message";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+import useSignUpQuery from "@/queries/useSignUpQuery";
+import { useSetRecoilState } from "recoil";
+import { userAtom } from "@/recoil/userAtom";
 import S from "./styles";
 
 type UserSignUpFormData = {
@@ -20,8 +21,8 @@ type UserSignUpFormData = {
 };
 
 const RegisterFrom = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState("");
+    const { mutate, isLoading, error } = useSignUpQuery();
+    const setUser = useSetRecoilState(userAtom);
     const navigate = useNavigate();
     const {
         register,
@@ -30,22 +31,12 @@ const RegisterFrom = () => {
     } = useForm<UserSignUpFormData>();
 
     const onSubmit = handleSubmit((data) => {
-        setIsLoading(true);
-        axios
-            .post("/signup", { name: data.name, email: data.email, password: data.password })
-            .then((res) => {
-                if (res.status === 200) {
-                    setIsLoading(false);
-                    navigate(ROUTES.LOGIN);
-                } else if (res.status === 204) {
-                    setIsLoading(false);
-                    setError(ERROR_EMAIL_DUPLICATED);
-                }
-            })
-            .catch(() => {
-                setError(ERROR_SIGNUP_FAIL);
-                setIsLoading(false);
-            });
+        mutate(data, {
+            onSuccess: (res) => {
+                setUser(res.data);
+                navigate(ROUTES.HOMEPAGE);
+            },
+        });
     });
 
     return (
