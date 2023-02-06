@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from "axios";
 import customAxios from "@/utils/customAxios";
-import { useMutation, UseMutationOptions } from "react-query";
+import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { UserSignUp, User } from "@/interfaces/userInterface";
 
 export const API_URL = "/auth/signup";
