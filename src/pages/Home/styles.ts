@@ -40,6 +40,7 @@ const SideContent = styled.div`
     width: 100%;
     margin-top: 10px;
     padding: 10px;
+    flex-direction: ${(props) => props.dir || "15px"}};
     color: ${(props) => props.color || "black"};
 `;
 
@@ -50,17 +51,31 @@ const SideButton = styled.button`
     border: none;
     width: 100%;
     padding: 10px;
+    margin: 5px;
     font-weight: bold;
     &:hover {
         background-color: rgb(231, 233, 237);
     }
 `;
 
+// const SideButtonTitle = styled.button`
+//     display: flex;
+//     justify-content: space-between;
+//     text-align: left;
+//     border: none;
+//     width: 100%;
+//     padding: 10px;
+//     margin: 5px;
+//     font-weight: bold;
+//     &:hover {
+//         background-color: rgb(231, 233, 237);
+//     }
+// `;
+
 const HomeContent = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 30px 30px 30px;
-    width: 100%;
 `;
 
 const HomeH1 = styled.h1`
