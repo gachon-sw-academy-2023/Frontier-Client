@@ -1,4 +1,4 @@
-import LogoImage from "@/assets/images/Trello-Logo.png";
+import LogoImage from "@/assets/images/Frontier-Logo2.png";
 import * as S from "./Header.styles";
 
 const Header = () => (
