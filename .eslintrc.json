@@ -75,6 +75,7 @@
     "dist",
     "environment",
     "node_modules",
-    ".storybook"
+    ".storybook",
+    "/**/*.d.ts"
   ]
 }

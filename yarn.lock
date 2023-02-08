@@ -10236,6 +10236,7 @@ __metadata:
     react-textarea-autosize: ^8.4.0
     recoil: ^0.7.6
     styled-components: ^5.3.6
+    styled-popover-component: ^4.0.0
     typescript: ^4.9.3
     uuid: ^9.0.0
     vite: 3.2.5
@@ -17632,6 +17633,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"styled-base-components@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "styled-base-components@npm:4.0.0"
+  dependencies:
+    styled-base-components: ^4.0.0
+    styled-config: ^4.0.0
+  peerDependencies:
+    react: ^16.7.0
+    styled-components: ^4.1.2
+  checksum: 9af62f84fcc3ffd95b2c8edd61e03b9904850d74a3a3e49a28512c6322a848a5fbf2eb5bf3905bfdc5a836474d76ed2892f10819b0a94290dbe66a71e120107a
+  languageName: node
+  linkType: hard
+
 "styled-components@npm:^5.3.6":
   version: 5.3.6
   resolution: "styled-components@npm:5.3.6"
@@ -17651,6 +17665,26 @@ __metadata:
     react-dom: ">= 16.8.0"
     react-is: ">= 16.8.0"
   checksum: 68eac1e451be81d66739cf86de8ec9e72f46e7584aa359271761a2437468210bd7cf0a864281fc97dab08c32b35e6bf7513dc8b4104ed6b196cf8d65674dd289
+  languageName: node
+  linkType: hard
+
+"styled-config@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "styled-config@npm:4.0.0"
+  checksum: de9c1031e14addc17d479c29918a17d37008ca77f65b9cf9553878963867efbbfcfbb73733799d81c3998ba0d260d7ed0fcbccafeec761f2f1b756797d88a945
+  languageName: node
+  linkType: hard
+
+"styled-popover-component@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "styled-popover-component@npm:4.0.0"
+  dependencies:
+    styled-base-components: ^4.0.0
+    styled-config: ^4.0.0
+  peerDependencies:
+    react: ^16.7.0
+    styled-components: ^4.1.2
+  checksum: 74b6f61154018098e264c09ed609a4294158927f6ca992084d1ae73859ee7dadcffd93ff2f76206cdca7bc84f546265ab3de5602a62867f1a00a10b582e26990
   languageName: node
   linkType: hard
 
