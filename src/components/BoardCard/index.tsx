@@ -1,22 +1,26 @@
 import { useNavigate } from "react-router-dom";
-import { WorkspaceInterface } from "@/interfaces/workspaceInterface";
-import BC from "./styles";
+import { BoardInterface } from "@/interfaces/boardInterface";
+import Box from "./styles";
 
-const BoardCard = (props: WorkspaceInterface) => {
+const BoardCard = (props: BoardInterface) => {
     const navigate = useNavigate();
     return (
-        <BC.BoardBox onClick={() => navigate("/board")}>
-            <BC.BoardImg>wordspace_img</BC.BoardImg>
-            <div className="board_content">
+        <Box.Box
+            onClick={() =>
+                navigate(`workspace/${props.workspace_id}/boards/${props.id}`, {
+                    state: {
+                        workspaceID: props.workspace_id,
+                        boardID: props.id
+                    },
+                })
+            }
+        >
+            <Box.BoxContent>
                 <h1>{props.name}</h1>
+                <div>{props.ownername}</div>
                 <span>{props.date}</span>
-            </div>
-            <BC.BoardFunc>
-                <button type="button" className="board_star">
-                    ☆
-                </button>
-            </BC.BoardFunc>
-        </BC.BoardBox>
+            </Box.BoxContent>
+        </Box.Box>
     );
 };
 

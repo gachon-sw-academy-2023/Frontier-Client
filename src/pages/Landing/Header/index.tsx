@@ -6,7 +6,7 @@ const Header = () => (
         <S.HeaderContainer>
             <S.LogoContainer src={LogoImage} />
             <S.NavContainer>
-                <S.NavMenu to="#home">Home</S.NavMenu>
+                <S.NavMenu to="homepage">Home</S.NavMenu>
                 <S.NavMenu to="#features">Features</S.NavMenu>
                 <S.NavMenu to="#stats">Stats</S.NavMenu>
             </S.NavContainer>

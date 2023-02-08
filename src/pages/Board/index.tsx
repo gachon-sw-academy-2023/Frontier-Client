@@ -4,6 +4,8 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import { cardState, CardStateInterface } from "@/recoil/atom";
 import AddList from "@/components/Board/AddList";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import * as S from "./styles";
 
 const Board = () => {
@@ -66,24 +68,28 @@ const Board = () => {
     };
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="board" direction="horizontal" type="COLUMN">
-                {(provided) => (
-                    <S.Board ref={provided.innerRef}>
-                        {Object.keys(cards).map((listId, index) => (
-                            <List
-                                listId={listId}
-                                key={listId}
-                                cards={cards[listId]}
-                                index={index}
-                            />
-                        ))}
-                        {provided.placeholder}
-                        <AddList />
-                    </S.Board>
-                )}
-            </Droppable>
-        </DragDropContext>
+        <S.BoardContent>
+            <Navbar />
+            <Sidebar />
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="board" direction="horizontal" type="COLUMN">
+                    {(provided) => (
+                        <S.Board ref={provided.innerRef}>
+                            {Object.keys(cards).map((listId, index) => (
+                                <List
+                                    listId={listId}
+                                    key={listId}
+                                    cards={cards[listId]}
+                                    index={index}
+                                />
+                            ))}
+                            {provided.placeholder}
+                            <AddList />
+                        </S.Board>
+                    )}
+                </Droppable>
+            </DragDropContext>
+        </S.BoardContent>
     );
 };
 
