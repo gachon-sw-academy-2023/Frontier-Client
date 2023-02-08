@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import Box from "@/components/BoardCard";
+import Box from "@/components/Workspace/Box";
 import axios from "axios";
 import HC from "./styles";
 

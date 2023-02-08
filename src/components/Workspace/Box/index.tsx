@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { BoardInterface } from "@/interfaces/boardInterface";
 import Box from "./styles";
 
-const BoardCard = (props: BoardInterface) => {
+const WorkspaceBox = (props: BoardInterface) => {
     const navigate = useNavigate();
     return (
         <Box.Box
@@ -24,4 +24,4 @@ const BoardCard = (props: BoardInterface) => {
     );
 };
 
-export default BoardCard;
+export default WorkspaceBox;
