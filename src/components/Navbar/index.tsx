@@ -1,5 +1,5 @@
 import { SetStateAction, useState } from "react";
-import Logo from "@/assets/images/Trello-Logo.png";
+import Logo from "@/assets/images/Frontier-Logo.png";
 import { ROUTES } from "@/utils/routes";
 import user_img from "@/assets/images/user-img.png";
 import Head from "./styles";

@@ -40,7 +40,7 @@ const HeadLifunc = styled.li`
 `;
 
 const Image = styled.img`
-    width: 45px;
+    width: 150px;
 `;
 
 const HeadLink = styled(Link)`
