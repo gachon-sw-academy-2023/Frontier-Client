@@ -34,6 +34,7 @@ const Boards = styled.div`
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px 3px;
     margin-bottom: 24px;
+    margin-top: 16px;
 `;
 
 const Board = styled.div`
@@ -113,7 +114,7 @@ const BoardTitle = styled.span`
     font-weight: bold;
     font-size: 15px;
     line-height: 25px;
-    width: 70%;
+    width: 90%;
 `;
 
 const BoardDetail = styled.div`
@@ -128,6 +129,21 @@ const BoardHeader = styled.header`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+`;
+
+const Button = styled.div`
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 5px;
+    :hover {
+        opacity: 0.5;
+    }
+`;
+
+const Text = styled.span`
+    font-size: 20px;
 `;
 
 export default {
@@ -147,4 +163,6 @@ export default {
     AddBoard,
     PopoverBodyTitle,
     PopoverSizeUp,
+    Button,
+    Text,
 };

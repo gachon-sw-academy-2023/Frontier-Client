@@ -1,12 +1,12 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
-import LogoImg from "src/assets/images/Trello-Logo.png";
 import { useNavigate } from "react-router-dom";
-import { AiFillSetting, AiFillPlusCircle } from "react-icons/ai";
+import { AiFillSetting, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 import { useRecoilState } from "recoil";
 import { boardState } from "@/recoil/atom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { PopoverBody, PopoverHeader } from "styled-popover-component";
+import LogoImg from "src/assets/images/Trello-Logo.png";
 import dayjs from "dayjs";
 import S from "./styles";
 
@@ -16,6 +16,7 @@ const Workspace = () => {
     const [boards, setBoards] = useRecoilState(boardState);
     const [hidden, setHidden] = useState(true);
     const [position, setPosition] = useState([0, 0]);
+    const [isHover, setIsHover] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const handleCreateBoard = () => {
@@ -50,6 +51,7 @@ const Workspace = () => {
             </S.Nav>
             <S.WorkspaceContainer>
                 <S.WorkspaceTitle> WORKSPACE_NAME </S.WorkspaceTitle>
+                <S.Text> Boards </S.Text>
                 <S.Boards>
                     <S.AddBoard
                         onClick={(ev) => {
@@ -63,9 +65,19 @@ const Workspace = () => {
                         <AiFillPlusCircle />
                     </S.AddBoard>
                     {boards.map((board) => (
-                        <S.Board key={board.id} onClick={() => navigate(`/board/${board.title}`)}>
+                        <S.Board
+                            key={board.id}
+                            onClick={() => navigate(`/board/${board.id}`)}
+                            onMouseEnter={() => setIsHover(true)}
+                            onMouseLeave={() => setIsHover(false)}
+                        >
                             <S.BoardHeader>
                                 <S.BoardTitle> {board.title} </S.BoardTitle>
+                                {isHover && (
+                                    <S.Button>
+                                        <AiFillDelete />
+                                    </S.Button>
+                                )}
                             </S.BoardHeader>
                             <S.BoardDetail> {board.description} </S.BoardDetail>
                         </S.Board>
