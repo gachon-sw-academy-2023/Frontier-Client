@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CardInterface } from "@/interfaces/cardInterface";
+import { BoardInterface } from "@/interfaces/boardInterface";
 import { atom } from "recoil";
 
 export interface CardStateInterface {
     [key: string]: CardInterface[];
+}
+
+export interface BoardStateInterface {
+    [key: string]: BoardInterface[];
 }
 
 const localStorageEffect =
@@ -27,4 +32,9 @@ export const cardState = atom<CardStateInterface>({
     key: "card",
     default: {},
     effects: [localStorageEffect("card")],
+});
+
+export const boardState = atom<CardStateInterface[]>({
+    key: "board",
+    default: [],
 });
