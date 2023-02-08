@@ -8236,6 +8236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dexie@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "dexie@npm:3.2.3"
+  checksum: 54fd7bc94364ed601dc2d53f8b488e49ac61d4ec532f001a68fde9ffccb4bf3c6a8af310b41d8f52c94c1a99c0e165437d7b223b655df582ceda90b9bfcd60e7
+  languageName: node
+  linkType: hard
+
 "diff-sequences@npm:^29.3.1":
   version: 29.3.1
   resolution: "diff-sequences@npm:29.3.1"
@@ -10247,6 +10254,7 @@ __metadata:
     babel-loader: ^8.3.0
     cypress: ^12.3.0
     dayjs: ^1.11.7
+    dexie: ^3.2.3
     eslint: ^8.31.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-typescript: ^17.0.0
