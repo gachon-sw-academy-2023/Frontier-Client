@@ -6,12 +6,13 @@ import S from "./styles";
 
 interface CardEditorProps {
     setEditable: Dispatch<SetStateAction<boolean>>;
+    boardId: string;
     listId: string;
     cardDetail: CardInterface;
 }
 
-const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
-    const setCards = useSetRecoilState(cardState);
+const CardEditor = ({ setEditable, boardId, listId, cardDetail }: CardEditorProps) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [cardContents, setCardContents] = useState({
         title: cardDetail.title,
         text: cardDetail.text,

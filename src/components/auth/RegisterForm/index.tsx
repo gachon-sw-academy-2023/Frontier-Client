@@ -48,7 +48,6 @@ const RegisterFrom = () => {
                 placeholder="Name"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("name")}
             />
             <S.Input
@@ -57,7 +56,6 @@ const RegisterFrom = () => {
                 placeholder="Email"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("email", { required: true, pattern: EMAIL_REGEX })}
             />
             {errors.email && errors.email.type === "pattern" && (
@@ -69,7 +67,6 @@ const RegisterFrom = () => {
                 placeholder="Password"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("password", { required: true, pattern: PASSWORD_REGEX })}
             />
             {errors.password && errors.password.type === "pattern" && (

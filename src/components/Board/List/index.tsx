@@ -13,12 +13,13 @@ import AddCard from "../AddCard";
 
 interface ListProps {
     listId: string;
+    boardId: string;
     cards: CardInterface[];
     index: number;
 }
 
-const List = ({ listId, cards, index }: ListProps) => {
-    const setCards = useSetRecoilState(cardState);
+const List = ({ listId, boardId, cards, index }: ListProps) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [isHover, setIsHover] = useState<boolean>(false);
     const [editable, setEditable] = useState<boolean>(false);
     const handleDeleteList = () => {
@@ -48,7 +49,11 @@ const List = ({ listId, cards, index }: ListProps) => {
                         onMouseLeave={() => setIsHover(false)}
                     >
                         {editable ? (
-                            <ListEditor setEditable={setEditable} listId={listId} />
+                            <ListEditor
+                                setEditable={setEditable}
+                                boardId={boardId}
+                                listId={listId}
+                            />
                         ) : (
                             <S.ListTitle>{listId}</S.ListTitle>
                         )}
@@ -74,12 +79,13 @@ const List = ({ listId, cards, index }: ListProps) => {
                                     <Card
                                         key={card.id}
                                         index={cardindex}
+                                        boardId={boardId}
                                         cardDetail={card}
                                         listId={listId}
                                     />
                                 ))}
                                 {droppableProvided.placeholder}
-                                <AddCard listId={listId} editable={false} />
+                                <AddCard listId={listId} boardId={boardId} editable={false} />
                             </div>
                         )}
                     </Droppable>

@@ -6,11 +6,12 @@ import S from "./styles";
 
 interface AddCardProps {
     listId: string;
+    boardId: string;
     editable: boolean;
 }
 
-const AddCard = ({ listId, editable }: AddCardProps) => {
-    const setCard = useSetRecoilState(cardState);
+const AddCard = ({ listId, editable, boardId }: AddCardProps) => {
+    const setCard = useSetRecoilState(cardState(boardId));
     const [toggleAddCard, setToggleAddCard] = useState<boolean>(editable);
     const [cardContents, setCardContents] = useState({ title: "", text: "" });
 

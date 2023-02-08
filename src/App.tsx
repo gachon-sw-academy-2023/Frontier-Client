@@ -7,6 +7,7 @@ import Login from "@/pages//Login";
 import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";
+import Workspace from "@/pages/Workspace";
 
 if (import.meta.env.MODE === "development") {
     worker.start({
@@ -31,7 +32,8 @@ const App = () => (
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/homepage" element={<Home />} />
-                    <Route path="/board" element={<Board />} />
+                    <Route path="/board/:boardId" element={<Board />} />
+                    <Route path="/workspace" element={<Workspace />} />
                 </Routes>
             </QueryClientProvider>
         </RecoilRoot>
