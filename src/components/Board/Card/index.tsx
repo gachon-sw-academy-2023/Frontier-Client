@@ -35,19 +35,20 @@ const Card = ({ cardDetail, index, listId }: CardProps) => {
     if (!editable) {
         return (
             <Draggable draggableId={cardDetail.id.toString()} index={index}>
-                {(provided) => (
+                {(provided, snapshot) => (
                     <S.Card
                         ref={provided.innerRef}
                         {...provided.dragHandleProps}
                         {...provided.draggableProps}
                         onMouseEnter={() => setIsHover(true)}
                         onMouseLeave={() => setIsHover(false)}
+                        isDragging={snapshot.isDragging}
                     >
                         <S.CardHeader>
                             <S.CardTitle> {cardDetail.title} </S.CardTitle>
                             <S.CardDate> {cardDetail.date} </S.CardDate>
                             {isHover && (
-                                <div>
+                                <>
                                     <S.HoverButton onClick={handleToggleEditable}>
                                         <FaEdit />
                                     </S.HoverButton>
@@ -58,7 +59,7 @@ const Card = ({ cardDetail, index, listId }: CardProps) => {
                                     >
                                         <AiTwotoneDelete />
                                     </S.HoverButton>
-                                </div>
+                                </>
                             )}
                         </S.CardHeader>
                         <S.CardDetail>{cardDetail.text}</S.CardDetail>

@@ -1,11 +1,12 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
+import customAxios from "@/utils/customAxios";
 import { useMutation, UseMutationOptions } from "react-query";
 import { UserLogin, User } from "@/interfaces/userInterface";
 
-export const API_URL = "/login";
+export const API_URL = "/auth/login";
 
 const fetcher = async (user: UserLogin): Promise<AxiosResponse<User>> => {
-    const data = await axios.post<UserLogin, AxiosResponse<User>>(API_URL, user);
+    const data = await customAxios.post<UserLogin, AxiosResponse<User>>(API_URL, user);
 
     return data;
 };

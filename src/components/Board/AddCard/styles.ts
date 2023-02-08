@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import TextareaAutosize from "react-textarea-autosize";
 import { Header, Title } from "@/components/GlobalStyle";
 import S from "@/components/Board/Card/styles";
