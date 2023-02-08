@@ -30,15 +30,14 @@ export const cardState = atomFamily<CardStateInterface, string>({
 });
 
 export interface IBoard {
-    boardId: number;
+    id: number;
     date: string;
-    boardTitle: string;
+    description: string;
+    title: string;
 }
-export interface IBoardState {
-    [key: string]: IBoard[];
-}
-export const boardState = atom<IBoardState>({
+
+export const boardState = atom<IBoard[]>({
     key: "board",
-    default: {},
+    default: [],
     effects: [localStorageEffect("board")],
 });
