@@ -4,7 +4,7 @@ import database from "@/mocks/database";
 import { useEffect } from "react";
 
 const Landing = () => {
-    useEffect(() => console.log(database.user.getAll()));
+    useEffect(() => console.log(database.card.getAll()));
     return (
         <>
             <Header />
