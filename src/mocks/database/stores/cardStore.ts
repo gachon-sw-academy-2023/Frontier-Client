@@ -1,37 +1,37 @@
 import { Table } from "dexie";
 
-interface MemberModel {
+interface MemberCollection {
     id: string;
     name: string;
     profileImage: string;
 }
 
-interface LabelModel {
+interface LabelCollection {
     isChecked: boolean;
     color: string;
     title: string;
 }
 
-interface ChecklistModel {
+interface ChecklistCollection {
     isChecked: boolean;
     title: string;
 }
 
-interface DateModel {
+interface DateCollection {
     from: string;
     to: string;
 }
 
-interface CardContentModel {
-    members?: MemberModel[];
-    labels?: LabelModel[];
-    checklist?: ChecklistModel[];
-    dates?: DateModel;
-    attachments?: string;
-    markdown?: string;
+interface CardContentCollection {
+    members: MemberCollection[];
+    labels: LabelCollection[];
+    checklist: ChecklistCollection[];
+    dates: DateCollection;
+    attachments: string;
+    markdown: string;
 }
 
-interface CardModel {
+interface CardCollection {
     id: string;
     listId: string;
     createdBy: string;
@@ -40,13 +40,13 @@ interface CardModel {
     title: string;
     description: string;
     position: number;
-    contents?: Partial<CardContentModel>;
+    contents?: Partial<CardContentCollection>;
 }
 
 export interface CardTable {
-    card: Table<CardModel>;
+    card: Table<CardCollection>;
 }
 
 export const cardSchema = {
-    card: "id, listId",
+    card: "id, listId, [listId+title+description+position]",
 };

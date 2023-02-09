@@ -1,6 +1,6 @@
 import { Table } from "dexie";
 
-interface UserModel {
+interface UserCollection {
     id: string;
     name: string;
     email: string;
@@ -9,9 +9,9 @@ interface UserModel {
 }
 
 export interface UserTable {
-    user: Table<UserModel>;
+    user: Table<UserCollection>;
 }
 
 export const userSchema = {
-    user: "id",
+    user: "id, email, [id+name+profileImage]",
 };

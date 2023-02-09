@@ -1,6 +1,6 @@
 import { Table } from "dexie";
 
-interface ListModel {
+interface ListCollection {
     id: string;
     boardId: string;
     title: string;
@@ -11,7 +11,7 @@ interface ListModel {
 }
 
 export interface ListTable {
-    list: Table<ListModel>;
+    list: Table<ListCollection>;
 }
 
 export const listSchema = {
