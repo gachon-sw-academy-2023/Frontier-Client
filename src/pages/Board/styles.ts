@@ -8,9 +8,13 @@ const Board = styled.div`
     margin-top: 7vh;
     margin-left: 250px;
     background-color: #3179ba;
-    overflow-y: hidden;
+    overflow-y: fix;
+    overflow-x: fix;
     display: flex;
-    height: 93vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    height: auto;
+    width: auto;
 `;
 
 export { BoardContent, Board };
