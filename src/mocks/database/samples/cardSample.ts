@@ -1,7 +1,7 @@
 export const cardSample = [
     {
         id: "f8484790-7473-4378-9988-4ef1ddca3521",
-        title: "Card 1",
+        title: "Card1",
         createdBy: "e1974523-85cc-4df5-b022-827e25fe6738",
         createdAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         modifiedAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
@@ -39,7 +39,7 @@ export const cardSample = [
     },
     {
         id: "ef30e4f3-6d2d-4724-821e-d7accb5a830f",
-        title: "Card 2",
+        title: "Card2",
         createdBy: "e1974523-85cc-4df5-b022-827e25fe6738",
         createdAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         modifiedAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
