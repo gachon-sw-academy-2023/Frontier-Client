@@ -1,13 +1,5 @@
 import { Table } from "dexie";
 
-interface DefaultMeta {
-    id: string;
-    title: string;
-    createdBy: string;
-    createdAt: string;
-    modifiedAt: string;
-}
-
 interface MemberModel {
     id: string;
     name: string;
@@ -39,8 +31,13 @@ interface CardContentModel {
     markdown?: string;
 }
 
-interface CardModel extends DefaultMeta {
+interface CardModel {
+    id: string;
     listId: string;
+    createdBy: string;
+    createdAt: string;
+    modifiedAt: string;
+    title: string;
     description: string;
     position: number;
     contents?: Partial<CardContentModel>;
