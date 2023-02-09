@@ -6,7 +6,7 @@ export const cardSample = [
         createdAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         modifiedAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         listId: "7f75ef12-9dab-440c-9e27-5c07aef69d58",
-        description: "List1 - Card1",
+        description: "Card1",
         position: 1,
         contents: {
             members: [
@@ -44,7 +44,7 @@ export const cardSample = [
         createdAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         modifiedAt: "Thu Feb 09 2023 06:47:57 GMT+0900 (한국 표준시)",
         listId: "7f75ef12-9dab-440c-9e27-5c07aef69d58",
-        description: "List1 - Card2",
+        description: "Card2",
         position: 1,
         contents: {
             members: [
