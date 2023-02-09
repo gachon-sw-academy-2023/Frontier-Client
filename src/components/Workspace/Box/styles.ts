@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const BoardBox = styled.div`
+const Box = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: solid 2px;
+    border: solid 3px;
     border-radius: 8px;
-    width: 300px;
+    width: 250px;
     padding: 10px;
     margin: 10px 20px 10px 0px;
     color: white;
@@ -18,14 +18,13 @@ const BoardBox = styled.div`
     }
 `;
 
-const BoardImg = styled.div`
+const BoxContent = styled.div`
     width: 100%;
     padding: 0;
-    border: solid 2px;
 `;
 
 const BoardFunc = styled.span`
     align-items: right;
 `;
 
-export default { BoardBox, BoardImg, BoardFunc };
+export default { Box, BoxContent, BoardFunc };

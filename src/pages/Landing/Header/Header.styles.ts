@@ -7,12 +7,15 @@ export const HeaderContainer = styled.header<I.HeaderContainer>`
     height: 80px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0.5rem 0.625rem;
     z-index: 10;
 `;
 
 export const LogoContainer = styled.img`
-    height: 70px;
+    margin-left: 15px;
+    width: 150px;
+    height: 50px;
 `;
 
 export const NavContainer = styled.nav`
