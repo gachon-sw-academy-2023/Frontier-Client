@@ -1,23 +1,27 @@
+import { ROUTES } from "@/utils/routes";
+import Side from "./styles";
+
 const Sidebar = () => (
-    <div className="sidebar">
-        <div className="side_title">
-            <ul>
-                <li>Workspace name</li>
-            </ul>
-        </div>
-        <div>
-            <ul className="workspace_setting">
-                <li className="workspace_board">Board</li>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <li className="Board1">Board 1</li>
-                <li className="Board2">Board 2</li>
-                <li className="Board3">Board 3</li>
-            </ul>
-        </div>
-    </div>
+    <Side.HomeSide>
+        <Side.SideTop>
+            <Side.SideButton>
+                <Side.SideLink to={ROUTES.HOMEPAGE}>Board</Side.SideLink>
+            </Side.SideButton>
+            <Side.SideButton>
+                <Side.SideLink to={ROUTES.HOMEPAGE}>Home</Side.SideLink>
+            </Side.SideButton>
+        </Side.SideTop>
+        <Side.SideBottom>
+            <Side.SideContent color="gray">
+                <div>WorkSpace</div>
+                <button type="button" className="add_workspace">
+                    +
+                </button>
+            </Side.SideContent>
+            <Side.SideButton>WorkSpace1</Side.SideButton>
+            <Side.SideButton>WorkSpace2</Side.SideButton>
+        </Side.SideBottom>
+    </Side.HomeSide>
 );
 
 export default Sidebar;

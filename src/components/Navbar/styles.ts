@@ -1,21 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import user_img from "@/assets/images/user-img.png";
 
 const HeadNav = styled.nav`
+    position: fixed;
     display: flex;
+    z-index: 10;
+    width: 100vw;
+    height: 5vh;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(2, 106, 167);
     padding: 10px;
-    margin: -8px;
-    margin-bottom: 15px;
 `;
 
 const HeadUl = styled.ul`
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    margin: 15px;
+    padding: 15px;
 `;
 
 const HeadLiitem = styled.li`
@@ -25,12 +28,19 @@ const HeadLiitem = styled.li`
     margin: 5px;
 `;
 
+const HeadLiimg = styled.img`
+    background-color: white;
+    border-radius: 30%;
+    width: 27px;
+    src: ${(props) => props.src || user_img};
+`;
+
 const HeadLifunc = styled.li`
     padding: 0px 10px;
 `;
 
 const Image = styled.img`
-    width: 45px;
+    width: 150px;
 `;
 
 const HeadLink = styled(Link)`
@@ -40,7 +50,7 @@ const HeadLink = styled(Link)`
 
 const HeadCreate = styled.button`
     border: none;
-    height: 100%;
+    height: 25px;
     background-color: rgb(1, 74, 117);
     color: white;
     margin: 1px 0 0 0;
@@ -48,4 +58,22 @@ const HeadCreate = styled.button`
     font-size: 15px;
 `;
 
-export default { Image, HeadNav, HeadUl, HeadLiitem, HeadLifunc, HeadLink, HeadCreate };
+const SearchButton = styled.button`
+    padding: 1px 5px 2px 5px;
+    border: none;
+    &:hover {
+        background-color: gray;
+    }
+`;
+
+export default {
+    Image,
+    HeadNav,
+    HeadUl,
+    HeadLiimg,
+    HeadLiitem,
+    HeadLifunc,
+    HeadLink,
+    HeadCreate,
+    SearchButton,
+};

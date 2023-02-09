@@ -1,7 +1,9 @@
 import { SetStateAction, useState } from "react";
-import { RxDashboard } from "react-icons/rx";
-import Logo from "@/assets/images/Trello-Logo.png";
-import H from "./styles";
+import Logo from "@/assets/images/Frontier-Logo.png";
+import user_img from "@/assets/images/user-img.png";
+import { ROUTES } from "@/utils/routes";
+import { BiSearchAlt } from "react-icons/bi";
+import Head from "./styles";
 
 const Navbar = () => {
     // 추후 functinon 관련 api 추가
@@ -13,44 +15,35 @@ const Navbar = () => {
     };
 
     return (
-        <H.HeadNav className="navbar">
-            <H.HeadUl>
-                <H.Image src={Logo} alt="" />
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">workspace</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">recent</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">starred</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadCreate type="button" className="head_create">
+        <Head.HeadNav>
+            <Head.HeadUl>
+                <Head.Image src={Logo} alt="" />
+                <Head.HeadLiitem>
+                    <Head.HeadLiimg src={user_img} alt="user_img" />
+                </Head.HeadLiitem>
+                <Head.HeadLiitem>
+                    <Head.HeadLink to={ROUTES.HOMEPAGE}>workspace</Head.HeadLink>
+                </Head.HeadLiitem>
+                <Head.HeadLiitem>
+                    <Head.HeadCreate type="button" className="head_create">
                         Create
-                    </H.HeadCreate>
-                </H.HeadLiitem>
-            </H.HeadUl>
-            <H.HeadUl className="nav_function">
-                <H.HeadLifunc>
+                    </Head.HeadCreate>
+                </Head.HeadLiitem>
+            </Head.HeadUl>
+            <Head.HeadUl>
+                <Head.HeadLifunc>
                     <input
                         id="search"
                         name="search"
                         placeholder="Search"
                         onChange={searchContent}
                     />
-                </H.HeadLifunc>
-                <H.HeadLifunc>
-                    <RxDashboard className="alarm" />
-                </H.HeadLifunc>
-                <H.HeadLifunc>
-                    <button type="button" className="head_user">
-                        {/* <img src={user_image} alt="user_image" /> */}
-                        user_image
-                    </button>
-                </H.HeadLifunc>
-            </H.HeadUl>
-        </H.HeadNav>
+                    <Head.SearchButton>
+                        <BiSearchAlt />
+                    </Head.SearchButton>
+                </Head.HeadLifunc>
+            </Head.HeadUl>
+        </Head.HeadNav>
     );
 };
 
