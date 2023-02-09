@@ -1,0 +1,68 @@
+name: 🐞 버그 제보
+description: 발생 또는 확인한 버그에 대한 이슈 발행
+title: "[버그]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        발생 또는 확인한 버그에 대한 수정 요청
+  - type: input
+    id: path
+    attributes:
+      label: 발생 경로
+      description: 버그가 발생한 페이지의 경로 또는 파일 경로
+      placeholder: ex. /user/3 or /src/App.ts
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 버그에 대한 상세한 설명
+      description: 발생한 버그에 대한 개요, 상세, 스크린샷 등
+      value: |
+        개요:
+        ex)로그인 페이지의 이메일 입력 폼 검증 기능에 대한 버그
+        
+        상세:
+        ex)로그인 페이지에서 이메일 입력 후 전송 버튼을 누를 때 이메일 형식 @*.com만 통과가 되도록 요구사항 또는 코드에 작성되어 있으나 작동하지 않음
+        
+        스크린샷
+    validations:
+      required: true
+  - type: textarea
+    id: re
+    attributes:
+      label: 버그 재현 방법
+      description: 버그를 발생시키는 방법 또는 버그를 재현시키는 예시 데이터
+      value: |
+        1. /login 페이지에 접속
+        2. 이메일 입력 폼에 abcd 입력
+        3. 제출 버튼 클릭
+    validations:
+      required: true
+  - type: dropdown
+    id: environments
+    attributes:
+      label: 버그가 발생한 환경 (다중선택)
+      multiple: true
+      options:
+        - Chrome
+        - Safari
+        - Node
+        - Windows
+        - Mac
+  - type: textarea
+    id: logs
+    attributes:
+      label: 관련 로그
+      description: 버그가 발생한 시점에 출력되는 로그
+      render: shell
+  - type: checkboxes
+    id: check
+    attributes:
+      label: 이슈 발행 전 확인사항
+      description: 이슈 발행 전 우측에 있는 담당자, 라벨, 프로젝트, 마일스톤, 브랜치 등에 대한 설정 여부
+      options:
+        - label: 설정 완료
+          required: true

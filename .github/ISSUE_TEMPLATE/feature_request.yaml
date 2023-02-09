@@ -1,0 +1,88 @@
+name: ✨ 기능 요청
+description: 기능 요청에 대한 이슈 발행
+title: "[기능]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        기능 요청
+  - type: input
+    id: overview
+    attributes:
+      label: 개발할 기능
+      description: 개발할 기능에 대한 간략한 설명
+      placeholder: ex. 보드에서 사용하는 리스트 컴포넌트 작성
+    validations:
+      required: true
+  - type: dropdown
+    id: environments
+    attributes:
+      label: 해당 이슈가 포함하는 내용 (다중선택)
+      multiple: true
+      options:
+        - UI
+        - Feature
+        - Test
+    validations:
+      required: true
+  - type: textarea
+    id: feature_overview
+    attributes:
+      label: 개요
+      description: 개발할 기능 개요
+      value: |
+        보드에서 + 버튼을 눌렀을 때 생성되는 리스트 컴포넌트
+    validations:
+      required: true
+  - type: textarea
+    id: feature_detail
+    attributes:
+      label: 상세 기능
+      description: 개발할 기능에 대한 상세한 설명
+      value: |
+        1. 사용자는 보드에서 리스트를 생성 또는 삭제할 수 있다.
+        2. 사용자는 리스트의 이름을 변경할 수 있다.
+        3. 사용자는 리스트를 정렬할 수 있다.
+        정렬 조건: 생성순, 수정일자순, 이름순
+    validations:
+      required: true
+  - type: textarea
+    id: feature_requirements
+    attributes:
+      label: 요구사항
+      description: 개발할 기능에 대한 요구사항
+      value: |
+        1. 데스크탑 환경에서는 가로로, 모바일 환경에서는 세로로 표시된다.
+        2. 리스트가 삭제되면 해당 리스트에 담겨져 있는 카드도 전부 삭제된다.
+    validations:
+      required: true
+  - type: textarea
+    id: feature_todo
+    attributes:
+      label: 개발 체크리스트
+      description: 체크리스트
+      value: |
+        - [ ] 리스트 생성
+        - [ ] 리스트 삭제
+        - [ ] 리스트 이름 변경
+        - [ ] 리스트 정렬
+        - [ ] 반응형 레이아웃
+        - [ ] 테스트 코드 작성
+    validations:
+      required: true
+  - type: textarea
+    id: feature_file
+    attributes:
+      label: 참고 자료
+      description: 개발할 기능에 대한 참고자료
+      value: |
+        ex) 화면 정의서 / 유즈케이스 / 시퀸스 다이어그램 / API 명세서 등
+  - type: checkboxes
+    id: check
+    attributes:
+      label: 이슈 발행 전 확인사항
+      description: 이슈 발행 전 우측에 있는 담당자, 라벨, 프로젝트, 마일스톤, 브랜치 등에 대한 설정 여부
+      options:
+        - label: 설정 완료
+          required: true
