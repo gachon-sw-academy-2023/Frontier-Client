@@ -39,6 +39,7 @@
     "react-textarea-autosize": "^8.4.0",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
+    "styled-popover-component": "^4.0.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

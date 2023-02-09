@@ -5,11 +5,12 @@ import S from "./styles";
 
 interface ListEditorProp {
     setEditable: Dispatch<SetStateAction<boolean>>;
+    boardId: string;
     listId: string;
 }
 
-const ListEditor = ({ setEditable, listId }: ListEditorProp) => {
-    const setCards = useSetRecoilState(cardState);
+const ListEditor = ({ setEditable, listId, boardId }: ListEditorProp) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [title, setTitle] = useState(listId);
     const handleEditList = () => {
         setCards((prev) => {

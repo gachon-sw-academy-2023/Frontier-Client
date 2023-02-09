@@ -4,9 +4,13 @@ import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import * as S from "./styles";
 
-const AddList = () => {
+interface AddListProps {
+    boardId: string;
+}
+
+const AddList = ({ boardId }: AddListProps) => {
     const [title, setTitle] = useState("");
-    const setList = useSetRecoilState(cardState);
+    const setList = useSetRecoilState(cardState(boardId));
 
     const [ToggleAddList, setToggleAddList] = useState<boolean>(false);
     const handleToggleAddList = () => {
