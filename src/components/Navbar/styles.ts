@@ -40,7 +40,7 @@ const HeadLifunc = styled.li`
 `;
 
 const Image = styled.img`
-    width: 45px;
+    width: 150px;
 `;
 
 const HeadLink = styled(Link)`
@@ -58,4 +58,22 @@ const HeadCreate = styled.button`
     font-size: 15px;
 `;
 
-export default { Image, HeadNav, HeadUl, HeadLiimg, HeadLiitem, HeadLifunc, HeadLink, HeadCreate };
+const SearchButton = styled.button`
+    padding: 1px 5px 2px 5px;
+    border: none;
+    &:hover {
+        background-color: gray;
+    }
+`;
+
+export default {
+    Image,
+    HeadNav,
+    HeadUl,
+    HeadLiimg,
+    HeadLiitem,
+    HeadLifunc,
+    HeadLink,
+    HeadCreate,
+    SearchButton,
+};

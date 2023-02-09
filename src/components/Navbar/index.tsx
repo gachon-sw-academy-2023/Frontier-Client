@@ -1,7 +1,8 @@
 import { SetStateAction, useState } from "react";
-import Logo from "@/assets/images/Trello-Logo.png";
-import { ROUTES } from "@/utils/routes";
+import Logo from "@/assets/images/Frontier-Logo.png";
 import user_img from "@/assets/images/user-img.png";
+import { ROUTES } from "@/utils/routes";
+import { BiSearchAlt } from "react-icons/bi";
 import Head from "./styles";
 
 const Navbar = () => {
@@ -37,6 +38,9 @@ const Navbar = () => {
                         placeholder="Search"
                         onChange={searchContent}
                     />
+                    <Head.SearchButton>
+                        <BiSearchAlt />
+                    </Head.SearchButton>
                 </Head.HeadLifunc>
             </Head.HeadUl>
         </Head.HeadNav>
