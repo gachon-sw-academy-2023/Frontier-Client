@@ -10,38 +10,28 @@ const Navbar = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [content, setContent] = useState("");
 
-    const searchContent = (e: { target: { value: SetStateAction<string> } }) => {
-        setContent(e.target.value);
-    };
-
     return (
         <Head.HeadNav>
             <Head.HeadUl>
-                <Head.Image src={Logo} alt="" />
+                <Head.HeadLink to={ROUTES.HOMEPAGE}>
+                    <Head.Image src={Logo} alt="" />
+                </Head.HeadLink>
                 <Head.HeadLiitem>
-                    <Head.HeadLiimg src={user_img} alt="user_img" />
+                    <Head.HeadLink to={ROUTES.HOMEPAGE}>Workspaces</Head.HeadLink>
                 </Head.HeadLiitem>
                 <Head.HeadLiitem>
-                    <Head.HeadLink to={ROUTES.HOMEPAGE}>workspace</Head.HeadLink>
+                    <Head.HeadLink to={ROUTES.HOMEPAGE}>Boards</Head.HeadLink>
                 </Head.HeadLiitem>
-                <Head.HeadLiitem>
-                    <Head.HeadCreate type="button" className="head_create">
-                        Create
-                    </Head.HeadCreate>
-                </Head.HeadLiitem>
+                <Head.HeadCreate type="button" className="head_create">
+                    Create
+                </Head.HeadCreate>
             </Head.HeadUl>
             <Head.HeadUl>
-                <Head.HeadLifunc>
-                    <input
-                        id="search"
-                        name="search"
-                        placeholder="Search"
-                        onChange={searchContent}
-                    />
-                    <Head.SearchButton>
-                        <BiSearchAlt />
-                    </Head.SearchButton>
-                </Head.HeadLifunc>
+                <Head.HeadUserInfo>
+                    <Head.HeadLiimg src={user_img} alt="user_img" />
+                    <Head.HeadUserName>user_name</Head.HeadUserName>
+                    {/* username will get from params */}
+                </Head.HeadUserInfo>
             </Head.HeadUl>
         </Head.HeadNav>
     );

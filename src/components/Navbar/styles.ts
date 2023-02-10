@@ -10,7 +10,7 @@ const HeadNav = styled.nav`
     height: 5vh;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(2, 106, 167);
+    background-color: rgba(2, 106, 167);
     padding: 10px;
 `;
 
@@ -19,6 +19,7 @@ const HeadUl = styled.ul`
     display: flex;
     margin: 15px;
     padding: 15px;
+    align-items: center;
 `;
 
 const HeadLiitem = styled.li`
@@ -26,6 +27,9 @@ const HeadLiitem = styled.li`
     display: flex;
     padding: 5px 20px;
     margin: 5px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
 `;
 
 const HeadLiimg = styled.img`
@@ -35,12 +39,20 @@ const HeadLiimg = styled.img`
     src: ${(props) => props.src || user_img};
 `;
 
-const HeadLifunc = styled.li`
-    padding: 0px 10px;
+const HeadUserInfo = styled.div`
+    display: flex;
+    padding: 5px 20px;
+    margin: 5px;
+`;
+
+const HeadUserName = styled.div`
+    padding-left: 10px;
+    color: white;
 `;
 
 const Image = styled.img`
     width: 150px;
+    margin-right: 20px;
 `;
 
 const HeadLink = styled(Link)`
@@ -50,19 +62,14 @@ const HeadLink = styled(Link)`
 
 const HeadCreate = styled.button`
     border: none;
-    height: 25px;
-    background-color: rgb(1, 74, 117);
+    background-color: rgba(1, 74, 117, 0.8);
     color: white;
-    margin: 1px 0 0 0;
-    padding: 0px 15px;
+    padding: 7px 20px;
+    margin: 5px 5px 5px 15px;
     font-size: 15px;
-`;
-
-const SearchButton = styled.button`
-    padding: 1px 5px 2px 5px;
-    border: none;
+    vertical-align: middle;
     &:hover {
-        background-color: gray;
+        background-color: rgba(1, 74, 117, 0.5);
     }
 `;
 
@@ -72,8 +79,8 @@ export default {
     HeadUl,
     HeadLiimg,
     HeadLiitem,
-    HeadLifunc,
+    HeadUserInfo,
+    HeadUserName,
     HeadLink,
     HeadCreate,
-    SearchButton,
 };
