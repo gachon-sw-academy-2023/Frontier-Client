@@ -5,7 +5,7 @@ interface UserCollection {
     name: string;
     email: string;
     password: string;
-    profileImage?: string;
+    profileImage: string;
 }
 
 export interface UserTable {
@@ -13,5 +13,5 @@ export interface UserTable {
 }
 
 export const userSchema = {
-    user: "id, email, [id+name+profileImage]",
+    user: "id",
 };
