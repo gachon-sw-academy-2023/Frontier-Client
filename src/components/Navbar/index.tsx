@@ -1,8 +1,7 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import Logo from "@/assets/images/Frontier-Logo.png";
 import user_img from "@/assets/images/user-img.png";
 import { ROUTES } from "@/utils/routes";
-import { BiSearchAlt } from "react-icons/bi";
 import Head from "./styles";
 
 const Navbar = () => {
@@ -17,10 +16,26 @@ const Navbar = () => {
                     <Head.Image src={Logo} alt="" />
                 </Head.HeadLink>
                 <Head.HeadLiitem>
-                    <Head.HeadLink to={ROUTES.HOMEPAGE}>Workspaces</Head.HeadLink>
+                    <Head.DropDownButton>
+                        <Head.HeadLink to={ROUTES.HOMEPAGE}>Workspaces</Head.HeadLink>
+                    </Head.DropDownButton>
+                    <Head.DropDownContent>
+                        Workspaces
+                        <Head.DropDownBox>Workspace1</Head.DropDownBox>
+                        <Head.DropDownBox>Workspace2</Head.DropDownBox>
+                        <Head.DropDownBox>Workspace3</Head.DropDownBox>
+                    </Head.DropDownContent>
                 </Head.HeadLiitem>
                 <Head.HeadLiitem>
-                    <Head.HeadLink to={ROUTES.HOMEPAGE}>Boards</Head.HeadLink>
+                    <Head.DropDownButton>
+                        <Head.HeadLink to={ROUTES.HOMEPAGE}>Boards</Head.HeadLink>
+                    </Head.DropDownButton>
+                    <Head.DropDownContent>
+                        Boards
+                        <Head.DropDownBox>Board1</Head.DropDownBox>
+                        <Head.DropDownBox>Board2</Head.DropDownBox>
+                        <Head.DropDownBox>Board3</Head.DropDownBox>
+                    </Head.DropDownContent>
                 </Head.HeadLiitem>
                 <Head.HeadCreate type="button" className="head_create">
                     Create

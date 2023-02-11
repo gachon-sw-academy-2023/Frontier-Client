@@ -10,8 +10,9 @@ const HeadNav = styled.nav`
     height: 5vh;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(2, 106, 167);
+    background-color: rgba(2, 106, 167, 1);
     padding: 10px;
+    overflow: hidden;
 `;
 
 const HeadUl = styled.ul`
@@ -22,18 +23,48 @@ const HeadUl = styled.ul`
     align-items: center;
 `;
 
+const DropDownButton = styled.div`
+    margin: 0;
+    border: none;
+    outline: none;
+`;
+
+const DropDownContent = styled.div`
+    display: none;
+    position: fixed;
+    z-index= 1;
+    background-color: white;
+    margin-left: -20px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    border: 0.2px solid;
+`;
+
+const DropDownBox = styled.button`
+    float: none;
+    color: black;
+    display: block;
+    padding: 12px 10px;
+    margin: 10px;
+`;
+
 const HeadLiitem = styled.li`
     list-style: none;
     display: flex;
     padding: 5px 20px;
     margin: 5px;
+    overflow: hidden;
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
+    }
+    &:hover ${DropDownContent} {
+        display: block;
     }
 `;
 
 const HeadLiimg = styled.img`
-    background-color: white;
     border-radius: 30%;
     width: 27px;
     src: ${(props) => props.src || user_img};
@@ -83,4 +114,7 @@ export default {
     HeadUserName,
     HeadLink,
     HeadCreate,
+    DropDownButton,
+    DropDownContent,
+    DropDownBox,
 };
