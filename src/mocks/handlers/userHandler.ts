@@ -15,23 +15,23 @@ export const userHandler = [
         }
 
         try {
-            const result = await database.user.toArray();
+            const user = await database.user.toArray();
 
-            if (!result) {
+            if (!user) {
                 return await res(
                     ctx.status(404),
                     ctx.json({ message: ERROR_MESSAGE.USER_NOTFOUND }),
                 );
             }
 
-            const user = result.map(({ id, name, email, profileImage }) => ({
+            const result = user.map(({ id, name, email, profileImage }) => ({
                 id,
                 name,
                 email,
                 profileImage,
             }));
 
-            return await res(ctx.status(200), ctx.json({ user }));
+            return await res(ctx.status(200), ctx.json(result));
         } catch (e) {
             return res(ctx.status(500));
         }
@@ -44,23 +44,23 @@ export const userHandler = [
 
         const { userId } = req.params;
         try {
-            const result = await database.user.get({ id: userId });
+            const user = await database.user.get({ id: userId });
 
-            if (!result) {
+            if (!user) {
                 return await res(
                     ctx.status(404),
                     ctx.json({ message: ERROR_MESSAGE.USER_NOTFOUND }),
                 );
             }
 
-            const user = {
-                id: result.id,
-                name: result.name,
-                email: result.email,
-                profileImage: result.profileImage,
+            const result = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                profileImage: user.profileImage,
             };
 
-            return await res(ctx.status(200), ctx.json({ user }));
+            return await res(ctx.status(200), ctx.json(result));
         } catch (e) {
             return res(ctx.status(500));
         }
@@ -81,7 +81,7 @@ export const userHandler = [
 
             await database.user.where("id").equals(userId).modify({ profileImage });
 
-            return await res(ctx.status(200));
+            return await res(ctx.status(201));
         } catch (e) {
             return res(ctx.status(500));
         }

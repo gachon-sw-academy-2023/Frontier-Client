@@ -15,30 +15,30 @@ export const authHandler = [
         const { email, password } = await req.json();
 
         try {
-            const result = await database.user.get({ email });
+            const user = await database.user.get({ email });
 
-            if (!result) {
+            if (!user) {
                 return await res(
                     ctx.status(404),
                     ctx.json({ message: ERROR_MESSAGE.LOGIN_USER_NOTFOUND }),
                 );
             }
 
-            if (result.password !== password) {
+            if (user.password !== password) {
                 return await res(
                     ctx.status(404),
                     ctx.json({ message: ERROR_MESSAGE.LOGIN_WRONG_PASSWORD }),
                 );
             }
 
-            const user = {
-                id: result.id,
-                name: result.name,
-                email: result.email,
-                profileImage: result.profileImage,
+            const result = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                profileImage: user.profileImage,
             };
 
-            return await res(ctx.status(200), ctx.json({ user }));
+            return await res(ctx.status(200), ctx.json(result));
         } catch (e) {
             return res(ctx.status(500));
         }

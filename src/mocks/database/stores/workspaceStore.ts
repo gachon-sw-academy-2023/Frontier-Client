@@ -1,17 +1,12 @@
 import { Table } from "dexie";
 
-interface MemberCollection {
-    id: string;
-    role: string;
-}
-
 interface WorkspaceCollection {
     id: string;
     title: string;
     createdBy: string;
     createdAt: string;
     modifiedAt: string;
-    member: MemberCollection[];
+    member: string[];
 }
 
 export interface WorkspaceTable {
@@ -19,5 +14,5 @@ export interface WorkspaceTable {
 }
 
 export const workspaceSchema = {
-    workspace: "id, member.id",
+    workspace: "id, *member",
 };
