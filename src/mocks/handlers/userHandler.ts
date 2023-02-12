@@ -18,7 +18,10 @@ export const userHandler = [
             const result = await database.user.toArray();
 
             if (!result) {
-                return await res(ctx.status(404), ctx.json({ message: ERROR_MESSAGE }));
+                return await res(
+                    ctx.status(404),
+                    ctx.json({ message: ERROR_MESSAGE.USER_NOTFOUND }),
+                );
             }
 
             const user = result.map(({ id, name, email, profileImage }) => ({
@@ -40,15 +43,14 @@ export const userHandler = [
         }
 
         const { userId } = req.params;
-        if (auth !== userId) {
-            return res(ctx.status(403));
-        }
-
         try {
             const result = await database.user.get({ id: userId });
 
             if (!result) {
-                return await res(ctx.status(404), ctx.json({ message: ERROR_MESSAGE }));
+                return await res(
+                    ctx.status(404),
+                    ctx.json({ message: ERROR_MESSAGE.USER_NOTFOUND }),
+                );
             }
 
             const user = {
@@ -59,6 +61,27 @@ export const userHandler = [
             };
 
             return await res(ctx.status(200), ctx.json({ user }));
+        } catch (e) {
+            return res(ctx.status(500));
+        }
+    }),
+    rest.put(`${VITE_API_PREFIX_USER}/:userId`, async (req, res, ctx) => {
+        const auth = req.headers.get("Authorization");
+        if (!auth) {
+            return res(ctx.status(401));
+        }
+
+        const { userId } = req.params;
+        if (auth !== userId) {
+            return res(ctx.status(403));
+        }
+
+        try {
+            const { profileImage } = await req.json();
+
+            await database.user.where("id").equals(userId).modify({ profileImage });
+
+            return await res(ctx.status(200));
         } catch (e) {
             return res(ctx.status(500));
         }
