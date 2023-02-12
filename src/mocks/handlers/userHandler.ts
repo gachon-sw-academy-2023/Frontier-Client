@@ -65,7 +65,7 @@ export const userHandler = [
             return res(ctx.status(500));
         }
     }),
-    rest.put(`${VITE_API_PREFIX_USER}/:userId`, async (req, res, ctx) => {
+    rest.patch(`${VITE_API_PREFIX_USER}/:userId`, async (req, res, ctx) => {
         const auth = req.headers.get("Authorization");
         if (!auth) {
             return res(ctx.status(401));
