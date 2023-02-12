@@ -13,5 +13,5 @@ export interface UserTable {
 }
 
 export const userSchema = {
-    user: "id",
+    user: "id, email, [email+password]",
 };
