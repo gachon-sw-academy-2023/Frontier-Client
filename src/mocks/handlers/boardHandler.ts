@@ -35,11 +35,10 @@ export const boardHandler = [
 
             const result = {
                 ...board,
-                list: list.map(({ id, title, createdBy, createdAt, modifiedAt, position }) => ({
+                list: list.map(({ id, title, createdBy, modifiedAt, position }) => ({
                     id,
                     title,
                     createdBy,
-                    createdAt,
                     modifiedAt,
                     position,
                     card: card.filter((v) => v.listId === id),
