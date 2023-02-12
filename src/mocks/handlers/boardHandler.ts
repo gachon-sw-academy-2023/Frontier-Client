@@ -41,7 +41,17 @@ export const boardHandler = [
                     createdBy,
                     modifiedAt,
                     position,
-                    card: card.filter((v) => v.listId === id),
+                    card: card
+                        .filter((v) => v.listId === id)
+                        .map((v) => ({
+                            id: v.id,
+                            listId: v.listId,
+                            createdBy: v.createdBy,
+                            modifiedAt: v.modifiedAt,
+                            title: v.title,
+                            description: v.description,
+                            position: v.position,
+                        })),
                 })),
             };
 
@@ -80,5 +90,22 @@ export const boardHandler = [
         }
 
         const { boardId } = req.params;
-    })
+
+        try {
+            const board = await database.board.get(boardId);
+
+            if (!board) {
+                return await res(
+                    ctx.status(404),
+                    ctx.json({ message: ERROR_MESSAGE.BOARD_NOT_FOUND }),
+                );
+            }
+
+            await database.board.delete(boardId);
+
+            return await res(ctx.status(204));
+        } catch (e) {
+            return res(ctx.status(500));
+        }
+    }),
 ];
