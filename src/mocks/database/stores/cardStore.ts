@@ -48,5 +48,5 @@ export interface CardTable {
 }
 
 export const cardSchema = {
-    card: "id, listId, [listId+title+description+position]",
+    card: "id, listId",
 };

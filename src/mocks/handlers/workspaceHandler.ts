@@ -118,7 +118,7 @@ export const workspaceHandler = [
                 return await res(ctx.status(403));
             }
 
-            await database.workspace.delete(workspaceId)
+            await database.workspace.delete(workspaceId);
 
             return await res(ctx.status(204));
         } catch (e) {
