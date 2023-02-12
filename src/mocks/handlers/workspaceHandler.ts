@@ -23,10 +23,11 @@ export const workspaceHandler = [
                 .anyOf(workspace.map((v) => v.id))
                 .toArray();
 
-            const result = workspace.map(({ id, title, createdBy, modifiedAt }) => ({
+            const result = workspace.map(({ id, title, createdBy, createdAt, modifiedAt }) => ({
                 id,
                 title,
                 createdBy,
+                createdAt,
                 modifiedAt,
                 board: board.filter((v) => v.workspaceId === id),
             }));
@@ -63,6 +64,7 @@ export const workspaceHandler = [
                 id: workspace.id,
                 title: workspace.title,
                 createdBy: workspace.createdBy,
+                createdAt: workspace.createdAt,
                 modifiedAt: workspace.modifiedAt,
                 board,
             };
