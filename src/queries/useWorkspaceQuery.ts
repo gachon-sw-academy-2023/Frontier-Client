@@ -1,7 +1,11 @@
 import { AxiosError, AxiosResponse } from "axios";
 import customAxios from "@/utils/customAxios";
 import { useMutation, UseMutationOptions, useQuery, useQueryClient } from "@tanstack/react-query";
-import { GetWorkspaceResBody, PostWorkspaceReqBody, PostWorkspaceResBody } from "@/interfaces/workspaceInterface";
+import {
+    GetWorkspaceResBody,
+    PostWorkspaceReqBody,
+    PostWorkspaceResBody,
+} from "@/interfaces/workspaceInterface";
 
 const { VITE_API_PREFIX_WORKSPACE } = import.meta.env;
 

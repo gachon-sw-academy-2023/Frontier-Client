@@ -13,7 +13,7 @@ export interface GetWorkspaceResBody {
     createdBy: string;
     createdAt: string;
     modifiedAt: string;
-    board?: Board;
+    board?: Board[];
 }
 
 export interface PostWorkspaceReqBody {
