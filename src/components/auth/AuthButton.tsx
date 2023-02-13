@@ -1,4 +1,4 @@
-import S from "./styles";
+import S from "./LoginForm/styles";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     color: string;
@@ -7,10 +7,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     contents: string;
 }
 
-const LoginFormButton = ({ color, type, disabled, contents }: ButtonProps) => (
+const AuthButton = ({ color, type, disabled, contents }: ButtonProps) => (
     <S.Button color={color} type={type} disabled={disabled}>
         {contents}
     </S.Button>
 );
 
-export default LoginFormButton;
+export default AuthButton;

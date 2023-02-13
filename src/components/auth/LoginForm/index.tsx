@@ -12,7 +12,7 @@ import useLoginQuery from "@/queries/useLoginQuery";
 import { UserLogin } from "@/interfaces/userInterface";
 import { useSetRecoilState } from "recoil";
 import { userAtom } from "@/recoil/userAtom";
-import LoginFormButton from "./LoginFormButton";
+import AuthButton from "../AuthButton";
 import S from "./styles";
 
 const LoginForm = () => {
@@ -57,9 +57,9 @@ const LoginForm = () => {
             {errors.password && errors.password.type === "pattern" && (
                 <S.ErrorText> {ERROR_PASSWORD_VALIDATION} </S.ErrorText>
             )}
-            <LoginFormButton color="#1e90ff" type="submit" disabled={isLoading} contents="Login" />
+            <AuthButton color="#1e90ff" type="submit" disabled={isLoading} contents="Login" />
             {error && <S.ErrorText> {ERROR_USER_NOTFOUND} </S.ErrorText>}
-            <LoginFormButton
+            <AuthButton
                 color="#ff0000"
                 type="button"
                 disabled={isLoading}

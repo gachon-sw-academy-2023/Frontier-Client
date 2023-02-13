@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import useSignUpQuery from "@/queries/useSignUpQuery";
 import { useSetRecoilState } from "recoil";
 import { userAtom } from "@/recoil/userAtom";
+import AuthButton from "../AuthButton";
 import S from "./styles";
 
 type UserSignUpFormData = {
@@ -75,9 +76,7 @@ const RegisterFrom = () => {
             {errors.password && errors.password.type === "pattern" && (
                 <S.ErrorText> {ERROR_PASSWORD_VALIDATION} </S.ErrorText>
             )}
-            <S.Button color="#1e90ff" disabled={isLoading}>
-                회원가입
-            </S.Button>
+            <AuthButton color="#1e90ff" type="button" disabled={isLoading} contents="회원가입" />
             {error && <S.ErrorText> {ERROR_EMAIL_DUPLICATED} </S.ErrorText>}
         </S.InputContainer>
     );
