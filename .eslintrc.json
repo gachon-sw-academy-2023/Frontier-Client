@@ -25,7 +25,8 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "settings": {
     "import/extensions": [
@@ -58,6 +59,7 @@
     "prettier/prettier": "error",
     "react/jsx-props-no-spreading": [0],
     "import/prefer-default-export": 0,
+    "react/prop-types": 0,
     "import/no-extraneous-dependencies": [
       "off"
     ]

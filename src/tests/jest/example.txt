@@ -1,0 +1,9 @@
+import function from "file";
+
+test("테스트 설명", () => {
+    expect("검증 대상").function("기대 결과);
+});
+
+jest테스트 기본 구조
+require를 통해 test하고자 하는 파일을 참조.
+.function 부분에는 toBe, toEqual, toBeTruthy, toBeFalsy 등의 함수가 사용됨.
