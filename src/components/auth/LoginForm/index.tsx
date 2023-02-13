@@ -8,8 +8,8 @@ import {
     ERROR_USER_NOTFOUND,
 } from "@/utils/error-message";
 import { useForm } from "react-hook-form";
-import useLoginQuery from "@/queries/useLoginQuery";
-import { UserLogin } from "@/interfaces/userInterface";
+import { useLoginQuery } from "@/queries/useAuthQuery";
+import { LoginReqBody } from "@/interfaces/authInterface";
 import { useSetRecoilState } from "recoil";
 import { userAtom } from "@/recoil/userAtom";
 import S from "./styles";
@@ -22,7 +22,7 @@ const LoginForm = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<UserLogin>();
+    } = useForm<LoginReqBody>();
 
     const onSubmit = handleSubmit((data) => {
         mutate(data, {

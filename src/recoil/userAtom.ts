@@ -1,5 +1,5 @@
-import { User } from "@/interfaces/userInterface";
 import { atom, AtomEffect, DefaultValue } from "recoil";
+import { GetUserResBody } from "@/interfaces/userInterface";
 
 const localStorageEffect: <T>(key: string) => AtomEffect<T> =
     (key: string) =>
@@ -18,11 +18,13 @@ const localStorageEffect: <T>(key: string) => AtomEffect<T> =
         });
     };
 
-export const userAtom = atom<User>({
+export const userAtom = atom<GetUserResBody>({
     key: "user",
     default: {
         name: "",
         id: "",
+        profileImage: "",
+        email: "",
     },
-    effects: [localStorageEffect<User>("user")],
+    effects: [localStorageEffect<GetUserResBody>("user")],
 });
