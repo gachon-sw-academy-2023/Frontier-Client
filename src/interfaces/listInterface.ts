@@ -16,3 +16,16 @@ export interface DefaultList {
     position: number;
     card?: DefaultCard[];
 }
+
+export interface GetListResBody extends DefaultList {
+    boardId: string;
+}
+
+export interface PostListReqBody {
+    boardId: string;
+    title: string;
+}
+
+export interface PostListResBody {
+    data: string;
+}
