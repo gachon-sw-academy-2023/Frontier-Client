@@ -25,7 +25,10 @@ export const api = {
         return data;
     },
     post: async (req: PostWorkspaceReqBody): Promise<AxiosResponse<PostWorkspaceResBody>> => {
-        const data = await customAxios.post<PostWorkspaceResBody>(`${VITE_API_PREFIX_WORKSPACE}`, req);
+        const data = await customAxios.post<PostWorkspaceResBody>(
+            `${VITE_API_PREFIX_WORKSPACE}`,
+            req,
+        );
 
         return data;
     },
