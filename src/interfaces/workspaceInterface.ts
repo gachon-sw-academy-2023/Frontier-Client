@@ -1,11 +1,4 @@
-export interface Board {
-    id: string;
-    workspaceId: string;
-    title: string;
-    createdBy: string;
-    createdAt: string;
-    modifiedAt: string;
-}
+import { DefaultBoard } from "@/interfaces/boardInterface";
 
 export interface GetWorkspaceResBody {
     id: string;
@@ -13,7 +6,7 @@ export interface GetWorkspaceResBody {
     createdBy: string;
     createdAt: string;
     modifiedAt: string;
-    board?: Board[];
+    board?: DefaultBoard[];
 }
 
 export interface PostWorkspaceReqBody {
