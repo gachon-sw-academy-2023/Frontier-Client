@@ -10,8 +10,9 @@ const HeadNav = styled.nav`
     height: 5vh;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(2, 106, 167);
+    background-color: rgba(2, 106, 167, 1);
     padding: 10px;
+    overflow: hidden;
 `;
 
 const HeadUl = styled.ul`
@@ -19,6 +20,34 @@ const HeadUl = styled.ul`
     display: flex;
     margin: 15px;
     padding: 15px;
+    align-items: center;
+`;
+
+const DropDownButton = styled.div`
+    margin: 0;
+    border: none;
+    outline: none;
+`;
+
+const DropDownContent = styled.div`
+    display: none;
+    position: fixed;
+    z-index= 1;
+    background-color: white;
+    margin-left: -20px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    border: 0.2px solid;
+`;
+
+const DropDownBox = styled.button`
+    float: none;
+    color: black;
+    display: block;
+    padding: 12px 10px;
+    margin: 10px;
 `;
 
 const HeadLiitem = styled.li`
@@ -26,21 +55,35 @@ const HeadLiitem = styled.li`
     display: flex;
     padding: 5px 20px;
     margin: 5px;
+    overflow: hidden;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    &:hover ${DropDownContent} {
+        display: block;
+    }
 `;
 
 const HeadLiimg = styled.img`
-    background-color: white;
     border-radius: 30%;
     width: 27px;
     src: ${(props) => props.src || user_img};
 `;
 
-const HeadLifunc = styled.li`
-    padding: 0px 10px;
+const HeadUserInfo = styled.div`
+    display: flex;
+    padding: 5px 20px;
+    margin: 5px;
+`;
+
+const HeadUserName = styled.div`
+    padding-left: 10px;
+    color: white;
 `;
 
 const Image = styled.img`
     width: 150px;
+    margin-right: 20px;
 `;
 
 const HeadLink = styled(Link)`
@@ -50,19 +93,14 @@ const HeadLink = styled(Link)`
 
 const HeadCreate = styled.button`
     border: none;
-    height: 25px;
-    background-color: rgb(1, 74, 117);
+    background-color: rgba(1, 74, 117, 0.8);
     color: white;
-    margin: 1px 0 0 0;
-    padding: 0px 15px;
+    padding: 7px 20px;
+    margin: 5px 5px 5px 15px;
     font-size: 15px;
-`;
-
-const SearchButton = styled.button`
-    padding: 1px 5px 2px 5px;
-    border: none;
+    vertical-align: middle;
     &:hover {
-        background-color: gray;
+        background-color: rgba(1, 74, 117, 0.5);
     }
 `;
 
@@ -72,8 +110,11 @@ export default {
     HeadUl,
     HeadLiimg,
     HeadLiitem,
-    HeadLifunc,
+    HeadUserInfo,
+    HeadUserName,
     HeadLink,
     HeadCreate,
-    SearchButton,
+    DropDownButton,
+    DropDownContent,
+    DropDownBox,
 };
