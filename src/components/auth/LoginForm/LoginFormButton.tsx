@@ -1,0 +1,16 @@
+import S from "./styles";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    color: string;
+    type: "button" | "submit" | "reset";
+    disabled: boolean;
+    contents: string;
+}
+
+const LoginFormButton = ({ color, type, disabled, contents }: ButtonProps) => (
+    <S.Button color={color} type={type} disabled={disabled}>
+        {contents}
+    </S.Button>
+);
+
+export default LoginFormButton;

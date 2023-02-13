@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar/index";
 
 export default {
     title: "components/Navbar",
-    components: Navbar,
+    component: Navbar,
 };
 
 export const Navigation = () => (
