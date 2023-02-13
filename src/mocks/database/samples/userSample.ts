@@ -3,7 +3,7 @@ export const userSample = [
         id: "e1974523-85cc-4df5-b022-827e25fe6738",
         name: "test",
         email: "test@test.com",
-        password: "test",
+        password: "a1s2d3f4",
         profileImage: "https://cdn-icons-png.flaticon.com/512/983/983980.png",
     },
     {

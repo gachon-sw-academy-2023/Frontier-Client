@@ -8,13 +8,13 @@ const { VITE_API_PREFIX_USER } = import.meta.env;
 export const QUERY_KEY = "user";
 
 export const api = {
-    get: async (): Promise<AxiosResponse<GetUserResBody>> => {
-        const data = await customAxios.get<GetUserResBody>(`${VITE_API_PREFIX_USER}`);
+    get: async (userId: string): Promise<AxiosResponse<GetUserResBody>> => {
+        const data = await customAxios.get<GetUserResBody>(`${VITE_API_PREFIX_USER}/${userId}`);
 
         return data;
     },
-    getAll: async (userId: string): Promise<AxiosResponse<GetUserResBody[]>> => {
-        const data = await customAxios.get<GetUserResBody[]>(`${VITE_API_PREFIX_USER}/${userId}`);
+    getAll: async (): Promise<AxiosResponse<GetUserResBody[]>> => {
+        const data = await customAxios.get<GetUserResBody[]>(`${VITE_API_PREFIX_USER}`);
 
         return data;
     },
@@ -28,10 +28,10 @@ export const api = {
     },
 };
 
-export const useGetUserQuery = (userId: string) => useQuery([QUERY_KEY, userId], () => api.get());
+export const useGetUserQuery = (userId: string) =>
+    useQuery([QUERY_KEY, userId], () => api.get(userId));
 
-export const useGetUsersQuery = (userId: string) =>
-    useQuery([QUERY_KEY, userId], () => api.getAll(userId));
+export const useGetUsersQuery = () => useQuery([QUERY_KEY], () => api.getAll());
 
 export const usePatchUserQuery = (
     userId: string,
