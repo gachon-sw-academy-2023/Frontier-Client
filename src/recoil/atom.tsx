@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CardInterface } from "@/interfaces/cardInterface";
-import { atom } from "recoil";
+import { atom, atomFamily } from "recoil";
 
 export interface CardStateInterface {
     [key: string]: CardInterface[];
@@ -23,8 +23,21 @@ const localStorageEffect =
         });
     };
 
-export const cardState = atom<CardStateInterface>({
+export const cardState = atomFamily<CardStateInterface, string>({
     key: "card",
-    default: {},
-    effects: [localStorageEffect("card")],
+    default: () => ({}),
+    effects: (id) => [localStorageEffect(`card${id}`)],
+});
+
+export interface IBoard {
+    id: number;
+    date: string;
+    description: string;
+    title: string;
+}
+
+export const boardState = atom<IBoard[]>({
+    key: "board",
+    default: [],
+    effects: [localStorageEffect("board")],
 });

@@ -61,15 +61,7 @@
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.stories.*",
-          "**/.storybook/**/*.*",
-          "src/tests/mocks/**/*.*"
-        ],
-        "peerDependencies": true
-      }
+      "off"
     ]
   },
   "ignorePatterns": [
@@ -77,6 +69,7 @@
     "dist",
     "environment",
     "node_modules",
-    ".storybook"
+    ".storybook",
+    "/**/*.d.ts"
   ]
 }
