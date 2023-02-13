@@ -7,28 +7,22 @@ import {
     ERROR_PASSWORD_VALIDATION,
     ERROR_EMAIL_DUPLICATED,
 } from "@/utils/error-message";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
-import useSignUpQuery from "@/queries/useSignUpQuery";
+import { useRegisterQuery } from "@/queries/useAuthQuery";
+import { RegisterReqBody } from "@/interfaces/authInterface";
 import { useSetRecoilState } from "recoil";
 import { userAtom } from "@/recoil/userAtom";
 import S from "./styles";
 
-type UserSignUpFormData = {
-    name: string;
-    email: string;
-    password: string;
-};
-
 const RegisterFrom = () => {
-    const { mutate, isLoading, error } = useSignUpQuery();
+    const { mutate, isLoading, error } = useRegisterQuery();
     const setUser = useSetRecoilState(userAtom);
     const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<UserSignUpFormData>();
+    } = useForm<RegisterReqBody>();
 
     const onSubmit = handleSubmit((data) => {
         mutate(data, {
