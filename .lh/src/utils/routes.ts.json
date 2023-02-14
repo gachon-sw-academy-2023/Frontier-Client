@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/utils/routes.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1676338760510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1676339459147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n     LOGIN: \"/login\",\n     HOMEPAGE: \"/homepage\",\n     BOARDS: \"/boards\",\n     BOARD: \"/homepage/workspaces/:workspace/boards/:board\",\n-    WORKSPACE: \"/homepare/:workspaces/:workspace\",\n+    WORKSPACE: \"/homepage/:workspaces/:workspace\",\n };\n"
+                }
+            ],
+            "date": 1676338760510,
+            "name": "Commit-0",
+            "content": "export const ROUTES = {\n    MAIN: \"/\",\n    SIGN_UP: \"/signup\",\n    LOGIN: \"/login\",\n    HOMEPAGE: \"/homepage\",\n    BOARDS: \"/boards\",\n    BOARD: \"/homepage/workspaces/:workspace/boards/:board\",\n    WORKSPACE: \"/homepare/:workspaces/:workspace\",\n};\n"
+        }
+    ]
+}
