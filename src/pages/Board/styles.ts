@@ -12,9 +12,8 @@ const Board = styled.div`
     overflow-x: fix;
     display: flex;
     min-height: 100vh;
-    min-width: 100vw;
     height: auto;
-    width: auto;
+    width: 100%;
 `;
 
 export { BoardContent, Board };
