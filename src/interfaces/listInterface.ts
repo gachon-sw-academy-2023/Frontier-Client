@@ -1,10 +1,11 @@
 export interface DefaultCard {
-    id: string;
+    id: number;
     listId: string;
+    date: string;
+    title: string;
+    text: string;
     createdBy: string;
     modifiedAt: string;
-    title: string;
-    description: string;
     position: number;
 }
 
