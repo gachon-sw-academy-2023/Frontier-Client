@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import Box from "@/components/Workspace/Box";
+import Box from "@/components/Homepage/Box";
 import { useRecoilState } from "recoil";
 import { workspaceState } from "@/recoil/atom";
 import { AiFillPlusCircle } from "react-icons/ai";

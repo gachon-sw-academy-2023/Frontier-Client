@@ -1,17 +1,17 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
+import { AiFillPlusCircle } from "react-icons/ai";
 import { useRecoilState } from "recoil";
 import { workspaceState } from "@/recoil/atom";
 import { PopoverBody, PopoverHeader } from "styled-popover-component";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import dayjs from "dayjs";
+import BoardBox from "@/components/BoardBox";
 import S from "./styles";
 
 const Workspace = () => {
-    const navigate = useNavigate();
     const location = useLocation();
     const { workspaceId } = location.state;
     const [workspaces, setWorkspaces] = useRecoilState(workspaceState);
@@ -20,7 +20,6 @@ const Workspace = () => {
     const [boardDescription, setBoardDescription] = useState("");
     const [hidden, setHidden] = useState(true);
     const [position, setPosition] = useState([0, 0]);
-    const [isHover, setIsHover] = useState<boolean>(false);
 
     const handleCreateBoard = () => {
         setWorkspaces((prev) => ({
@@ -70,28 +69,11 @@ const Workspace = () => {
                     </S.AddBoard>
                     {workspaceId &&
                         workspaces[workspaceId].map((board) => (
-                            <S.Board
+                            <BoardBox
                                 key={board.id}
-                                onClick={() =>
-                                    navigate(`boards/${board.id}`, {
-                                        state: {
-                                            boardId: board.id,
-                                        },
-                                    })
-                                }
-                                onMouseEnter={() => setIsHover(true)}
-                                onMouseLeave={() => setIsHover(false)}
-                            >
-                                <S.BoardHeader>
-                                    <S.BoardTitle> {board.title} </S.BoardTitle>
-                                    {isHover && (
-                                        <S.Button>
-                                            <AiFillDelete />
-                                        </S.Button>
-                                    )}
-                                </S.BoardHeader>
-                                <S.BoardDetail> {board.description} </S.BoardDetail>
-                            </S.Board>
+                                boardDetail={board}
+                                workspaceId={workspaceId}
+                            />
                         ))}
                 </S.Boards>
             </S.WorkspaceContainer>

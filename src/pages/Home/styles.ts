@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ReactTextareaAutosize from "react-textarea-autosize";
 import { Popover, PopoverBody } from "styled-popover-component";
-import S from "@/components/Workspace/Box/styles";
+import S from "@/components/Homepage/Box/styles";
 
 const Home = styled.div`
     margin: 0;
