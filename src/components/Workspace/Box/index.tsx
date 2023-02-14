@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { IBoard } from "@/recoil/atom";
+import { IBoard, workspaceState } from "@/recoil/atom";
 import { AiFillDelete } from "react-icons/ai";
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import S from "./styles";
 
 interface BoxProps {
@@ -11,7 +12,15 @@ interface BoxProps {
 
 const WorkspaceBox = ({ boardDetail, workspaceId }: BoxProps) => {
     const navigate = useNavigate();
+    const setWorkspaces = useSetRecoilState(workspaceState);
     const [isHover, setIsHover] = useState(false);
+    const handleDeleteBoard = (boardId: number) => {
+        setWorkspaces((prev) => {
+            const copyWorkspace = [...prev[workspaceId]];
+            const filterDeleted = copyWorkspace.filter((board) => board.id !== boardId);
+            return { ...prev, [workspaceId]: filterDeleted };
+        });
+    };
     return (
         <S.Board
             key={boardDetail.id}
@@ -28,7 +37,12 @@ const WorkspaceBox = ({ boardDetail, workspaceId }: BoxProps) => {
             <S.BoardHeader>
                 <S.BoardTitle> {boardDetail.title} </S.BoardTitle>
                 {isHover && (
-                    <S.Button>
+                    <S.Button
+                        onClick={(event) => {
+                            event.stopPropagation();
+                            handleDeleteBoard(boardDetail.id);
+                        }}
+                    >
                         <AiFillDelete />
                     </S.Button>
                 )}
