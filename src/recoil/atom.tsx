@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { CardInterface } from "@/interfaces/cardInterface";
 import { atom, atomFamily } from "recoil";
+import { DefaultCard } from "@/interfaces/listInterface";
 
 export interface CardStateInterface {
-    [key: string]: CardInterface[];
+    [key: string]: DefaultCard[];
 }
 
 const localStorageEffect =
@@ -36,8 +36,14 @@ export interface IBoard {
     title: string;
 }
 
-export const boardState = atom<IBoard[]>({
+export interface IWorkspace {
+    [key: string]: IBoard[];
+}
+
+export const workspaceState = atom<IWorkspace>({
     key: "board",
-    default: [],
+    default: {
+        workspace1: [{ id: 123123, date: "1-1-1", description: "1", title: "1" }],
+    },
     effects: [localStorageEffect("board")],
 });
