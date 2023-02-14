@@ -1,20 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import { CardInterface } from "@/interfaces/cardInterface";
 import { useSetRecoilState } from "recoil";
 import { cardState, CardStateInterface } from "@/recoil/atom";
 import { FaEdit } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 import Card from "@/components/Board/Card";
 import ListEditor from "@/components/Board/ListEditor";
+import { DefaultCard } from "@/interfaces/listInterface";
 import S from "./styles";
 import AddCard from "../AddCard";
 
 interface ListProps {
     listId: string;
     boardId: string;
-    cards: CardInterface[];
+    cards: DefaultCard[];
     index: number;
 }
 

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { cardState } from "@/recoil/atom";
 import { useSetRecoilState } from "recoil";
-import { CardInterface } from "@/interfaces/cardInterface";
+import { DefaultCard } from "@/interfaces/listInterface";
 import { Draggable } from "react-beautiful-dnd";
 import { FaEdit } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -10,7 +10,7 @@ import CardEditor from "../CardEditor";
 import S from "./styles";
 
 interface CardProps {
-    cardDetail: CardInterface;
+    cardDetail: DefaultCard;
     listId: string;
     boardId: string;
     index: number;

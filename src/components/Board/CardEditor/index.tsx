@@ -1,18 +1,20 @@
-import { CardInterface } from "@/interfaces/cardInterface";
+import { DefaultCard } from "@/interfaces/listInterface";
 import { cardState } from "@/recoil/atom";
+import { userAtom } from "@/recoil/userAtom";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import S from "./styles";
 
 interface CardEditorProps {
     setEditable: Dispatch<SetStateAction<boolean>>;
     boardId: string;
     listId: string;
-    cardDetail: CardInterface;
+    cardDetail: DefaultCard;
 }
 
 const CardEditor = ({ setEditable, boardId, listId, cardDetail }: CardEditorProps) => {
     const setCards = useSetRecoilState(cardState(boardId));
+    const userState = useRecoilValue(userAtom);
     const [cardContents, setCardContents] = useState({
         title: cardDetail.title,
         text: cardDetail.text,
@@ -25,9 +27,13 @@ const CardEditor = ({ setEditable, boardId, listId, cardDetail }: CardEditorProp
                 const findIndex = copyList.findIndex((card) => card.id === cardDetail.id);
                 copyList[findIndex] = {
                     id: cardDetail.id,
+                    listId,
                     title: cardContents.title,
                     text: cardContents.text,
                     date: cardDetail.date,
+                    createdBy: userState.id,
+                    modifiedAt: userState.id,
+                    position: 1,
                 };
                 // console.log(updateCard);
                 return {
