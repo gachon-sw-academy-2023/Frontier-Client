@@ -1,34 +1,40 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AiFillSetting, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 import { useRecoilState } from "recoil";
-import { boardState } from "@/recoil/atom";
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { workspaceState } from "@/recoil/atom";
 import { PopoverBody, PopoverHeader } from "styled-popover-component";
-import LogoImg from "src/assets/images/Trello-Logo.png";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import dayjs from "dayjs";
 import S from "./styles";
 
 const Workspace = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { workspaceId } = location.state;
+    const [workspaces, setWorkspaces] = useRecoilState(workspaceState);
+
     const [boardTitle, setBoardTitle] = useState("");
     const [boardDescription, setBoardDescription] = useState("");
-    const [boards, setBoards] = useRecoilState(boardState);
     const [hidden, setHidden] = useState(true);
     const [position, setPosition] = useState([0, 0]);
     const [isHover, setIsHover] = useState<boolean>(false);
-    const navigate = useNavigate();
 
     const handleCreateBoard = () => {
-        setBoards((prev) => [
+        setWorkspaces((prev) => ({
             ...prev,
-            {
-                id: Date.now(),
-                title: boardTitle,
-                description: boardDescription,
-                date: dayjs().format("YYYY-MM-DD"),
-            },
-        ]);
+            [workspaceId]: [
+                ...prev[workspaceId],
+                {
+                    id: Date.now(),
+                    title: boardTitle,
+                    description: boardDescription,
+                    date: dayjs().format("YYYY-MM-DD"),
+                },
+            ],
+        }));
         setBoardTitle("");
         setBoardDescription("");
         setHidden(true);
@@ -42,13 +48,9 @@ const Workspace = () => {
     };
 
     return (
-        <>
-            <S.Nav>
-                <S.Image src={LogoImg} onClick={() => navigate("/homepage")} />
-                <S.NavContent>
-                    <AiFillSetting />
-                </S.NavContent>
-            </S.Nav>
+        <S.WorkspaceWrapper>
+            <Navbar />
+            <Sidebar />
             <S.WorkspaceContainer>
                 <S.WorkspaceTitle> WORKSPACE_NAME </S.WorkspaceTitle>
                 <S.Text> Boards </S.Text>
@@ -64,24 +66,31 @@ const Workspace = () => {
                     >
                         <AiFillPlusCircle />
                     </S.AddBoard>
-                    {boards.map((board) => (
-                        <S.Board
-                            key={board.id}
-                            onClick={() => navigate(`/board/${board.id}`)}
-                            onMouseEnter={() => setIsHover(true)}
-                            onMouseLeave={() => setIsHover(false)}
-                        >
-                            <S.BoardHeader>
-                                <S.BoardTitle> {board.title} </S.BoardTitle>
-                                {isHover && (
-                                    <S.Button>
-                                        <AiFillDelete />
-                                    </S.Button>
-                                )}
-                            </S.BoardHeader>
-                            <S.BoardDetail> {board.description} </S.BoardDetail>
-                        </S.Board>
-                    ))}
+                    {workspaceId &&
+                        workspaces[workspaceId].map((board) => (
+                            <S.Board
+                                key={board.id}
+                                onClick={() =>
+                                    navigate(`boards/${board.id}`, {
+                                        state: {
+                                            boardId: board.id,
+                                        },
+                                    })
+                                }
+                                onMouseEnter={() => setIsHover(true)}
+                                onMouseLeave={() => setIsHover(false)}
+                            >
+                                <S.BoardHeader>
+                                    <S.BoardTitle> {board.title} </S.BoardTitle>
+                                    {isHover && (
+                                        <S.Button>
+                                            <AiFillDelete />
+                                        </S.Button>
+                                    )}
+                                </S.BoardHeader>
+                                <S.BoardDetail> {board.description} </S.BoardDetail>
+                            </S.Board>
+                        ))}
                 </S.Boards>
             </S.WorkspaceContainer>
 
@@ -117,7 +126,7 @@ const Workspace = () => {
                     </S.CreateButton>
                 </PopoverBody>
             </S.PopoverSizeUp>
-        </>
+        </S.WorkspaceWrapper>
     );
 };
 
