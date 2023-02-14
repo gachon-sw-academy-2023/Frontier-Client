@@ -46,7 +46,8 @@ const Sidebar = () => {
                             })
                         }
                     >
-                        {workspaceId}
+                        <Side.SideLink to={ROUTES.WORKSPACE}> {workspaceId}</Side.SideLink>
+                        {/* {workspaceId} */}
                     </Side.SideButtonLeft>
                 ))}
                 <Side.SideButtonCenter

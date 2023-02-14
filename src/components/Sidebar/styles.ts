@@ -35,6 +35,9 @@ const SideContent = styled.div`
     padding: 10px 10px 20px 10px;
     flex-direction: ${(props) => props.dir || "15px"};
     color: ${(props) => props.color || "black"};
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const SideButton = styled.button`
