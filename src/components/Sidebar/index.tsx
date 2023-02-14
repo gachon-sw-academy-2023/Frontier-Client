@@ -30,9 +30,6 @@ const Sidebar = () => {
         <Side.HomeSide>
             <Side.SideTop>
                 <Side.SideButtonLeft>
-                    <Side.SideLink to={ROUTES.HOMEPAGE}>Board</Side.SideLink>
-                </Side.SideButtonLeft>
-                <Side.SideButtonLeft>
                     <Side.SideLink to={ROUTES.HOMEPAGE}>Home</Side.SideLink>
                 </Side.SideButtonLeft>
             </Side.SideTop>
