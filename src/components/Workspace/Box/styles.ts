@@ -1,30 +1,65 @@
 import styled from "styled-components";
 
-const Box = styled.div`
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: solid 3px;
-    border-radius: 8px;
-    width: 250px;
-    padding: 10px;
-    margin: 10px 20px 10px 0px;
+const BoardTitle = styled.span`
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 25px;
+    width: 90%;
+`;
+
+const BoardDetail = styled.div`
+    font-size: 12px;
     color: white;
-    background-color: skyblue;
+    white-space: pre-wrap;
+`;
+
+const BoardHeader = styled.header`
+    margin-bottom: 10px;
+    min-height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+`;
+
+const Board = styled.div`
+    margin-right: 15px;
+    height: 100px;
+    min-width: 140px;
+    background-color: rgb(40 130 200);
+    border-radius: 4px;
+    padding: 8px;
+    font-weight: 600;
+    color: white;
     transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
     &:hover {
+        cursor: pointer;
+        opacity: 0.8;
         box-shadow: 0 4px 28px rgba(0, 50, 100, 25), 0 1px rgba(0, 25, 50, 0.22);
         transform: translateY(5px);
     }
 `;
 
-const BoxContent = styled.div`
-    width: 100%;
-    padding: 0;
+const AddBoard = styled(Board)`
+    display: flex;
+    background-color: #a99f9f;
+    justify-content: center;
+    align-items: center;
+
+    :hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
 `;
 
-const BoardFunc = styled.span`
-    align-items: right;
+const Button = styled.div`
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 5px;
+    :hover {
+        opacity: 0.5;
+    }
 `;
 
-export default { Box, BoxContent, BoardFunc };
+export default { Button, Board, BoardDetail, BoardHeader, BoardTitle, AddBoard };

@@ -1,26 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import { BoardInterface } from "@/interfaces/boardInterface";
-import Box from "./styles";
+import { IBoard } from "@/recoil/atom";
+import { AiFillDelete } from "react-icons/ai";
+import { useState } from "react";
+import S from "./styles";
 
-const WorkspaceBox = ({ id, workspace_id, name, ownername, date }: BoardInterface) => {
+interface BoxProps {
+    boardDetail: IBoard;
+    workspaceId: string;
+}
+
+const WorkspaceBox = ({ boardDetail, workspaceId }: BoxProps) => {
     const navigate = useNavigate();
+    const [isHover, setIsHover] = useState(false);
     return (
-        <Box.Box
+        <S.Board
+            key={boardDetail.id}
             onClick={() =>
-                navigate(`workspace/${workspace_id}/boards/${id}`, {
+                navigate(`workspaces/${workspaceId}/boards/${boardDetail.id}`, {
                     state: {
-                        workspaceID: workspace_id,
-                        boardID: id,
+                        boardId: boardDetail.id,
                     },
                 })
             }
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
         >
-            <Box.BoxContent>
-                <h1>{name}</h1>
-                <div>{ownername}</div>
-                <span>{date}</span>
-            </Box.BoxContent>
-        </Box.Box>
+            <S.BoardHeader>
+                <S.BoardTitle> {boardDetail.title} </S.BoardTitle>
+                {isHover && (
+                    <S.Button>
+                        <AiFillDelete />
+                    </S.Button>
+                )}
+            </S.BoardHeader>
+            <S.BoardDetail> {boardDetail.description} </S.BoardDetail>
+        </S.Board>
     );
 };
 
