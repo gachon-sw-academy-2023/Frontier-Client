@@ -4,5 +4,6 @@ export const ROUTES = {
     LOGIN: "/login",
     HOMEPAGE: "/homepage",
     BOARDS: "/boards",
-    BOARD: "/homepage/workspace/:workspace/boards/:board",
+    BOARD: "/homepage/workspaces/:workspace/boards/:board",
+    WORKSPACE: "/homepage/:workspaces/:workspace",
 };
