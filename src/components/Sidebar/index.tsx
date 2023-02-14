@@ -76,7 +76,10 @@ const Sidebar = () => {
                 <PopoverHeader right> Add Workspace </PopoverHeader>
                 <S.PopoverBodyTitle right>Title</S.PopoverBodyTitle>
                 <PopoverBody right>
-                    <S.TitleTextArea placeholder="Board Title..." onChange={handleChangeTitle} />
+                    <S.TitleTextArea
+                        placeholder="Workspace Title..."
+                        onChange={handleChangeTitle}
+                    />
                 </PopoverBody>
                 <PopoverBody>
                     <S.CreateButton color="#5aac44" onClick={handleAddWorkspace}>

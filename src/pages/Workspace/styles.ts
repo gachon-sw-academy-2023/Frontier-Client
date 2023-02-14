@@ -6,20 +6,22 @@ import { Popover, PopoverBody } from "styled-popover-component";
 const Boards = styled.div`
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px 3px;
+    gap: 20px 3px;
     margin-bottom: 24px;
     margin-top: 16px;
 `;
 
 const WorkspaceContainer = styled.div`
-    margin-left: 250px;
+    margin-left: 280px;
     display: flex;
     flex-direction: column;
 `;
 
 const WorkspaceTitle = styled.div`
+    margin-top: 100px;
     font-size: 25px;
     line-height: 28px;
+    font-weight: 700;
 `;
 
 const PopoverSizeUp = styled(Popover)`
@@ -60,6 +62,7 @@ const CreateButton = styled.button`
 `;
 
 const Text = styled.span`
+    margin-top: 40px;
     font-size: 20px;
 `;
 
@@ -85,7 +88,7 @@ const BoardHeader = styled.header`
 `;
 
 const Board = styled.div`
-    height: 100px;
+    height: 150px;
     width: 85%;
     background-color: rgb(40 130 200);
     border-radius: 4px;

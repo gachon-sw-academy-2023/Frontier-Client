@@ -52,7 +52,9 @@ const Workspace = () => {
             <Navbar />
             <Sidebar />
             <S.WorkspaceContainer>
-                <S.WorkspaceTitle> WORKSPACE_NAME </S.WorkspaceTitle>
+                <S.WorkspaceTitle>
+                    {Object.keys(workspaces).filter((workspace) => workspace === workspaceId)}
+                </S.WorkspaceTitle>
                 <S.Text> Boards </S.Text>
                 <S.Boards>
                     <S.AddBoard
