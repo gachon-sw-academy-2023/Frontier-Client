@@ -1,9 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { atom, atomFamily } from "recoil";
-import { DefaultCard } from "@/interfaces/listInterface";
+
+export interface ICard {
+    id: number;
+    title: string;
+    text: string;
+    date: string;
+}
 
 export interface CardStateInterface {
-    [key: string]: DefaultCard[];
+    [key: string]: ICard[];
 }
 
 const localStorageEffect =

@@ -22,18 +22,20 @@ const Workspace = () => {
     const [position, setPosition] = useState([0, 0]);
 
     const handleCreateBoard = () => {
-        setWorkspaces((prev) => ({
-            ...prev,
-            [workspaceId]: [
-                ...prev[workspaceId],
-                {
-                    id: Date.now(),
-                    title: boardTitle,
-                    description: boardDescription,
-                    date: dayjs().format("YYYY-MM-DD"),
-                },
-            ],
-        }));
+        if (boardTitle.length !== 0) {
+            setWorkspaces((prev) => ({
+                ...prev,
+                [workspaceId]: [
+                    ...prev[workspaceId],
+                    {
+                        id: Date.now(),
+                        title: boardTitle,
+                        description: boardDescription,
+                        date: dayjs().format("YYYY-MM-DD"),
+                    },
+                ],
+            }));
+        }
         setBoardTitle("");
         setBoardDescription("");
         setHidden(true);

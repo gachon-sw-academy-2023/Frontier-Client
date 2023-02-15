@@ -15,12 +15,14 @@ const Sidebar = () => {
     const [workspaceTitle, setWorkspaceTitle] = useState("");
 
     const handleAddWorkspace = () => {
-        setWorkspaces((prev) => ({
-            ...prev,
-            [workspaceTitle]: [],
-        }));
-        setHidden(true);
-        setWorkspaceTitle("");
+        if (workspaceTitle.length !== 0) {
+            setWorkspaces((prev) => ({
+                ...prev,
+                [workspaceTitle]: [],
+            }));
+            setHidden(true);
+            setWorkspaceTitle("");
+        }
     };
     const handleChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setWorkspaceTitle(e.target.value);
@@ -46,8 +48,7 @@ const Sidebar = () => {
                             })
                         }
                     >
-                        <Side.SideLink to={ROUTES.WORKSPACE}> {workspaceId}</Side.SideLink>
-                        {/* {workspaceId} */}
+                        {workspaceId}
                     </Side.SideButtonLeft>
                 ))}
                 <Side.SideButtonCenter

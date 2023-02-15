@@ -1,8 +1,7 @@
 import { cardState } from "@/recoil/atom";
-import { userAtom } from "@/recoil/userAtom";
 import dayjs from "dayjs";
 import React, { useState } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import S from "./styles";
 
 interface AddCardProps {
@@ -13,7 +12,6 @@ interface AddCardProps {
 
 const AddCard = ({ listId, editable, boardId }: AddCardProps) => {
     const setCard = useSetRecoilState(cardState(boardId));
-    const userState = useRecoilValue(userAtom);
     const [toggleAddCard, setToggleAddCard] = useState<boolean>(editable);
     const [cardContents, setCardContents] = useState({ title: "", text: "" });
 
@@ -25,13 +23,9 @@ const AddCard = ({ listId, editable, boardId }: AddCardProps) => {
                     ...prev[listId],
                     {
                         id: Date.now(),
-                        listId,
                         title: cardContents.title,
                         text: cardContents.text,
                         date: dayjs().format("YYYY-MM-DD"),
-                        createdBy: userState.id,
-                        modifiedAt: userState.id,
-                        position: 1,
                     },
                 ],
             }));
