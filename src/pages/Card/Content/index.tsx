@@ -1,6 +1,7 @@
 import { FaTrello } from "react-icons/fa";
 import Description from "@/pages/Card/Content/Description";
 import Members from "@/pages/Card/Content/Members";
+import Labels from "@/pages/Card/Content/Labels"
 import * as S from "@/pages/Card/Content/styles";
 
 const CardContent = () => {
@@ -18,7 +19,7 @@ const CardContent = () => {
         {
             title: "Labels",
             icon: <FaTrello />,
-            content: <S.ContentBody />,
+            content: <Labels />,
         },
         {
             title: "Attachment",

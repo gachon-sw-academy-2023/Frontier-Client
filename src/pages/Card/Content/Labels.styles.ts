@@ -1,7 +1,8 @@
-import { FaUserCircle, FaUserPlus } from "react-icons/fa";
+import {FaCircle, FaPlusCircle, FaUserPlus} from "react-icons/fa";
+
 import styled from "styled-components";
 
-export const MemberWrapper = styled.div`
+export const LabelWrapper = styled.div`
     background-color: white;
     min-height: 30px;
     padding: 8px 12px;
@@ -19,7 +20,7 @@ export const MemberWrapper = styled.div`
     }
 `;
 
-export const Member = styled.div`
+export const Label = styled.div`
     height: 100%;
     display: flex;
     width: 100%;
@@ -36,9 +37,9 @@ export const Member = styled.div`
         padding: 0;
     }
 `;
-export const MemberIcon = styled(FaUserCircle)`
-    color: salmon;
-    width: 13%;
+export const LabelIcon = styled(FaCircle)`
+    color: ${(props) => props.color};
+    width: 15%;
     height: 100%;
 
     @media only screen and (max-width: 1200px) {
@@ -46,15 +47,15 @@ export const MemberIcon = styled(FaUserCircle)`
     }
 
     @media only screen and (max-width: 700px) {
-        width: 5%;
+        width: 4%;
     }
 `;
-export const MemberName = styled.div`
-    text-align: center;
-    padding: 10px;
+export const LabelName = styled.div`
+  text-align: center;
+  padding: 10px;
 `;
 
-export const PlusIcon = styled(FaUserPlus)`
+export const PlusIcon = styled(FaPlusCircle)`
     color: salmon;
     width: 13%;
     height: 100%;
@@ -69,3 +70,4 @@ export const PlusIcon = styled(FaUserPlus)`
         color: black;
     }
 `;
+
