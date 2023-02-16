@@ -15,6 +15,7 @@ const Members = () => {
                     <S.MemberName>{v.name}</S.MemberName>
                 </S.Member>
             ))}
+            <S.PlusIcon />
         </S.MemberWrapper>
     );
 };
