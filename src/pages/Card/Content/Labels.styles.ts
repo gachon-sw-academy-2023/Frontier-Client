@@ -1,4 +1,4 @@
-import {FaCircle, FaPlusCircle, FaUserPlus} from "react-icons/fa";
+import { FaCircle, FaPlusCircle, FaUserPlus } from "react-icons/fa";
 
 import styled from "styled-components";
 
@@ -51,8 +51,8 @@ export const LabelIcon = styled(FaCircle)`
     }
 `;
 export const LabelName = styled.div`
-  text-align: center;
-  padding: 10px;
+    text-align: center;
+    padding: 10px;
 `;
 
 export const PlusIcon = styled(FaPlusCircle)`
@@ -62,7 +62,7 @@ export const PlusIcon = styled(FaPlusCircle)`
 
     @media only screen and (max-width: 700px) {
         width: 8%;
-      padding-top: 8px;
+        padding-top: 8px;
         align-self: center;
     }
 
@@ -70,4 +70,3 @@ export const PlusIcon = styled(FaPlusCircle)`
         color: black;
     }
 `;
-

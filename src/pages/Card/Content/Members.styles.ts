@@ -61,7 +61,7 @@ export const PlusIcon = styled(FaUserPlus)`
 
     @media only screen and (max-width: 700px) {
         width: 8%;
-      padding-top: 8px;
+        padding-top: 8px;
         align-self: center;
     }
 

@@ -34,7 +34,7 @@ const Labels = () => {
             ))}
             <S.PlusIcon />
         </S.LabelWrapper>
-    )
-}
+    );
+};
 
 export default Labels;
