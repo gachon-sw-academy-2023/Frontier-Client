@@ -37,26 +37,26 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const SubmitButton = styled.button<{ bgColor: string }>`
-  outline: none;
-  text-align: center;
-  align-items: center;
-  border-radius: 3px;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 400;
-  justify-content: center;
-  line-height: 20px;
-  padding: 6px 16px;
-  white-space: normal;
-  color: ${(props) => props.color};
-  background-color: ${(props) => props.bgColor};
-  border: none;
-  box-shadow: none;
-  float: left;
-  margin: 0 12px 0 0;
+    outline: none;
+    text-align: center;
+    align-items: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 20px;
+    padding: 6px 16px;
+    white-space: normal;
+    color: ${(props) => props.color};
+    background-color: ${(props) => props.bgColor};
+    border: none;
+    box-shadow: none;
+    float: left;
+    margin: 0 12px 0 0;
 
-  &:hover {
-    background-color: #3e3ea1;
-  }
+    &:hover {
+        background-color: #3e3ea1;
+    }
 `;
