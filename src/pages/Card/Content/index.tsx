@@ -40,6 +40,11 @@ const CardContent = () => {
             icon: <FaTrello />,
             content: <S.ContentBody />,
         },
+        {
+            title: "Activity",
+            icon: <FaTrello />,
+            content: <S.ContentBody />,
+        },
     ];
 
     return (
