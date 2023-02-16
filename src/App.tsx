@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";
 import Workspace from "@/pages/Workspace";
+import CardModal from "@/pages/Card";
 import { ROUTES } from "@/utils/routes";
 
 if (import.meta.env.MODE === "development") {
@@ -36,6 +37,7 @@ const App = () => (
                     <Route path={ROUTES.HOMEPAGE} element={<Home />} />
                     <Route path={ROUTES.BOARD} element={<Board />} />
                     <Route path={ROUTES.WORKSPACE} element={<Workspace />} />
+                    <Route path={ROUTES.CARD_MODAL} element={<CardModal />} />
                 </Routes>
                 <ReactQueryDevtools />
             </QueryClientProvider>

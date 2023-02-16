@@ -6,4 +6,5 @@ export const ROUTES = {
     BOARDS: "/boards",
     BOARD: "/homepage/workspaces/:workspace/boards/:board",
     WORKSPACE: "/homepage/:workspaces/:workspace",
+    CARD_MODAL: "/card",
 };
