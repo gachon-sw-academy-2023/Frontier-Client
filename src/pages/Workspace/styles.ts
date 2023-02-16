@@ -1,76 +1,27 @@
 import styled from "styled-components";
 import ReactTextareaAutosize from "react-textarea-autosize";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Popover, PopoverBody } from "styled-popover-component";
-
-const Nav = styled.div`
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(59 130 246);
-    color: white;
-    padding: 7px 7px;
-`;
-
-const Image = styled.img`
-    width: 50px;
-    :hover {
-        cursor: pointer;
-    }
-`;
-
-const NavContent = styled.div`
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    padding-top: 14px;
-    :hover {
-        opacity: 0.5;
-        cursor: pointer;
-    }
-`;
+import S from "@/components/BoardBox/styles";
 
 const Boards = styled.div`
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px 3px;
+    gap: 20px 3px;
     margin-bottom: 24px;
     margin-top: 16px;
 `;
 
-const Board = styled.div`
-    height: 100px;
-    width: 85%;
-    background-color: rgb(40 130 200);
-    border-radius: 4px;
-    padding: 8px;
-    font-weight: 600;
-    color: white;
-    :hover {
-        cursor: pointer;
-        opacity: 0.8;
-    }
-`;
-
 const WorkspaceContainer = styled.div`
-    padding: 36px 24px;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
 `;
 
 const WorkspaceTitle = styled.div`
+    margin-top: 100px;
     font-size: 25px;
     line-height: 28px;
-    margin-bottom: 12px;
-`;
-
-const AddBoard = styled(Board)`
-    display: flex;
-    background-color: #a99f9f;
-    justify-content: center;
-    align-items: center;
-
-    :hover {
-        opacity: 0.7;
-        cursor: pointer;
-    }
+    font-weight: 700;
 `;
 
 const PopoverSizeUp = styled(Popover)`
@@ -110,59 +61,38 @@ const CreateButton = styled.button`
     }
 `;
 
-const BoardTitle = styled.span`
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 25px;
-    width: 90%;
-`;
-
-const BoardDetail = styled.div`
-    font-size: 12px;
-    color: white;
-    white-space: pre-wrap;
-`;
-
-const BoardHeader = styled.header`
-    margin-bottom: 10px;
-    min-height: 40%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-`;
-
-const Button = styled.div`
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin: 5px;
-    :hover {
-        opacity: 0.5;
-    }
-`;
-
 const Text = styled.span`
+    margin-top: 40px;
     font-size: 20px;
 `;
 
+const AddBoard = styled(S.Board)`
+    display: flex;
+    background-color: #a99f9f;
+    justify-content: center;
+    align-items: center;
+
+    :hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+`;
+
+const WorkspaceWrapper = styled.div`
+    margin: 0;
+    background-color: white;
+`;
+
 export default {
-    Nav,
-    Image,
-    NavContent,
     Boards,
-    Board,
+    WorkspaceWrapper,
     WorkspaceContainer,
     WorkspaceTitle,
-    BoardDetail,
-    BoardHeader,
-    BoardTitle,
     CreateButton,
     DescriptionTextArea,
     TitleTextArea,
-    AddBoard,
     PopoverBodyTitle,
     PopoverSizeUp,
-    Button,
     Text,
+    AddBoard,
 };

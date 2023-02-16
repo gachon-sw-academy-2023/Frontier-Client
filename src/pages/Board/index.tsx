@@ -4,13 +4,13 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import { cardState, CardStateInterface } from "@/recoil/atom";
 import AddList from "@/components/Board/AddList";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import * as S from "./styles";
 
 const Board = () => {
-    const { boardId } = useParams() as { boardId: string };
+    const { boardId } = useLocation().state;
     const [cards, setCards] = useRecoilState(cardState(boardId));
 
     const onDragEnd = ({ source, destination, type }: DropResult) => {
@@ -69,6 +69,7 @@ const Board = () => {
                         <S.Board ref={provided.innerRef}>
                             {Object.keys(cards).map((listId, index) => (
                                 <List
+                                    boardId={boardId}
                                     listId={listId}
                                     key={listId}
                                     cards={cards[listId]}
@@ -76,7 +77,7 @@ const Board = () => {
                                 />
                             ))}
                             {provided.placeholder}
-                            <AddList />
+                            <AddList boardId={boardId} />
                         </S.Board>
                     )}
                 </Droppable>

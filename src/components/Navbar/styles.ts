@@ -32,7 +32,7 @@ const DropDownButton = styled.div`
 const DropDownContent = styled.div`
     display: none;
     position: fixed;
-    z-index= 1;
+    z-index: 1;
     background-color: white;
     margin-left: -20px;
     margin-top: 30px;

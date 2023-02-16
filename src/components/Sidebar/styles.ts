@@ -33,14 +33,14 @@ const SideContent = styled.div`
     width: 80%;
     margin-top: 10px;
     padding: 10px 10px 20px 10px;
-    flex-direction: ${(props) => props.dir || "15px"}};
+    flex-direction: ${(props) => props.dir || "15px"};
     color: ${(props) => props.color || "black"};
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const SideButton = styled.button`
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
     border: none;
     width: 80%;
     padding: 10px;
@@ -52,9 +52,16 @@ const SideButton = styled.button`
     }
 `;
 
+const SideButtonLeft = styled(SideButton)`
+    text-align: left;
+`;
+
+const SideButtonCenter = styled(SideButton)`
+    text-align: center;
+`;
+
 const SideLink = styled(Link)`
     color: black;
-    text-styled: none;
     text-decoration: none;
     &:hover {
         color: white;
@@ -64,4 +71,12 @@ const SideLink = styled(Link)`
     }
 `;
 
-export default { HomeSide, SideTop, SideBottom, SideContent, SideButton, SideLink };
+export default {
+    SideButtonCenter,
+    HomeSide,
+    SideTop,
+    SideBottom,
+    SideContent,
+    SideButtonLeft,
+    SideLink,
+};
