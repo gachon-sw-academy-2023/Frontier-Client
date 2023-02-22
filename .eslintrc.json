@@ -62,7 +62,9 @@
     "react/prop-types": 0,
     "import/no-extraneous-dependencies": [
       "off"
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "off",
+    "react/require-default-props": "off"
   },
   "ignorePatterns": [
     ".yarn",

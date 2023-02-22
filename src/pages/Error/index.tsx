@@ -1,6 +1,6 @@
 import * as S from "@/pages/Error/Error.styles";
 
-const Error = ({ code, message }: { code: number; message: string }) => {
+const Error = ({ code = 500, message = "Server is Down" }: { code?: number; message?: string }) => {
     const handleGoBack = () => {
         window.history.back();
     };
