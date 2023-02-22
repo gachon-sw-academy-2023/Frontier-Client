@@ -82,7 +82,7 @@ const Pricing = () => {
                                     </S.TableHeaderDescription>
 
                                     {v.content.map((el) => (
-                                        <S.TableContent>
+                                        <S.TableContent key={el.text}>
                                             <S.TableContentInner>
                                                 <S.Check>
                                                     <AiOutlineCheck color="green" />
