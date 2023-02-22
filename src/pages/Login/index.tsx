@@ -1,6 +1,6 @@
 import * as S from "@/components/GlobalStyle";
 import LoginForm from "@/components/auth/LoginForm";
-import Logo from "@/assets/images/Trello-logo.png";
+import Logo from "@/assets/images/Frontier-Logo2.png";
 import { Image } from "./styles";
 
 const Login = () => (

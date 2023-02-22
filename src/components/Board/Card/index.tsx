@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from "react";
-import { cardState } from "@/recoil/atom";
+import { cardState, ICard } from "@/recoil/atom";
 import { useSetRecoilState } from "recoil";
-import { CardInterface } from "@/interfaces/cardInterface";
 import { Draggable } from "react-beautiful-dnd";
 import { FaEdit } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -10,13 +9,14 @@ import CardEditor from "../CardEditor";
 import S from "./styles";
 
 interface CardProps {
-    cardDetail: CardInterface;
+    cardDetail: ICard;
     listId: string;
+    boardId: string;
     index: number;
 }
 
-const Card = ({ cardDetail, index, listId }: CardProps) => {
-    const setCards = useSetRecoilState(cardState);
+const Card = ({ cardDetail, index, listId, boardId }: CardProps) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [editable, setEditable] = useState<boolean>(false);
     const [isHover, setIsHover] = useState<boolean>(false);
 
@@ -68,7 +68,14 @@ const Card = ({ cardDetail, index, listId }: CardProps) => {
             </Draggable>
         );
     }
-    return <CardEditor listId={listId} setEditable={setEditable} cardDetail={cardDetail} />;
+    return (
+        <CardEditor
+            listId={listId}
+            boardId={boardId}
+            setEditable={setEditable}
+            cardDetail={cardDetail}
+        />
+    );
 };
 
 export default Card;

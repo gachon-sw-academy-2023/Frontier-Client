@@ -1,15 +1,10 @@
-export interface User {
-    name: string;
+export interface GetUserResBody {
     id: string;
-}
-
-export interface UserLogin {
-    email: string;
-    password: string;
-}
-
-export interface UserSignUp {
     name: string;
     email: string;
-    password: string;
+    profileImage: string;
+}
+
+export interface PatchUserReqBody {
+    profileImage: string;
 }

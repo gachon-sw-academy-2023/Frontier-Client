@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
-const Board = styled.div`
-    background-color: #3179ba;
-    overflow-y: hidden;
+const BoardContent = styled.div`
     display: flex;
-    height: 100vh;
 `;
 
-export { Board };
+const Board = styled.div`
+    margin-top: 7vh;
+    margin-left: 250px;
+    background-color: #3179ba;
+    overflow-y: fix;
+    overflow-x: fix;
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+`;
+
+export { BoardContent, Board };

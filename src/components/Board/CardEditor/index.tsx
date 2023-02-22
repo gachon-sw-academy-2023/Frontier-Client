@@ -1,17 +1,17 @@
-import { CardInterface } from "@/interfaces/cardInterface";
-import { cardState } from "@/recoil/atom";
+import { cardState, ICard } from "@/recoil/atom";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import S from "./styles";
 
 interface CardEditorProps {
     setEditable: Dispatch<SetStateAction<boolean>>;
+    boardId: string;
     listId: string;
-    cardDetail: CardInterface;
+    cardDetail: ICard;
 }
 
-const CardEditor = ({ setEditable, listId, cardDetail }: CardEditorProps) => {
-    const setCards = useSetRecoilState(cardState);
+const CardEditor = ({ setEditable, boardId, listId, cardDetail }: CardEditorProps) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [cardContents, setCardContents] = useState({
         title: cardDetail.title,
         text: cardDetail.text,

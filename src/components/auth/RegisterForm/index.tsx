@@ -7,28 +7,23 @@ import {
     ERROR_PASSWORD_VALIDATION,
     ERROR_EMAIL_DUPLICATED,
 } from "@/utils/error-message";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
-import useSignUpQuery from "@/queries/useSignUpQuery";
+import { useRegisterQuery } from "@/queries/useAuthQuery";
+import { RegisterReqBody } from "@/interfaces/authInterface";
 import { useSetRecoilState } from "recoil";
 import { userAtom } from "@/recoil/userAtom";
+import AuthButton from "../AuthButton";
 import S from "./styles";
 
-type UserSignUpFormData = {
-    name: string;
-    email: string;
-    password: string;
-};
-
 const RegisterFrom = () => {
-    const { mutate, isLoading, error } = useSignUpQuery();
+    const { mutate, isLoading, error } = useRegisterQuery();
     const setUser = useSetRecoilState(userAtom);
     const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<UserSignUpFormData>();
+    } = useForm<RegisterReqBody>();
 
     const onSubmit = handleSubmit((data) => {
         mutate(data, {
@@ -48,7 +43,6 @@ const RegisterFrom = () => {
                 placeholder="Name"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("name")}
             />
             <S.Input
@@ -57,7 +51,6 @@ const RegisterFrom = () => {
                 placeholder="Email"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("email", { required: true, pattern: EMAIL_REGEX })}
             />
             {errors.email && errors.email.type === "pattern" && (
@@ -69,15 +62,12 @@ const RegisterFrom = () => {
                 placeholder="Password"
                 maxLength={20}
                 autoComplete="off"
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...register("password", { required: true, pattern: PASSWORD_REGEX })}
             />
             {errors.password && errors.password.type === "pattern" && (
                 <S.ErrorText> {ERROR_PASSWORD_VALIDATION} </S.ErrorText>
             )}
-            <S.Button color="#1e90ff" disabled={isLoading}>
-                회원가입
-            </S.Button>
+            <AuthButton color="#1e90ff" type="button" disabled={isLoading} contents="회원가입" />
             {error && <S.ErrorText> {ERROR_EMAIL_DUPLICATED} </S.ErrorText>}
         </S.InputContainer>
     );

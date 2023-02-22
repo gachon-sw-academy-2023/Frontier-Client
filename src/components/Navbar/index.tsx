@@ -1,56 +1,54 @@
-import { SetStateAction, useState } from "react";
-import { RxDashboard } from "react-icons/rx";
-import Logo from "@/assets/images/Trello-Logo.png";
-import H from "./styles";
+import { useState } from "react";
+import Logo from "@/assets/images/Frontier-Logo.png";
+import user_img from "@/assets/images/user-img.png";
+import { ROUTES } from "@/utils/routes";
+import Head from "./styles";
 
 const Navbar = () => {
     // 추후 functinon 관련 api 추가
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [content, setContent] = useState("");
 
-    const searchContent = (e: { target: { value: SetStateAction<string> } }) => {
-        setContent(e.target.value);
-    };
-
     return (
-        <H.HeadNav className="navbar">
-            <H.HeadUl>
-                <H.Image src={Logo} alt="" />
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">workspace</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">recent</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadLink to="/">starred</H.HeadLink>
-                </H.HeadLiitem>
-                <H.HeadLiitem>
-                    <H.HeadCreate type="button" className="head_create">
-                        Create
-                    </H.HeadCreate>
-                </H.HeadLiitem>
-            </H.HeadUl>
-            <H.HeadUl className="nav_function">
-                <H.HeadLifunc>
-                    <input
-                        id="search"
-                        name="search"
-                        placeholder="Search"
-                        onChange={searchContent}
-                    />
-                </H.HeadLifunc>
-                <H.HeadLifunc>
-                    <RxDashboard className="alarm" />
-                </H.HeadLifunc>
-                <H.HeadLifunc>
-                    <button type="button" className="head_user">
-                        {/* <img src={user_image} alt="user_image" /> */}
-                        user_image
-                    </button>
-                </H.HeadLifunc>
-            </H.HeadUl>
-        </H.HeadNav>
+        <Head.HeadNav>
+            <Head.HeadUl>
+                <Head.HeadLink to={ROUTES.HOMEPAGE}>
+                    <Head.Image src={Logo} alt="" />
+                </Head.HeadLink>
+                <Head.HeadLiitem>
+                    <Head.DropDownButton>
+                        <Head.HeadLink to={ROUTES.HOMEPAGE}>Workspaces</Head.HeadLink>
+                    </Head.DropDownButton>
+                    <Head.DropDownContent>
+                        Workspaces
+                        <Head.DropDownBox>Workspace1</Head.DropDownBox>
+                        <Head.DropDownBox>Workspace2</Head.DropDownBox>
+                        <Head.DropDownBox>Workspace3</Head.DropDownBox>
+                    </Head.DropDownContent>
+                </Head.HeadLiitem>
+                <Head.HeadLiitem>
+                    <Head.DropDownButton>
+                        <Head.HeadLink to={ROUTES.HOMEPAGE}>Boards</Head.HeadLink>
+                    </Head.DropDownButton>
+                    <Head.DropDownContent>
+                        Boards
+                        <Head.DropDownBox>Board1</Head.DropDownBox>
+                        <Head.DropDownBox>Board2</Head.DropDownBox>
+                        <Head.DropDownBox>Board3</Head.DropDownBox>
+                    </Head.DropDownContent>
+                </Head.HeadLiitem>
+                <Head.HeadCreate type="button" className="head_create">
+                    Create
+                </Head.HeadCreate>
+            </Head.HeadUl>
+            <Head.HeadUl>
+                <Head.HeadUserInfo>
+                    <Head.HeadLiimg src={user_img} alt="user_img" />
+                    <Head.HeadUserName>user_name</Head.HeadUserName>
+                    {/* username will get from params */}
+                </Head.HeadUserInfo>
+            </Head.HeadUl>
+        </Head.HeadNav>
     );
 };
 

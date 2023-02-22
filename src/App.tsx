@@ -1,12 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { worker } from "@/tests/mocks/browser";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { worker } from "@/mocks/browser";
 import Landing from "@/pages/Landing";
-import Login from "@/pages//Login";
+import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";
+import Workspace from "@/pages/Workspace";
+import CardModal from "@/components/CardModal";
+import Error from "@/pages/Error";
+import { ROUTES } from "@/utils/routes";
 
 if (import.meta.env.MODE === "development") {
     worker.start({
@@ -27,12 +32,16 @@ const App = () => (
         <RecoilRoot>
             <QueryClientProvider client={queryClient}>
                 <Routes>
-                    <Route index element={<Landing />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/homepage" element={<Home />} />
-                    <Route path="/board" element={<Board />} />
+                    <Route path={ROUTES.MAIN} element={<Landing />} />
+                    <Route path={ROUTES.LOGIN} element={<Login />} />
+                    <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+                    <Route path={ROUTES.HOMEPAGE} element={<Home />} />
+                    <Route path={ROUTES.BOARD} element={<Board />} />
+                    <Route path={ROUTES.WORKSPACE} element={<Workspace />} />
+                    <Route path={ROUTES.CARD_MODAL} element={<CardModal />} />
+                    <Route path={ROUTES.ERROR} element={<Error />} />
                 </Routes>
+                <ReactQueryDevtools />
             </QueryClientProvider>
         </RecoilRoot>
     </BrowserRouter>

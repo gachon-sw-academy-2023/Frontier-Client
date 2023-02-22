@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import { CardInterface } from "@/interfaces/cardInterface";
 import { useSetRecoilState } from "recoil";
-import { cardState, CardStateInterface } from "@/recoil/atom";
+import { cardState, CardStateInterface, ICard } from "@/recoil/atom";
 import { FaEdit } from "react-icons/fa";
 import { AiTwotoneDelete } from "react-icons/ai";
 import Card from "@/components/Board/Card";
@@ -13,12 +12,13 @@ import AddCard from "../AddCard";
 
 interface ListProps {
     listId: string;
-    cards: CardInterface[];
+    boardId: string;
+    cards: ICard[];
     index: number;
 }
 
-const List = ({ listId, cards, index }: ListProps) => {
-    const setCards = useSetRecoilState(cardState);
+const List = ({ listId, boardId, cards, index }: ListProps) => {
+    const setCards = useSetRecoilState(cardState(boardId));
     const [isHover, setIsHover] = useState<boolean>(false);
     const [editable, setEditable] = useState<boolean>(false);
     const handleDeleteList = () => {
@@ -48,7 +48,11 @@ const List = ({ listId, cards, index }: ListProps) => {
                         onMouseLeave={() => setIsHover(false)}
                     >
                         {editable ? (
-                            <ListEditor setEditable={setEditable} listId={listId} />
+                            <ListEditor
+                                setEditable={setEditable}
+                                boardId={boardId}
+                                listId={listId}
+                            />
                         ) : (
                             <S.ListTitle>{listId}</S.ListTitle>
                         )}
@@ -74,12 +78,13 @@ const List = ({ listId, cards, index }: ListProps) => {
                                     <Card
                                         key={card.id}
                                         index={cardindex}
+                                        boardId={boardId}
                                         cardDetail={card}
                                         listId={listId}
                                     />
                                 ))}
                                 {droppableProvided.placeholder}
-                                <AddCard listId={listId} editable={false} />
+                                <AddCard listId={listId} boardId={boardId} editable={false} />
                             </div>
                         )}
                     </Droppable>

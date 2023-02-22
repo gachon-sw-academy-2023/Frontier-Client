@@ -1,81 +1,22 @@
 import styled from "styled-components";
+import ReactTextareaAutosize from "react-textarea-autosize";
+import { Popover, PopoverBody } from "styled-popover-component";
+import S from "@/components/Homepage/Box/styles";
 
 const Home = styled.div`
-    margin: 0 auto 0 auto;
+    margin: 0;
+    background-color: white;
 `;
 
 const HomeBody = styled.div`
     display: flex;
-    width: 80%;
-    margin: 50px auto 0 auto;
 `;
-
-const HomeSide = styled.div`
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-    height: 100%;
-`;
-
-const SideTop = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px 0 20px 0;
-`;
-
-const SideBottom = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    border-top: solid 0.2px;
-`;
-
-const SideContent = styled.div`
-    display: flex;
-    justify-content: space-between;
-    color: gray;
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    flex-direction: ${(props) => props.dir || "15px"}};
-    color: ${(props) => props.color || "black"};
-`;
-
-const SideButton = styled.button`
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    font-weight: bold;
-    &:hover {
-        background-color: rgb(231, 233, 237);
-    }
-`;
-
-// const SideButtonTitle = styled.button`
-//     display: flex;
-//     justify-content: space-between;
-//     text-align: left;
-//     border: none;
-//     width: 100%;
-//     padding: 10px;
-//     margin: 5px;
-//     font-weight: bold;
-//     &:hover {
-//         background-color: rgb(231, 233, 237);
-//     }
-// `;
 
 const HomeContent = styled.div`
+    margin-top: 7vh;
+    margin-left: 250px;
     display: flex;
     flex-direction: column;
-    margin: 0 30px 30px 30px;
 `;
 
 const HomeH1 = styled.h1`
@@ -94,19 +35,73 @@ const HomeWorkspace = styled.div`
 
 const HomeBox = styled.div`
     display: flex;
-    flex-direction: row;
+    width: 100vw;
+`;
+
+const WorkspaceTitle = styled.span`
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+`;
+
+const AddBoardBox = styled(S.Board)`
+    font-size: 28px;
+    justify-content: center;
+    align-items: center;
+    background-color: #a99f9f;
+    :hover {
+        opacity: 0.8;
+    }
+`;
+const PopoverSizeUp = styled(Popover)`
+    min-width: 320px;
+    background-color: #feffff;
+`;
+const PopoverBodyTitle = styled(PopoverBody)`
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+`;
+
+const TitleTextArea = styled(ReactTextareaAutosize)`
+    width: 100%;
+    border: none;
+    outline: none;
+`;
+
+const DescriptionTextArea = styled(TitleTextArea)`
+    min-height: 50px;
+`;
+
+const CreateButton = styled.button`
+    background: ${(props) => props.color};
+    color: #fff;
+    transition: background 0.3s ease;
+    min-height: 32px;
+    padding: 0 16px;
+    margin: 5px 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    :hover {
+        opacity: 0.7;
+    }
 `;
 
 export default {
+    TitleTextArea,
+    PopoverBodyTitle,
+    CreateButton,
+    DescriptionTextArea,
+    PopoverSizeUp,
+    WorkspaceTitle,
     Home,
     HomeBody,
-    HomeSide,
-    SideTop,
-    SideBottom,
-    SideContent,
-    SideButton,
     HomeContent,
     HomeH1,
     HomeWorkspace,
     HomeBox,
+    AddBoardBox,
 };

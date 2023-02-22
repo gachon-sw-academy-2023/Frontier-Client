@@ -4,10 +4,14 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import { cardState, CardStateInterface } from "@/recoil/atom";
 import AddList from "@/components/Board/AddList";
+import { useLocation } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import * as S from "./styles";
 
 const Board = () => {
-    const [cards, setCards] = useRecoilState(cardState);
+    const { boardId } = useLocation().state;
+    const [cards, setCards] = useRecoilState(cardState(boardId));
 
     const onDragEnd = ({ source, destination, type }: DropResult) => {
         if (!destination) return;
@@ -56,24 +60,29 @@ const Board = () => {
     };
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="board" direction="horizontal" type="COLUMN">
-                {(provided) => (
-                    <S.Board ref={provided.innerRef}>
-                        {Object.keys(cards).map((listId, index) => (
-                            <List
-                                listId={listId}
-                                key={listId}
-                                cards={cards[listId]}
-                                index={index}
-                            />
-                        ))}
-                        {provided.placeholder}
-                        <AddList />
-                    </S.Board>
-                )}
-            </Droppable>
-        </DragDropContext>
+        <S.BoardContent>
+            <Navbar />
+            <Sidebar />
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="board" direction="horizontal" type="COLUMN">
+                    {(provided) => (
+                        <S.Board ref={provided.innerRef}>
+                            {Object.keys(cards).map((listId, index) => (
+                                <List
+                                    boardId={boardId}
+                                    listId={listId}
+                                    key={listId}
+                                    cards={cards[listId]}
+                                    index={index}
+                                />
+                            ))}
+                            {provided.placeholder}
+                            <AddList boardId={boardId} />
+                        </S.Board>
+                    )}
+                </Droppable>
+            </DragDropContext>
+        </S.BoardContent>
     );
 };
 
