@@ -1,15 +1,13 @@
 import Header from "@/pages/Landing/Header";
 import Hero from "@/pages/Landing/Hero";
-import { useEffect } from "react";
+import Feature from "@/pages/Landing/Feature";
 
-const Landing = () => {
-    useEffect(() => {});
-    return (
-        <>
-            <Header />
-            <Hero />
-        </>
-    );
-};
+const Landing = () => (
+    <>
+        <Header />
+        <Hero />
+        <Feature />
+    </>
+);
 
 export default Landing;

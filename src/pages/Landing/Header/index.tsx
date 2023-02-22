@@ -24,8 +24,8 @@ const Header = () => {
                         </S.NavItem>
                     </S.NavList>
                     <S.NavList>
-                        <S.NavItem activeClass="active" to="services" spy smooth offset={-80}>
-                            Services
+                        <S.NavItem activeClass="active" to="features" spy smooth offset={-80}>
+                            Features
                         </S.NavItem>
                     </S.NavList>
                     <S.NavList>

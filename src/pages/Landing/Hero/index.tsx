@@ -11,7 +11,7 @@ const Hero = () => (
                         Streamline Your Projects and Boost Your Team`s Productivity with Ease
                     </S.SubTitle>
                     <S.BtnWrapper>
-                        <S.Button>Get Started</S.Button>
+                        <S.Button to="/login">Get Started</S.Button>
                     </S.BtnWrapper>
                 </div>
             </S.LeftSide>

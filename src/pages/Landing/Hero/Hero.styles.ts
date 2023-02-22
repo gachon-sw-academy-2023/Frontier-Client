@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaReact } from "react-icons/fa";
 import { SiVite, SiTypescript, SiJest, SiCypress, SiStyledcomponents } from "react-icons/si";
+import { NavLink } from "react-router-dom";
 
 export const HeroWrapper = styled.section`
     width: 100%;
@@ -66,13 +67,14 @@ export const BtnWrapper = styled.div`
     }
 `;
 
-export const Button = styled.button`
+export const Button = styled(NavLink)`
     transition: 0.3s ease;
     cursor: pointer;
     border-radius: 1em;
     border: 1px solid #7620ff;
     background-color: #7620ff;
     width: 100%;
+    text-decoration: none;
     padding: 15px;
     outline: none;
     color: white;
@@ -122,6 +124,7 @@ export const Img = styled.img`
     @media (max-width: 560px) {
         width: 80%;
         height: auto;
+        margin-top: 80px;
     }
 `;
 
