@@ -1,4 +1,4 @@
-import * as S from "@/pages/Card/Sidebar/Sidebar.styles";
+import * as S from "@/components/CardModal/Sidebar/Sidebar.styles";
 import { FaTrello } from "react-icons/fa";
 
 const CardSidebar = () => {

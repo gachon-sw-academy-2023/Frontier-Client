@@ -9,7 +9,7 @@ import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";
 import Workspace from "@/pages/Workspace";
-import CardModal from "@/pages/Card";
+import CardModal from "@/components/CardModal";
 import { ROUTES } from "@/utils/routes";
 
 if (import.meta.env.MODE === "development") {

@@ -1,4 +1,4 @@
-import * as S from "@/pages/Card/Content/Description.styles";
+import * as S from "@/components/CardModal/Content/Description.styles";
 import { useState } from "react";
 
 const Description = () => {

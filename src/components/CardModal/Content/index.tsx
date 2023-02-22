@@ -1,8 +1,8 @@
 import { FaTrello } from "react-icons/fa";
-import Description from "@/pages/Card/Content/Description";
-import Members from "@/pages/Card/Content/Members";
-import Labels from "@/pages/Card/Content/Labels";
-import * as S from "@/pages/Card/Content/styles";
+import Description from "@/components/CardModal/Content/Description";
+import Members from "@/components/CardModal/Content/Members";
+import Labels from "@/components/CardModal/Content/Labels";
+import * as S from "@/components/CardModal/Content/styles";
 
 const CardContent = () => {
     const contents = [

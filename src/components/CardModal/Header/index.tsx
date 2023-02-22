@@ -1,4 +1,4 @@
-import * as S from "@/pages/Card/Header/Header.styles";
+import * as S from "@/components/CardModal/Header/Header.styles";
 
 const CardHeader = () => {
     const data = { title: "Card Title", listName: 3 };

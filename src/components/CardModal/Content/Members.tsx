@@ -1,4 +1,4 @@
-import * as S from "@/pages/Card/Content/Members.styles";
+import * as S from "@/components/CardModal/Content/Members.styles";
 
 const Members = () => {
     const data = [

@@ -1,4 +1,4 @@
-import * as S from "@/pages/Card/Content/Labels.styles";
+import * as S from "@/components/CardModal/Content/Labels.styles";
 
 const Labels = () => {
     const data = [
