@@ -4,7 +4,8 @@ const react = require('@vitejs/plugin-react');
 
 module.exports = {
   stories: ['../src/tests/stories/**/*.stories.mdx', '../src/tests/stories/**/*.stories.@(js|jsx|ts|tsx)',
-   '../src/components/**/*.stories.@(js|jsx|ts|tsx)', "../src/components/auth/**/*.stories.@(js|jsx|ts|tsx)"],
+   '../src/components/**/*.stories.@(js|jsx|ts|tsx)', "../src/components/auth/**/*.stories.@(js|jsx|ts|tsx)",
+  "../src/pages/**/*.stories.tsx"],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   framework: '@storybook/react',
   core: {
