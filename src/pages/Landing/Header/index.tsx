@@ -3,6 +3,21 @@ import { useEffect, useState } from "react";
 import * as S from "./Header.styles";
 
 const Header = () => {
+    const itemList = [
+        {
+            to: "home",
+            title: "Home",
+        },
+        {
+            to: "features",
+            title: "Features",
+        },
+        {
+            to: "pricing",
+            title: "Pricing",
+        },
+    ];
+
     const [y, setY] = useState(window.scrollY);
 
     useEffect(() => {
@@ -18,36 +33,13 @@ const Header = () => {
                     <S.NavLogo src={LogoImage} alt="logo" />
                 </S.NavLogoWrapper>
                 <S.NavListWrapper>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="home" spy smooth offset={-80}>
-                            Home
-                        </S.NavItem>
-                    </S.NavList>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="features" spy smooth offset={-80}>
-                            Features
-                        </S.NavItem>
-                    </S.NavList>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="projects" spy smooth offset={-80}>
-                            Projects
-                        </S.NavItem>
-                    </S.NavList>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="blog" spy smooth offset={-80}>
-                            Blog
-                        </S.NavItem>
-                    </S.NavList>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="pricing" spy smooth offset={-80}>
-                            Pricing
-                        </S.NavItem>
-                    </S.NavList>
-                    <S.NavList>
-                        <S.NavItem activeClass="active" to="contact" spy smooth offset={-80}>
-                            Contact
-                        </S.NavItem>
-                    </S.NavList>
+                    {itemList.map((v) => (
+                        <S.NavList key={v.title}>
+                            <S.NavItem activeClass="active" to={v.to} spy smooth offset={-80}>
+                                {v.title}
+                            </S.NavItem>
+                        </S.NavList>
+                    ))}
                 </S.NavListWrapper>
                 <S.CTAWrapper>
                     <S.LoginWrapper>
