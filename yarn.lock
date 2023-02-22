@@ -4616,6 +4616,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-scroll@npm:^1":
+  version: 1.8.6
+  resolution: "@types/react-scroll@npm:1.8.6"
+  dependencies:
+    "@types/react": "*"
+  checksum: e73aaa4d02ba0afc91aa0dd853933f64963754fbaceb16e685586281cbb4f8bf15dae0176aab7cbc8b75ebfa0211672e3c7972ee2fb703ddd3a2fb665cd6c95b
+  languageName: node
+  linkType: hard
+
 "@types/react-textarea-autosize@npm:^8.0.0":
   version: 8.0.0
   resolution: "@types/react-textarea-autosize@npm:8.0.0"
@@ -10244,6 +10253,7 @@ __metadata:
     "@types/react-dom": ^18.0.9
     "@types/react-icons": ^3.0.0
     "@types/react-router-dom": ^5.3.3
+    "@types/react-scroll": ^1
     "@types/react-textarea-autosize": ^8.0.0
     "@types/styled-components": ^5.1.26
     "@types/uuid": ^9
@@ -10278,6 +10288,7 @@ __metadata:
     react-hook-form: ^7.42.1
     react-icons: ^4.7.1
     react-router-dom: ^6.6.2
+    react-scroll: ^1.8.9
     react-textarea-autosize: ^8.4.0
     recoil: ^0.7.6
     styled-components: ^5.3.6
@@ -13347,6 +13358,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.throttle@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.throttle@npm:4.1.1"
+  checksum: 129c0a28cee48b348aef146f638ef8a8b197944d4e9ec26c1890c19d9bf5a5690fe11b655c77a4551268819b32d27f4206343e30c78961f60b561b8608c8c805
+  languageName: node
+  linkType: hard
+
 "lodash.uniq@npm:4.5.0, lodash.uniq@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.uniq@npm:4.5.0"
@@ -15968,6 +15986,19 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 5960d774bb3a8f697a57ee2e82a3eb0a300b7186a62b27e02773c94f1682e59435bd876d6162a08cc8daf27cac72aaab66d348fcc4d8f59240a63a911cf0050b
+  languageName: node
+  linkType: hard
+
+"react-scroll@npm:^1.8.9":
+  version: 1.8.9
+  resolution: "react-scroll@npm:1.8.9"
+  dependencies:
+    lodash.throttle: ^4.1.1
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 534ea65713a59ef7ddf623e38058220b654730352b624371cb2250bcf99784806b4564f3fa9295c969980e227e3de15903d95e069f9a3ca520ff0c0c1fb2e362
   languageName: node
   linkType: hard
 

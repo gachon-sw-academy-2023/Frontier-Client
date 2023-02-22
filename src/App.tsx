@@ -4,11 +4,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { worker } from "@/mocks/browser";
 import Landing from "@/pages/Landing";
-import Login from "@/pages//Login";
+import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import Board from "@/pages/Board";
 import Workspace from "@/pages/Workspace";
+import CardModal from "@/components/CardModal";
+import Error from "@/pages/Error";
 import { ROUTES } from "@/utils/routes";
 
 if (import.meta.env.MODE === "development") {
@@ -36,6 +38,8 @@ const App = () => (
                     <Route path={ROUTES.HOMEPAGE} element={<Home />} />
                     <Route path={ROUTES.BOARD} element={<Board />} />
                     <Route path={ROUTES.WORKSPACE} element={<Workspace />} />
+                    <Route path={ROUTES.CARD_MODAL} element={<CardModal />} />
+                    <Route path={ROUTES.ERROR} element={<Error />} />
                 </Routes>
                 <ReactQueryDevtools />
             </QueryClientProvider>

@@ -1,66 +1,104 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import * as I from "./Header.interfaces";
+import { Link } from "react-scroll";
+import { Link as NavLink } from "react-router-dom";
 
-export const HeaderContainer = styled.header<I.HeaderContainer>`
-    background-color: ${(props) => props.bgColor || "white"};
-    height: 80px;
+export const NavWrapper = styled.nav<{ position: number }>`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    background-color: white;
+    height: ${(props) => (props.position > 100 ? `100px` : `80px`)};
+`;
+export const NavInner = styled.div`
+    position: relative;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0px 30px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.625rem;
-    z-index: 10;
 `;
 
-export const LogoContainer = styled.img`
-    margin-left: 15px;
-    width: 150px;
-    height: 50px;
-`;
-
-export const NavContainer = styled.nav`
+export const NavLogoWrapper = styled(Link)`
     display: flex;
     align-items: center;
-    margin-right: 24px;
-    @media screen and (max-width: 768px) {
-        margin-right: 2px;
+    cursor: pointer;
+`;
+
+export const NavLogo = styled.img`
+    height: 60px;
+`;
+export const NavListWrapper = styled.ul`
+    display: flex;
+    list-style: none;
+    align-items: center;
+    @media (max-width: 760px) {
+        display: none;
     }
 `;
 
-export const NavMenu = styled(NavLink)`
-    color: #2a3342;
+export const NavList = styled.li`
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+`;
+
+export const NavItem = styled(Link)`
+    padding: 10px 15px;
+
+    &.active {
+        border-bottom: 2px solid #7620ff;
+        color: #7620ff;
+    }
+`;
+export const CTAWrapper = styled.ul`
     display: flex;
     align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-    font-weight: bold;
-    &:hover {
-        color: #15cdfc;
+    list-style: none;
+    @media (max-width: 760px) {
+        display: none;
     }
 `;
 
-export const NavBtn = styled.nav`
-    display: flex;
-    align-items: center;
-    margin-right: 24px;
+export const LoginWrapper = styled.li`
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
 `;
 
-export const NavBtnLink = styled(NavLink)`
-    border-radius: 4px;
-    background: #22c55e;
-    padding: 10px 22px;
-    color: #f0fdf4;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+export const Login = styled(NavLink)`
+    padding: 10px 30px 10px 0;
     text-decoration: none;
-    margin-left: 24px;
+    color: black;
     &:hover {
-        transition: all 0.2s ease-in-out;
-        background: #10dc55;
-        color: black;
+        color: #7620ff;
+    }
+`;
+
+export const SignUpWrapper = styled.li`
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const SignUp = styled(NavLink)`
+    padding: 10px 15px;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: black;
+    background-color: #f5f5f5;
+    &:hover {
+        color: #7620ff;
     }
 `;
